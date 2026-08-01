@@ -82,43 +82,45 @@ function BuilderCanvas() {
   const { onDrop, onDragOver } = useNodeDrop({ onAddNode: addNode });
 
   return (
-    <Flow
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-      onDrop={onDrop}
-      onDragOver={onDragOver}
-      rules={rules}
-      className="h-[440px] rounded-lg border border-nb-border"
-    >
-      <FlowBackground />
-      <FlowControls />
-      <FlowMiniMap />
-      <FlowPanel position="top-right" className="flex gap-2">
-        <Button
-          size="sm"
-          variant="outline"
-          onClick={() => setGraph(layoutFlow(nodes, edges), edges)}
-        >
-          Layout
-        </Button>
-        <Button size="sm" variant="outline" disabled={!canUndo} onClick={undo}>
-          Undo
-        </Button>
-        <Button size="sm" variant="outline" disabled={!canRedo} onClick={redo}>
-          Redo
-        </Button>
-      </FlowPanel>
-    </Flow>
+    <div className="h-[640px] w-full rounded-lg border border-nb-border">
+      <Flow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        onDrop={onDrop}
+        onDragOver={onDragOver}
+        rules={rules}
+        className="h-full w-full"
+      >
+        <FlowBackground />
+        <FlowControls />
+        <FlowMiniMap />
+        <FlowPanel position="top-right" className="flex gap-2">
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => setGraph(layoutFlow(nodes, edges), edges)}
+          >
+            Layout
+          </Button>
+          <Button size="sm" variant="outline" disabled={!canUndo} onClick={undo}>
+            Undo
+          </Button>
+          <Button size="sm" variant="outline" disabled={!canRedo} onClick={redo}>
+            Redo
+          </Button>
+        </FlowPanel>
+      </Flow>
+    </div>
   );
 }
 
 export function WorkflowBuilderDemo() {
   return (
     <FlowProvider>
-      <div className="grid gap-4 lg:grid-cols-[200px_1fr]">
+      <div className="grid gap-4 lg:grid-cols-[240px_1fr]">
         <NodePalette items={paletteItems} className="lg:sticky lg:top-0" />
         <BuilderCanvas />
       </div>

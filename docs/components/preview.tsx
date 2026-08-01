@@ -33,7 +33,7 @@ export function Preview({ children, label = 'Preview', resettable = true }: Prev
           </button>
         )}
       </div>
-      <div className="flex min-h-[100px] w-full items-center justify-center bg-nb-bg p-6" key={key} style={{ contain: 'content' }}>
+      <div className="flex w-full items-center justify-center bg-nb-bg p-6" key={key} style={{ contain: 'layout paint style' }}>
         {isLoading ? (
           <div className="flex min-h-[100px] w-full flex-col gap-3 rounded-md border border-dashed border-nb-muted-foreground/20 bg-nb-muted/20 p-4">
             <div className="h-4 w-full max-w-[240px] animate-pulse rounded bg-nb-muted" />

@@ -23,10 +23,10 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
     },
   });
 
-  const isBlocks = slug[0] === 'blocks';
+  const isWide = slug[0] === 'blocks' || slug[0] === 'flow';
 
   return (
-    <article className={isBlocks ? 'max-w-6xl' : 'max-w-3xl'}>
+    <article className={isWide ? 'max-w-6xl' : 'max-w-3xl'}>
       <h1 className="scroll-m-20 text-3xl font-bold tracking-tight text-nb-fg">
         {page.title}
       </h1>

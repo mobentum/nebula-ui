@@ -38,14 +38,18 @@ const edges = [];
 export function App() {
   return (
     <FlowProvider>
-      <Flow nodes={nodes} edges={edges} className="h-[400px] w-full">
-        <FlowBackground />
-        <FlowControls />
-      </Flow>
+      <div className="h-[400px] w-full">
+        <Flow nodes={nodes} edges={edges} className="h-full w-full">
+          <FlowBackground />
+          <FlowControls />
+        </Flow>
+      </div>
     </FlowProvider>
   );
 }
 ```
+
+Give the canvas an explicit size on its **parent** — React Flow fills its container with `height: 100%`, so the fixed height lives on the wrapper around `<Flow>`.
 
 `Flow` must be wrapped in `FlowProvider` (it renders `<ReactFlow>` and reads the store for validation). The provider is how `useReactFlow`, `useNodeDrop`, and other hooks stay in sync with the canvas.
 

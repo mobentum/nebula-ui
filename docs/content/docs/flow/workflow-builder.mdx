@@ -27,16 +27,18 @@ function Canvas() {
   const { onDrop, onDragOver } = useNodeDrop({ onAddNode: addNode });
 
   return (
-    <Flow
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-      onDrop={onDrop}
-      onDragOver={onDragOver}
-      className="h-[440px]"
-    />
+    <div className="h-[440px] w-full">
+      <Flow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        onDrop={onDrop}
+        onDragOver={onDragOver}
+        className="h-full w-full"
+      />
+    </div>
   );
 }
 ```
