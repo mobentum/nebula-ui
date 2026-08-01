@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button, Input, SelectRoot, SelectTrigger, SelectValue, SelectIcon, SelectPortal, SelectPositioner, SelectPopup, SelectItem, ToggleGroupRoot, ToggleGroupItem } from '@nebula/ui';
 
 export function FilterBarBasic() {
-  const [status, setStatus] = useState('all');
+  const [status, setStatus] = useState<string[]>(['all']);
   return (
     <div className="w-full rounded-lg border border-nb-border bg-nb-card p-4">
       <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
@@ -13,7 +13,7 @@ export function FilterBarBasic() {
             <Input placeholder="Search requests..." />
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <ToggleGroupRoot value={status} onValueChange={setStatus}>
+            <ToggleGroupRoot value={status} onValueChange={(value) => setStatus([...value])}>
               <ToggleGroupItem value="all" className="px-3 py-1.5 text-xs">All</ToggleGroupItem>
               <ToggleGroupItem value="active" className="px-3 py-1.5 text-xs">Active</ToggleGroupItem>
               <ToggleGroupItem value="paused" className="px-3 py-1.5 text-xs">Paused</ToggleGroupItem>

@@ -1,0 +1,52 @@
+---
+title: useToggle
+description: A boolean state hook that returns the current value and helpers to toggle, set on, or set off.
+---
+
+import { UseToggleDemo } from '@/components/hooks/use-toggle-demo';
+
+`useToggle` manages a boolean value with a stable `toggle` helper, plus explicit on/off setters.
+
+```tsx
+import { useToggle } from '@nebula/ui';
+
+const [on, toggle, setToggle, turnOn, turnOff] = useToggle(false);
+```
+
+<Preview>
+  <UseToggleDemo />
+</Preview>
+
+## API
+
+```ts
+useToggle(initial?: boolean): [
+  value: boolean,
+  toggle: () => void,
+  setToggle: (value: boolean) => void,
+  turnOn: () => void,
+  turnOff: () => void,
+]
+```
+
+## Usage
+
+```tsx
+function Expandable({ defaultOpen }: { defaultOpen?: boolean }) {
+  const [open, toggle] = useToggle(defaultOpen);
+
+  return (
+    <section>
+      <button onClick={toggle} aria-expanded={open}>
+        {open ? 'Collapse' : 'Expand'}
+      </button>
+      {open && <div>Content</div>}
+    </section>
+  );
+}
+```
+
+## Notes
+
+- All helpers are memoized with `useCallback` and are referentially stable across renders.
+- Returns a readonly tuple, so the returned value and callbacks can be destructured safely.

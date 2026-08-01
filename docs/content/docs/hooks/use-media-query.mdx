@@ -1,0 +1,42 @@
+---
+title: useMediaQuery
+description: Tracks whether a CSS media query matches, updating reactively on viewport changes.
+---
+
+import { UseMediaQueryDemo } from '@/components/hooks/use-media-query-demo';
+
+`useMediaQuery` subscribes to a CSS media query and returns whether it currently matches. It updates reactively when the viewport changes and cleans up its listener on unmount.
+
+```tsx
+import { useMediaQuery } from '@nebula/ui';
+
+const isDesktop = useMediaQuery('(min-width: 768px)');
+const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+```
+
+<Preview>
+  <UseMediaQueryDemo />
+</Preview>
+
+## API
+
+```ts
+useMediaQuery(query: string): boolean
+```
+
+## Usage
+
+Render different layouts based on breakpoint without CSS-only tricks:
+
+```tsx
+function Layout() {
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
+
+  return isDesktop ? <SidebarLayout /> : <StackedLayout />;
+}
+```
+
+## Notes
+
+- Uses `window.matchMedia` under the hood; safe on the server, where it returns `false`.
+- The listener is added via `addEventListener('change', …)` and removed on cleanup.

@@ -1,0 +1,38 @@
+---
+title: useDebouncedValue
+description: Returns a value that only updates after it has stopped changing for a set delay.
+---
+
+import { UseDebouncedValueDemo } from '@/components/hooks/use-debounced-value-demo';
+
+`useDebouncedValue` delays updates to a value until `delay` milliseconds have passed without it changing. Useful for search inputs, autosaves, or anything that should not fire on every keystroke.
+
+```tsx
+import { useDebouncedValue } from '@nebula/ui';
+
+const [value, setValue] = useState('');
+const debounced = useDebouncedValue(value, 300);
+
+useEffect(() => {
+  // Runs 300ms after typing stops
+  search(debounced);
+}, [debounced]);
+```
+
+<Preview>
+  <UseDebouncedValueDemo />
+</Preview>
+
+## API
+
+```ts
+useDebouncedValue<T>(value: T, delay?: number): T
+```
+
+- `value` — the value to debounce.
+- `delay` — the debounce delay in milliseconds. Defaults to `300`.
+
+## Notes
+
+- The timer is cleared and restarted whenever `value` or `delay` changes.
+- The returned value stays equal to the last committed value until the delay elapses.

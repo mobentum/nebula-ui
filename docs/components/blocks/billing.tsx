@@ -48,7 +48,7 @@ export function BillingTable() {
       <CardRoot className="p-0">
         <div className="flex items-center justify-between border-b border-nb-border px-6 py-4">
           <h3 className="text-base font-semibold text-nb-fg">Invoices</h3>
-          <SelectRoot value={period} onValueChange={setPeriod}>
+          <SelectRoot value={period} onValueChange={(value) => setPeriod(value ?? '')}>
             <SelectTrigger className="h-8 w-32">
               <SelectValue />
               <SelectIcon />

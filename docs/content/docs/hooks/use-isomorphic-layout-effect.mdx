@@ -1,0 +1,44 @@
+---
+title: useIsomorphicLayoutEffect
+description: useLayoutEffect in the browser, falling back to useEffect during server-side rendering.
+---
+
+`useIsomorphicLayoutEffect` is a drop-in replacement for `useLayoutEffect` that is safe in SSR and React Server Components. It resolves to `useLayoutEffect` when `window` is defined and `useEffect` otherwise, preventing the "useLayoutEffect does nothing on the server" warning.
+
+```tsx
+import { useIsomorphicLayoutEffect } from '@nebula/ui';
+
+useIsomorphicLayoutEffect(() => {
+  // Runs synchronously in the browser, skipped on the server
+  const height = element.getBoundingClientRect().height;
+  setHeight(height);
+}, [element]);
+```
+
+## API
+
+```ts
+useIsomorphicLayoutEffect(effect: EffectCallback, deps?: DependencyList): void
+```
+
+## Usage
+
+Measure the DOM before paint without breaking SSR:
+
+```tsx
+function Tooltip({ target }: { target: HTMLElement }) {
+  const [position, setPosition] = useState<Position>();
+
+  useIsomorphicLayoutEffect(() => {
+    setPosition(computePosition(target));
+  }, [target]);
+
+  return <span style={position}>…</span>;
+}
+```
+
+## Notes
+
+- In browser environments it behaves exactly like `useLayoutEffect` (synchronous, blocks paint).
+- During SSR it safely becomes `useEffect`.
+- Prefer it over `useLayoutEffect` anywhere the component may render on the server.

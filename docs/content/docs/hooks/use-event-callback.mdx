@@ -1,0 +1,42 @@
+---
+title: useEventCallback
+description: Returns a stable callback that always invokes the latest function passed to it.
+---
+
+`useEventCallback` returns a memoized callback that stays referentially stable across renders while always calling the latest closure. Useful for event handlers passed to memoized children, or for `useEffect` dependencies that should not re-run.
+
+```tsx
+import { useEventCallback } from '@nebula/ui';
+
+const handleSubmit = useEventCallback((values: FormValues) => {
+  // Always sees the latest props/state
+  save(values, currentUserId);
+});
+```
+
+## API
+
+```ts
+useEventCallback<Args extends unknown[], R>(
+  fn: (...args: Args) => R,
+): (...args: Args) => R
+```
+
+## Usage
+
+Pass a stable handler to a memoized child without breaking its memoization:
+
+```tsx
+const onRowClick = useEventCallback((row: Row) => {
+  setSelected(row.id);
+  logInteraction(row.id);
+});
+
+return <Table data={rows} onRowClick={onRowClick} />;
+```
+
+## Notes
+
+- The returned function is created once with `useCallback([])` and never changes.
+- Internally it keeps the latest `fn` in a ref, so it is always up to date.
+- Arguments and return type are preserved from the passed function.

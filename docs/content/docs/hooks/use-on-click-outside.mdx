@@ -1,0 +1,60 @@
+---
+title: useOnClickOutside
+description: Calls a handler when a pointer down or touch start event lands outside the given element.
+---
+
+import { UseOnClickOutsideDemo } from '@/components/hooks/use-on-click-outside-demo';
+
+`useOnClickOutside` invokes a handler whenever a `mousedown` or `touchstart` event happens outside the referenced element. Commonly used for closing menus, popovers, and drawers.
+
+```tsx
+import { useOnClickOutside } from '@nebula/ui';
+
+function Popover() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
+
+  useOnClickOutside(ref, () => setOpen(false));
+
+  return <div ref={ref}>{/* … */}</div>;
+}
+```
+
+<Preview>
+  <UseOnClickOutsideDemo />
+</Preview>
+
+## API
+
+```ts
+useOnClickOutside<T extends HTMLElement>(
+  ref: RefObject<T | null>,
+  handler: (event: MouseEvent | TouchEvent) => void,
+): void
+```
+
+## Usage
+
+Close a dropdown when the user clicks away:
+
+```tsx
+function Menu({ trigger }: { trigger: ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
+
+  useOnClickOutside(ref, () => setOpen(false));
+
+  return (
+    <div ref={ref}>
+      <button onClick={() => setOpen((v) => !v)}>{trigger}</button>
+      {open && <div className="absolute …">Items</div>}
+    </div>
+  );
+}
+```
+
+## Notes
+
+- Listens on `document` for both `mousedown` and `touchstart`.
+- Events inside the referenced element are ignored via `element.contains(event.target)`.
+- The handler and ref are wired through effects, so the latest values are always used.
