@@ -1,0 +1,36 @@
+{
+  "name": "@nebula/docs",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "bun next dev",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check ."
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.5.0",
+    "@nebula/ui": "workspace:*",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^1.21.0",
+    "next": "^16.2.9",
+    "next-mdx-remote": "^5.0.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/mdx": "^2.0.14",
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^5.8.3"
+  }
+}

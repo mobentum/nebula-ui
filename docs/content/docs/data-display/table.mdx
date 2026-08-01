@@ -1,0 +1,66 @@
+---
+title: Table
+description: A data table for displaying tabular information.
+---
+
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRoot, TableRow } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<TableRoot>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Name</TableHead>
+      <TableHead>Role</TableHead>
+      <TableHead>Status</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>John Doe</TableCell>
+      <TableCell>Developer</TableCell>
+      <TableCell>Active</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Jane Smith</TableCell>
+      <TableCell>Designer</TableCell>
+      <TableCell>Active</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Bob Johnson</TableCell>
+      <TableCell>Manager</TableCell>
+      <TableCell>Inactive</TableCell>
+    </TableRow>
+  </TableBody>
+</TableRoot>
+```
+
+<Preview>
+  <TableRoot>
+    <TableHeader>
+      <TableRow>
+        <TableHead>Name</TableHead>
+        <TableHead>Role</TableHead>
+        <TableHead>Status</TableHead>
+      </TableRow>
+    </TableHeader>
+    <TableBody>
+      <TableRow>
+        <TableCell>John Doe</TableCell>
+        <TableCell>Developer</TableCell>
+        <TableCell>Active</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>Jane Smith</TableCell>
+        <TableCell>Designer</TableCell>
+        <TableCell>Active</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>Bob Johnson</TableCell>
+        <TableCell>Manager</TableCell>
+        <TableCell>Inactive</TableCell>
+      </TableRow>
+    </TableBody>
+  </TableRoot>
+</Preview>

@@ -1,0 +1,91 @@
+---
+title: Progress
+description: A progress bar indicating task completion status.
+---
+
+import { Progress, ProgressIndicator, ProgressLabel, ProgressRoot, ProgressTrack, ProgressValueLabel } from '@nebula/ui';
+
+## Determinate
+
+```tsx
+<ProgressRoot value={65}>
+  <ProgressLabel>Upload progress</ProgressLabel>
+  <ProgressTrack>
+    <ProgressIndicator />
+  </ProgressTrack>
+  <ProgressValueLabel />
+</ProgressRoot>
+```
+
+<Preview>
+  <ProgressRoot value={65} className="max-w-sm">
+    <ProgressLabel>Upload progress</ProgressLabel>
+    <ProgressTrack>
+      <ProgressIndicator />
+    </ProgressTrack>
+    <ProgressValueLabel />
+  </ProgressRoot>
+</Preview>
+
+## Indeterminate
+
+```tsx
+<ProgressRoot value={null}>
+  <ProgressLabel>Loading...</ProgressLabel>
+  <ProgressTrack>
+    <ProgressIndicator />
+  </ProgressTrack>
+</ProgressRoot>
+```
+
+<Preview>
+  <ProgressRoot value={null} className="max-w-sm">
+    <ProgressLabel>Loading...</ProgressLabel>
+    <ProgressTrack>
+      <ProgressIndicator />
+    </ProgressTrack>
+  </ProgressRoot>
+</Preview>
+
+## Colors
+
+```tsx
+<ProgressRoot value={65} color="success">
+  <ProgressTrack>
+    <ProgressIndicator />
+  </ProgressTrack>
+</ProgressRoot>
+<ProgressRoot value={65} color="warning">
+  <ProgressTrack>
+    <ProgressIndicator />
+  </ProgressTrack>
+</ProgressRoot>
+<ProgressRoot value={65} color="danger">
+  <ProgressTrack>
+    <ProgressIndicator />
+  </ProgressTrack>
+</ProgressRoot>
+```
+
+<Preview>
+  <div className="flex w-full flex-col gap-4">
+    <ProgressRoot value={65} color="success" className="max-w-sm">
+      <ProgressLabel>Success</ProgressLabel>
+      <ProgressTrack>
+        <ProgressIndicator />
+      </ProgressTrack>
+    </ProgressRoot>
+    <ProgressRoot value={65} color="warning" className="max-w-sm">
+      <ProgressLabel>Warning</ProgressLabel>
+      <ProgressTrack>
+        <ProgressIndicator />
+      </ProgressTrack>
+    </ProgressRoot>
+    <ProgressRoot value={65} color="danger" className="max-w-sm">
+      <ProgressLabel>Danger</ProgressLabel>
+      <ProgressTrack>
+        <ProgressIndicator />
+      </ProgressTrack>
+    </ProgressRoot>
+  </div>
+</Preview>

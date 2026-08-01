@@ -1,0 +1,58 @@
+/* ─────────────────────────────────────────────
+ * Nebula UI — Base theme tokens for Tailwind v4
+ * ─────────────────────────────────────────────
+ *
+ * Usage in your app's global CSS:
+ *
+ *   @import "tailwindcss";
+ *   @import "@nebula/ui/css/tailwind.css";
+ *   @source "../node_modules/@nebula/ui/dist";
+ *
+ * Then define --background, --foreground, etc.
+ * in :root and .dark yourself, OR import the defaults:
+ *
+ *   @import "@nebula/ui/css/default-theme.css";
+ *
+ * To customise, override any --variable in :root / .dark
+ * before the @theme inline block is processed.
+ */
+
+/* Class-based dark mode: `dark:` variants apply when any ancestor has `.dark` */
+@custom-variant dark (&:is(.dark *));
+
+/* Radius scale derived from a single `--radius` base token.
+   Uses @theme (not inline) so the --radius-* variables are emitted on :root. */
+@theme {
+  --radius-sm: calc(var(--radius) * 0.4);
+  --radius-md: calc(var(--radius) * 0.6);
+  --radius-lg: calc(var(--radius) * 0.8);
+  --radius-xl: var(--radius);
+}
+
+@theme inline {
+  --color-nb-bg: var(--background);
+  --color-nb-fg: var(--foreground);
+  --color-nb-card: var(--card);
+  --color-nb-card-fg: var(--card-foreground);
+  --color-nb-popover: var(--popover);
+  --color-nb-popover-fg: var(--popover-foreground);
+  --color-nb-primary: var(--primary);
+  --color-nb-primary-fg: var(--primary-foreground);
+  --color-nb-secondary: var(--secondary);
+  --color-nb-secondary-fg: var(--secondary-foreground);
+  --color-nb-muted: var(--muted);
+  --color-nb-muted-fg: var(--muted-foreground);
+  --color-nb-accent: var(--accent);
+  --color-nb-accent-fg: var(--accent-foreground);
+  --color-nb-destructive: var(--destructive);
+  --color-nb-destructive-fg: var(--destructive-foreground);
+  --color-nb-success: var(--success);
+  --color-nb-success-fg: var(--success-foreground);
+  --color-nb-warning: var(--warning);
+  --color-nb-warning-fg: var(--warning-foreground);
+  --color-nb-info: var(--info);
+  --color-nb-info-fg: var(--info-foreground);
+  --color-nb-border: var(--border);
+  --color-nb-input: var(--input);
+  --color-nb-ring: var(--ring);
+}

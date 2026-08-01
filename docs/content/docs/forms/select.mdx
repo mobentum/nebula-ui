@@ -1,0 +1,751 @@
+---
+title: Select
+description: A dropdown select component for choosing from a list of options.
+---
+
+import {
+  Button,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogRoot,
+  DialogTitle,
+  DialogTrigger,
+  Select,
+  SelectArrow,
+  SelectIcon,
+  SelectItem,
+  SelectItemIndicator,
+  SelectItemText,
+  SelectPopup,
+  SelectPortal,
+  SelectPositioner,
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
+} from '@nebula/ui';
+
+## Basic
+
+```tsx
+<SelectRoot defaultValue="apple">
+  <SelectTrigger>
+    <SelectValue />
+    <SelectIcon />
+  </SelectTrigger>
+  <SelectPortal>
+    <SelectPositioner>
+      <SelectPopup>
+        <SelectItem value="apple">
+          <SelectItemText>Apple</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+        <SelectItem value="banana">
+          <SelectItemText>Banana</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+        <SelectItem value="orange">
+          <SelectItemText>Orange</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+      </SelectPopup>
+    </SelectPositioner>
+  </SelectPortal>
+</SelectRoot>
+```
+
+<Preview>
+  <SelectRoot defaultValue="apple">
+    <SelectTrigger>
+      <SelectValue />
+      <SelectIcon />
+    </SelectTrigger>
+    <SelectPortal>
+      <SelectPositioner>
+        <SelectPopup>
+          <SelectItem value="apple">
+            <SelectItemText>Apple</SelectItemText>
+            <SelectItemIndicator />
+          </SelectItem>
+          <SelectItem value="banana">
+            <SelectItemText>Banana</SelectItemText>
+            <SelectItemIndicator />
+          </SelectItem>
+          <SelectItem value="orange">
+            <SelectItemText>Orange</SelectItemText>
+            <SelectItemIndicator />
+          </SelectItem>
+        </SelectPopup>
+      </SelectPositioner>
+    </SelectPortal>
+  </SelectRoot>
+</Preview>
+
+## Select with Label
+
+```tsx
+<div className="space-y-2">
+  <label htmlFor="living-area" className="text-sm font-medium text-ch-fg">
+    Living area
+  </label>
+  <SelectRoot defaultValue="apartment">
+    <SelectTrigger id="living-area" aria-label="Living area">
+      <SelectValue placeholder="Select living area" />
+      <SelectIcon />
+    </SelectTrigger>
+    <SelectPortal>
+      <SelectPositioner>
+        <SelectPopup>
+          <SelectArrow />
+          <SelectItem value="apartment">
+            <SelectItemText>Apartment</SelectItemText>
+            <SelectItemIndicator />
+          </SelectItem>
+          <SelectItem value="house">
+            <SelectItemText>House</SelectItemText>
+            <SelectItemIndicator />
+          </SelectItem>
+          <SelectItem value="studio">
+            <SelectItemText>Studio</SelectItemText>
+            <SelectItemIndicator />
+          </SelectItem>
+        </SelectPopup>
+      </SelectPositioner>
+    </SelectPortal>
+  </SelectRoot>
+</div>
+```
+
+<Preview>
+  <div className="w-full max-w-sm space-y-2">
+    <label htmlFor="living-area-preview" className="text-sm font-medium text-ch-fg">
+      Living area
+    </label>
+    <SelectRoot defaultValue="apartment">
+      <SelectTrigger id="living-area-preview" aria-label="Living area">
+        <SelectValue placeholder="Select living area" />
+        <SelectIcon />
+      </SelectTrigger>
+      <SelectPortal>
+        <SelectPositioner>
+          <SelectPopup>
+            <SelectArrow />
+            <SelectItem value="apartment">
+              <SelectItemText>Apartment</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+            <SelectItem value="house">
+              <SelectItemText>House</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+            <SelectItem value="studio">
+              <SelectItemText>Studio</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+          </SelectPopup>
+        </SelectPositioner>
+      </SelectPortal>
+    </SelectRoot>
+  </div>
+</Preview>
+
+## Select with Default Value
+
+```tsx
+<SelectRoot defaultValue="m">
+  <SelectTrigger>
+    <SelectValue placeholder="Select size" />
+    <SelectIcon />
+  </SelectTrigger>
+  <SelectPortal>
+    <SelectPositioner>
+      <SelectPopup>
+        <SelectArrow />
+        <SelectItem value="xs">
+          <SelectItemText>Extra small</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+        <SelectItem value="s">
+          <SelectItemText>Small</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+        <SelectItem value="m">
+          <SelectItemText>Medium</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+        <SelectItem value="l">
+          <SelectItemText>Large</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+      </SelectPopup>
+    </SelectPositioner>
+  </SelectPortal>
+</SelectRoot>
+```
+
+<Preview>
+  <div className="w-full max-w-sm">
+    <SelectRoot defaultValue="m">
+      <SelectTrigger>
+        <SelectValue placeholder="Select size" />
+        <SelectIcon />
+      </SelectTrigger>
+      <SelectPortal>
+        <SelectPositioner>
+          <SelectPopup>
+            <SelectArrow />
+            <SelectItem value="xs">
+              <SelectItemText>Extra small</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+            <SelectItem value="s">
+              <SelectItemText>Small</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+            <SelectItem value="m">
+              <SelectItemText>Medium</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+            <SelectItem value="l">
+              <SelectItemText>Large</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+          </SelectPopup>
+        </SelectPositioner>
+      </SelectPortal>
+    </SelectRoot>
+  </div>
+</Preview>
+
+## Select with Disabled State
+
+```tsx
+<SelectRoot defaultValue="apple" disabled>
+  <SelectTrigger>
+    <SelectValue />
+    <SelectIcon />
+  </SelectTrigger>
+  <SelectPortal>
+    <SelectPositioner>
+      <SelectPopup>
+        <SelectArrow />
+        <SelectItem value="apple">
+          <SelectItemText>Apple</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+        <SelectItem value="banana">
+          <SelectItemText>Banana</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+      </SelectPopup>
+    </SelectPositioner>
+  </SelectPortal>
+</SelectRoot>
+```
+
+<Preview>
+  <div className="w-full max-w-sm">
+    <SelectRoot defaultValue="apple" disabled>
+      <SelectTrigger>
+        <SelectValue />
+        <SelectIcon />
+      </SelectTrigger>
+      <SelectPortal>
+        <SelectPositioner>
+          <SelectPopup>
+            <SelectArrow />
+            <SelectItem value="apple">
+              <SelectItemText>Apple</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+            <SelectItem value="banana">
+              <SelectItemText>Banana</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+          </SelectPopup>
+        </SelectPositioner>
+      </SelectPortal>
+    </SelectRoot>
+  </div>
+</Preview>
+
+## Select with Disabled Select Item
+
+```tsx
+<SelectRoot defaultValue="starter">
+  <SelectTrigger>
+    <SelectValue />
+    <SelectIcon />
+  </SelectTrigger>
+  <SelectPortal>
+    <SelectPositioner>
+      <SelectPopup>
+        <SelectArrow />
+        <SelectItem value="starter">
+          <SelectItemText>Starter</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+        <SelectItem value="pro">
+          <SelectItemText>Pro</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+        <SelectItem value="enterprise" disabled>
+          <SelectItemText>Enterprise (contact sales)</SelectItemText>
+        </SelectItem>
+      </SelectPopup>
+    </SelectPositioner>
+  </SelectPortal>
+</SelectRoot>
+```
+
+<Preview>
+  <div className="w-full max-w-sm">
+    <SelectRoot defaultValue="starter">
+      <SelectTrigger>
+        <SelectValue />
+        <SelectIcon />
+      </SelectTrigger>
+      <SelectPortal>
+        <SelectPositioner>
+          <SelectPopup>
+            <SelectArrow />
+            <SelectItem value="starter">
+              <SelectItemText>Starter</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+            <SelectItem value="pro">
+              <SelectItemText>Pro</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+            <SelectItem value="enterprise" disabled>
+              <SelectItemText>Enterprise (contact sales)</SelectItemText>
+            </SelectItem>
+          </SelectPopup>
+        </SelectPositioner>
+      </SelectPortal>
+    </SelectRoot>
+  </div>
+</Preview>
+
+## Select with Groups
+
+```tsx
+<SelectRoot defaultValue="banana">
+  <SelectTrigger>
+    <SelectValue placeholder="Select a fruit" />
+    <SelectIcon />
+  </SelectTrigger>
+  <SelectPortal>
+    <SelectPositioner>
+      <SelectPopup>
+        <SelectArrow />
+
+        <div className="px-2.5 py-1 text-xs font-medium text-ch-muted-fg">Citrus</div>
+        <SelectItem value="orange">
+          <SelectItemText>Orange</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+        <SelectItem value="lemon">
+          <SelectItemText>Lemon</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+
+        <div className="my-1 h-px bg-ch-border" />
+
+        <div className="px-2.5 py-1 text-xs font-medium text-ch-muted-fg">Classic</div>
+        <SelectItem value="apple">
+          <SelectItemText>Apple</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+        <SelectItem value="banana">
+          <SelectItemText>Banana</SelectItemText>
+          <SelectItemIndicator />
+        </SelectItem>
+      </SelectPopup>
+    </SelectPositioner>
+  </SelectPortal>
+</SelectRoot>
+```
+
+<Preview>
+  <div className="w-full max-w-sm">
+    <SelectRoot defaultValue="banana">
+      <SelectTrigger>
+        <SelectValue placeholder="Select a fruit" />
+        <SelectIcon />
+      </SelectTrigger>
+      <SelectPortal>
+        <SelectPositioner>
+          <SelectPopup>
+            <SelectArrow />
+
+            <div className="px-2.5 py-1 text-xs font-medium text-ch-muted-fg">Citrus</div>
+            <SelectItem value="orange">
+              <SelectItemText>Orange</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+            <SelectItem value="lemon">
+              <SelectItemText>Lemon</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+
+            <div className="my-1 h-px bg-ch-border" />
+
+            <div className="px-2.5 py-1 text-xs font-medium text-ch-muted-fg">Classic</div>
+            <SelectItem value="apple">
+              <SelectItemText>Apple</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+            <SelectItem value="banana">
+              <SelectItemText>Banana</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+          </SelectPopup>
+        </SelectPositioner>
+      </SelectPortal>
+    </SelectRoot>
+  </div>
+</Preview>
+
+## Select with Scroll and Custom Height
+
+```tsx
+<SelectRoot defaultValue="item-4">
+  <SelectTrigger>
+    <SelectValue />
+    <SelectIcon />
+  </SelectTrigger>
+  <SelectPortal>
+    <SelectPositioner>
+      <SelectPopup className="max-h-56 overflow-y-auto">
+        <SelectArrow />
+        {Array.from({ length: 20 }, (_, index) => {
+          const value = `item-${index + 1}`;
+          return (
+            <SelectItem key={value} value={value}>
+              <SelectItemText>Option {index + 1}</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+          );
+        })}
+      </SelectPopup>
+    </SelectPositioner>
+  </SelectPortal>
+</SelectRoot>
+```
+
+<Preview>
+  <div className="w-full max-w-sm">
+    <SelectRoot defaultValue="item-4">
+      <SelectTrigger>
+        <SelectValue />
+        <SelectIcon />
+      </SelectTrigger>
+      <SelectPortal>
+        <SelectPositioner>
+          <SelectPopup className="max-h-56 overflow-y-auto">
+            <SelectArrow />
+            {Array.from({ length: 20 }, (_, index) => {
+              const value = `item-${index + 1}`;
+              return (
+                <SelectItem key={value} value={value}>
+                  <SelectItemText>Option {index + 1}</SelectItemText>
+                  <SelectItemIndicator />
+                </SelectItem>
+              );
+            })}
+          </SelectPopup>
+        </SelectPositioner>
+      </SelectPortal>
+    </SelectRoot>
+  </div>
+</Preview>
+
+## Select with Dialog
+
+```tsx
+<DialogRoot>
+  <DialogTrigger render={<Button>Open dialog</Button>} />
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Choose a role</DialogTitle>
+      <DialogDescription>Select the access role for this member.</DialogDescription>
+    </DialogHeader>
+    <div className="py-2">
+      <SelectRoot defaultValue="viewer">
+        <SelectTrigger>
+          <SelectValue />
+          <SelectIcon />
+        </SelectTrigger>
+        <SelectPortal>
+          <SelectPositioner>
+            <SelectPopup>
+              <SelectArrow />
+              <SelectItem value="viewer">
+                <SelectItemText>Viewer</SelectItemText>
+                <SelectItemIndicator />
+              </SelectItem>
+              <SelectItem value="editor">
+                <SelectItemText>Editor</SelectItemText>
+                <SelectItemIndicator />
+              </SelectItem>
+              <SelectItem value="admin">
+                <SelectItemText>Admin</SelectItemText>
+                <SelectItemIndicator />
+              </SelectItem>
+            </SelectPopup>
+          </SelectPositioner>
+        </SelectPortal>
+      </SelectRoot>
+    </div>
+  </DialogContent>
+</DialogRoot>
+```
+
+<Preview>
+  <DialogRoot>
+    <DialogTrigger render={<Button>Open dialog</Button>} />
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle>Choose a role</DialogTitle>
+        <DialogDescription>Select the access role for this member.</DialogDescription>
+      </DialogHeader>
+      <div className="py-2">
+        <SelectRoot defaultValue="viewer">
+          <SelectTrigger>
+            <SelectValue />
+            <SelectIcon />
+          </SelectTrigger>
+          <SelectPortal>
+            <SelectPositioner>
+              <SelectPopup>
+                <SelectArrow />
+                <SelectItem value="viewer">
+                  <SelectItemText>Viewer</SelectItemText>
+                  <SelectItemIndicator />
+                </SelectItem>
+                <SelectItem value="editor">
+                  <SelectItemText>Editor</SelectItemText>
+                  <SelectItemIndicator />
+                </SelectItem>
+                <SelectItem value="admin">
+                  <SelectItemText>Admin</SelectItemText>
+                  <SelectItemIndicator />
+                </SelectItem>
+              </SelectPopup>
+            </SelectPositioner>
+          </SelectPortal>
+        </SelectRoot>
+      </div>
+    </DialogContent>
+  </DialogRoot>
+</Preview>
+
+## Select with Error State
+
+```tsx
+<div className="space-y-2">
+  <label htmlFor="size-with-error" className="text-sm font-medium text-ch-fg">
+    Select size
+  </label>
+  <SelectRoot>
+    <SelectTrigger
+      id="size-with-error"
+      className="border-ch-destructive focus-visible:border-ch-destructive focus-visible:ring-ch-destructive"
+      aria-invalid="true"
+    >
+      <SelectValue placeholder="Please select a size" />
+      <SelectIcon />
+    </SelectTrigger>
+    <SelectPortal>
+      <SelectPositioner>
+        <SelectPopup>
+          <SelectArrow />
+          <SelectItem value="s">
+            <SelectItemText>Small</SelectItemText>
+            <SelectItemIndicator />
+          </SelectItem>
+          <SelectItem value="m">
+            <SelectItemText>Medium</SelectItemText>
+            <SelectItemIndicator />
+          </SelectItem>
+          <SelectItem value="l">
+            <SelectItemText>Large</SelectItemText>
+            <SelectItemIndicator />
+          </SelectItem>
+        </SelectPopup>
+      </SelectPositioner>
+    </SelectPortal>
+  </SelectRoot>
+  <p className="text-xs text-ch-destructive">A size selection is required.</p>
+</div>
+```
+
+<Preview>
+  <div className="w-full max-w-sm space-y-2">
+    <label htmlFor="size-with-error-preview" className="text-sm font-medium text-ch-fg">
+      Select size
+    </label>
+    <SelectRoot>
+      <SelectTrigger
+        id="size-with-error-preview"
+        className="border-ch-destructive focus-visible:border-ch-destructive focus-visible:ring-ch-destructive"
+        aria-invalid="true"
+      >
+        <SelectValue placeholder="Please select a size" />
+        <SelectIcon />
+      </SelectTrigger>
+      <SelectPortal>
+        <SelectPositioner>
+          <SelectPopup>
+            <SelectArrow />
+            <SelectItem value="s">
+              <SelectItemText>Small</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+            <SelectItem value="m">
+              <SelectItemText>Medium</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+            <SelectItem value="l">
+              <SelectItemText>Large</SelectItemText>
+              <SelectItemIndicator />
+            </SelectItem>
+          </SelectPopup>
+        </SelectPositioner>
+      </SelectPortal>
+    </SelectRoot>
+    <p className="text-xs text-ch-destructive">A size selection is required.</p>
+  </div>
+</Preview>
+
+## Select with Icons
+
+```tsx
+<SelectRoot defaultValue="starter">
+  <SelectTrigger>
+    <SelectValue />
+    <SelectIcon />
+  </SelectTrigger>
+  <SelectPortal>
+    <SelectPositioner>
+      <SelectPopup>
+        <SelectArrow />
+
+        <SelectItem value="starter">
+          <span className="h-2 w-2 rounded-full bg-emerald-500" />
+          <div className="flex min-w-0 flex-1 flex-col">
+            <SelectItemText>Starter</SelectItemText>
+            <span className="text-xs text-ch-muted-fg">For personal projects</span>
+          </div>
+          <SelectItemIndicator />
+        </SelectItem>
+
+        <SelectItem value="pro">
+          <span className="h-2 w-2 rounded-full bg-blue-500" />
+          <div className="flex min-w-0 flex-1 flex-col">
+            <SelectItemText>Pro</SelectItemText>
+            <span className="text-xs text-ch-muted-fg">For teams and collaboration</span>
+          </div>
+          <SelectItemIndicator />
+        </SelectItem>
+
+        <SelectItem value="enterprise" disabled>
+          <span className="h-2 w-2 rounded-full bg-zinc-400" />
+          <div className="flex min-w-0 flex-1 flex-col">
+            <SelectItemText>Enterprise</SelectItemText>
+            <span className="text-xs text-ch-muted-fg">Contact sales</span>
+          </div>
+        </SelectItem>
+      </SelectPopup>
+    </SelectPositioner>
+  </SelectPortal>
+</SelectRoot>
+```
+
+<Preview>
+  <div className="w-full max-w-sm">
+    <SelectRoot defaultValue="starter">
+      <SelectTrigger>
+        <SelectValue />
+        <SelectIcon />
+      </SelectTrigger>
+      <SelectPortal>
+        <SelectPositioner>
+          <SelectPopup>
+            <SelectArrow />
+
+            <SelectItem value="starter">
+              <span className="h-2 w-2 rounded-full bg-emerald-500" />
+              <div className="flex min-w-0 flex-1 flex-col">
+                <SelectItemText>Starter</SelectItemText>
+                <span className="text-xs text-ch-muted-fg">For personal projects</span>
+              </div>
+              <SelectItemIndicator />
+            </SelectItem>
+
+            <SelectItem value="pro">
+              <span className="h-2 w-2 rounded-full bg-blue-500" />
+              <div className="flex min-w-0 flex-1 flex-col">
+                <SelectItemText>Pro</SelectItemText>
+                <span className="text-xs text-ch-muted-fg">For teams and collaboration</span>
+              </div>
+              <SelectItemIndicator />
+            </SelectItem>
+
+            <SelectItem value="enterprise" disabled>
+              <span className="h-2 w-2 rounded-full bg-zinc-400" />
+              <div className="flex min-w-0 flex-1 flex-col">
+                <SelectItemText>Enterprise</SelectItemText>
+                <span className="text-xs text-ch-muted-fg">Contact sales</span>
+              </div>
+            </SelectItem>
+          </SelectPopup>
+        </SelectPositioner>
+      </SelectPortal>
+    </SelectRoot>
+  </div>
+</Preview>
+
+## Controlled Select
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+
+function ControlledSelect() {
+  const [value, setValue] = useState('apple');
+
+  return (
+    <div className="space-y-2">
+      <SelectRoot value={value} onValueChange={setValue}>
+        <SelectTrigger>
+          <SelectValue />
+          <SelectIcon />
+        </SelectTrigger>
+        <SelectPortal>
+          <SelectPositioner>
+            <SelectPopup>
+              <SelectArrow />
+              <SelectItem value="apple">
+                <SelectItemText>Apple</SelectItemText>
+                <SelectItemIndicator />
+              </SelectItem>
+              <SelectItem value="banana">
+                <SelectItemText>Banana</SelectItemText>
+                <SelectItemIndicator />
+              </SelectItem>
+              <SelectItem value="orange">
+                <SelectItemText>Orange</SelectItemText>
+                <SelectItemIndicator />
+              </SelectItem>
+            </SelectPopup>
+          </SelectPositioner>
+        </SelectPortal>
+      </SelectRoot>
+      <p className="text-sm text-ch-muted-fg">Selected: {value}</p>
+    </div>
+  );
+}
+```

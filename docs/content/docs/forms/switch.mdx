@@ -1,0 +1,50 @@
+---
+title: Switch
+description: A toggle switch for binary on/off states.
+---
+
+import { SwitchRoot, SwitchThumb } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<SwitchRoot>
+  <SwitchThumb />
+</SwitchRoot>
+<SwitchRoot defaultChecked>
+  <SwitchThumb />
+</SwitchRoot>
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-4">
+    <SwitchRoot>
+      <SwitchThumb />
+    </SwitchRoot>
+    <SwitchRoot defaultChecked>
+      <SwitchThumb />
+    </SwitchRoot>
+  </div>
+</Preview>
+
+## Disabled
+
+```tsx
+<SwitchRoot disabled>
+  <SwitchThumb />
+</SwitchRoot>
+<SwitchRoot disabled defaultChecked>
+  <SwitchThumb />
+</SwitchRoot>
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-4">
+    <SwitchRoot disabled>
+      <SwitchThumb />
+    </SwitchRoot>
+    <SwitchRoot disabled defaultChecked>
+      <SwitchThumb />
+    </SwitchRoot>
+  </div>
+</Preview>

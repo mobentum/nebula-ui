@@ -1,0 +1,56 @@
+---
+title: Card
+description: A flexible card container with header, body, and footer sections.
+---
+
+import { Card, CardBody, CardFooter, CardHeader, CardRoot } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<CardRoot className="max-w-sm">
+  <CardBody>
+    <h3 className="font-semibold">Card Title</h3>
+    <p className="text-sm text-muted-foreground">This is the card body content.</p>
+  </CardBody>
+</CardRoot>
+```
+
+<Preview>
+  <CardRoot className="max-w-sm">
+    <CardBody>
+      <h3 className="font-semibold">Card Title</h3>
+      <p className="text-sm text-muted-foreground">This is the card body content.</p>
+    </CardBody>
+  </CardRoot>
+</Preview>
+
+## With header and footer
+
+```tsx
+<CardRoot className="max-w-sm">
+  <CardHeader>
+    <h3 className="font-semibold">Header</h3>
+  </CardHeader>
+  <CardBody>
+    <p className="text-sm text-muted-foreground">Main content area.</p>
+  </CardBody>
+  <CardFooter>
+    <p className="text-xs text-muted-foreground">Footer text</p>
+  </CardFooter>
+</CardRoot>
+```
+
+<Preview>
+  <CardRoot className="max-w-sm">
+    <CardHeader>
+      <h3 className="font-semibold">Header</h3>
+    </CardHeader>
+    <CardBody>
+      <p className="text-sm text-muted-foreground">Main content area.</p>
+    </CardBody>
+    <CardFooter>
+      <p className="text-xs text-muted-foreground">Footer text</p>
+    </CardFooter>
+  </CardRoot>
+</Preview>

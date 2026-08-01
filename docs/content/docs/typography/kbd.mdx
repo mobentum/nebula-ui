@@ -1,0 +1,36 @@
+---
+title: Kbd
+description: A keyboard key indicator for displaying shortcuts and key combinations.
+---
+
+import { Kbd } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<Kbd>⌘</Kbd> + <Kbd>K</Kbd>
+```
+
+<Preview>
+  <div className="flex items-center gap-1 text-sm text-muted-foreground">
+    <Kbd>⌘</Kbd>
+    <span>+</span>
+    <Kbd>K</Kbd>
+  </div>
+</Preview>
+
+## Variants
+
+```tsx
+<Kbd size="sm">Ctrl</Kbd>
+<Kbd size="md">Ctrl</Kbd>
+<Kbd size="lg">Ctrl</Kbd>
+```
+
+<Preview>
+  <div className="flex items-center gap-2">
+    <Kbd size="sm">Ctrl</Kbd>
+    <Kbd size="md">Ctrl</Kbd>
+    <Kbd size="lg">Ctrl</Kbd>
+  </div>
+</Preview>

@@ -1,0 +1,48 @@
+---
+title: RadioCardGroup
+description: Radio buttons styled as selectable cards with optional label and description.
+---
+
+import { RadioCardGroupDescription, RadioCardGroupIndicator, RadioCardGroupItem, RadioCardGroupLabel, RadioCardGroupRoot } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<RadioCardGroupRoot defaultValue="1">
+  <RadioCardGroupItem value="1">
+    <RadioCardGroupIndicator />
+    <div>
+      <RadioCardGroupLabel>Option A</RadioCardGroupLabel>
+      <RadioCardGroupDescription>Description for option A.</RadioCardGroupDescription>
+    </div>
+  </RadioCardGroupItem>
+  <RadioCardGroupItem value="2">
+    <RadioCardGroupIndicator />
+    <div>
+      <RadioCardGroupLabel>Option B</RadioCardGroupLabel>
+      <RadioCardGroupDescription>Description for option B.</RadioCardGroupDescription>
+    </div>
+  </RadioCardGroupItem>
+</RadioCardGroupRoot>
+```
+
+<Preview>
+  <div className="w-full max-w-sm">
+    <RadioCardGroupRoot defaultValue="1">
+      <RadioCardGroupItem value="1">
+        <RadioCardGroupIndicator />
+        <div>
+          <RadioCardGroupLabel>Option A</RadioCardGroupLabel>
+          <RadioCardGroupDescription>Description for option A.</RadioCardGroupDescription>
+        </div>
+      </RadioCardGroupItem>
+      <RadioCardGroupItem value="2">
+        <RadioCardGroupIndicator />
+        <div>
+          <RadioCardGroupLabel>Option B</RadioCardGroupLabel>
+          <RadioCardGroupDescription>Description for option B.</RadioCardGroupDescription>
+        </div>
+      </RadioCardGroupItem>
+    </RadioCardGroupRoot>
+  </div>
+</Preview>

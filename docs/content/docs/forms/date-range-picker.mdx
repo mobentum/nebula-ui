@@ -1,0 +1,38 @@
+---
+title: DateRangePicker
+description: A date range input with a popover calendar for selecting start and end dates.
+---
+
+import { DateRangePickerInput, DateRangePickerRoot, DateRangePickerTrigger } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<DateRangePickerRoot>
+  <DateRangePickerInput placeholder="Select date range" />
+</DateRangePickerRoot>
+```
+
+<Preview>
+  <div className="w-full max-w-xs">
+    <DateRangePickerRoot>
+      <DateRangePickerInput placeholder="Select date range" />
+    </DateRangePickerRoot>
+  </div>
+</Preview>
+
+## Custom trigger
+
+```tsx
+<DateRangePickerRoot>
+  <DateRangePickerTrigger>Pick range</DateRangePickerTrigger>
+</DateRangePickerRoot>
+```
+
+<Preview>
+  <div className="w-full max-w-xs">
+    <DateRangePickerRoot>
+      <DateRangePickerTrigger>Pick range</DateRangePickerTrigger>
+    </DateRangePickerRoot>
+  </div>
+</Preview>

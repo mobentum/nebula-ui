@@ -1,0 +1,46 @@
+---
+title: Alert Dialog
+description: A modal dialog for urgent confirmations and destructive actions.
+---
+
+import { AlertDialog, AlertDialogBackdrop, AlertDialogCancel, AlertDialogClose, AlertDialogDescription, AlertDialogPopup, AlertDialogPortal, AlertDialogRoot, AlertDialogTitle, AlertDialogTrigger, Button } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<AlertDialogRoot>
+  <AlertDialogTrigger render={<Button variant="danger">Delete account</Button>} />
+  <AlertDialogPortal>
+    <AlertDialogBackdrop />
+    <AlertDialogPopup>
+      <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+      <AlertDialogDescription>
+        This action cannot be undone. This will permanently delete your account.
+      </AlertDialogDescription>
+      <div className="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+        <AlertDialogCancel>Cancel</AlertDialogCancel>
+        <AlertDialogClose render={<Button variant="danger">Delete</Button>} />
+      </div>
+    </AlertDialogPopup>
+  </AlertDialogPortal>
+</AlertDialogRoot>
+```
+
+<Preview>
+  <AlertDialogRoot>
+    <AlertDialogTrigger render={<Button variant="danger">Delete account</Button>} />
+    <AlertDialogPortal>
+      <AlertDialogBackdrop />
+      <AlertDialogPopup>
+        <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+        <AlertDialogDescription>
+          This action cannot be undone. This will permanently delete your account.
+        </AlertDialogDescription>
+        <div className="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogClose render={<Button variant="danger">Delete</Button>} />
+        </div>
+      </AlertDialogPopup>
+    </AlertDialogPortal>
+  </AlertDialogRoot>
+</Preview>

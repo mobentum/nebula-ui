@@ -1,0 +1,428 @@
+---
+title: Theme & Tokens
+description: Design tokens for colors, borders, breakpoints, focus rings, and typography.
+---
+
+Design tokens are the foundational values that define Nebula UI's visual language. They are exposed as CSS custom properties and consumed through Tailwind utility classes using the `nb-` prefix (e.g., `bg-nb-primary`, `text-nb-fg`).
+
+## Colors
+
+Colors are defined as CSS variables in `:root` (light mode) and `.dark` (dark mode). Each maps to a Tailwind token via `@theme inline` in `tailwind.css`, so you can use utilities like `bg-nb-primary`, `text-nb-muted-fg`, or `border-nb-border`.
+
+### Primary palette
+
+The primary color is the base for most interactive elements. Nebula UI uses it at varying opacities to create hierarchy without additional palette shades.
+
+<Preview>
+  <div className="flex w-full flex-col gap-3">
+    {[
+      ['Primary', 'bg-nb-primary', '#093c5d'],
+      ['Primary / 80', 'bg-nb-primary/80', 'rgba(9, 60, 93, 0.8)'],
+      ['Primary / 50', 'bg-nb-primary/50', 'rgba(9, 60, 93, 0.5)'],
+      ['Primary / 20', 'bg-nb-primary/20', 'rgba(9, 60, 93, 0.2)'],
+      ['Primary / 10', 'bg-nb-primary/10', 'rgba(9, 60, 93, 0.1)'],
+      ['Primary / 5', 'bg-nb-primary/5', 'rgba(9, 60, 93, 0.05)'],
+    ].map(([name, cls, hex]) => (
+      <div key={name} className="flex items-center gap-4">
+        <div className={`h-8 w-24 shrink-0 rounded-md ${cls} border border-nb-border/50`} />
+        <div className="flex-1">
+          <p className="text-sm font-medium text-nb-fg">{name}</p>
+          <p className="text-xs text-nb-muted-fg">{hex}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</Preview>
+
+### Surface palette
+
+Surfaces distinguish layers of content — page background, cards, and overlays — with neutral tones.
+
+<Preview>
+  <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-4">
+    {[
+      ['Background', 'bg-nb-bg', '#fafafa'],
+      ['Card', 'bg-nb-card', '#ffffff'],
+      ['Muted', 'bg-nb-muted', '#f1f1f1'],
+      ['Accent', 'bg-nb-accent', '#e3e3e3'],
+      ['Border', 'bg-nb-border', '#e5e5e5'],
+      ['Input', 'bg-nb-input', '#d4d4d4'],
+      ['Foreground', 'bg-nb-fg', '#171717'],
+      ['Muted text', 'bg-nb-muted-fg', '#737373'],
+    ].map(([name, cls, hex]) => (
+      <div key={name} className="rounded-lg border border-nb-border p-3">
+        <div className={`h-10 w-full rounded-md ${cls} border border-nb-border/40`} />
+        <p className="mt-2 text-sm font-medium text-nb-fg">{name}</p>
+        <p className="text-xs text-nb-muted-fg">{hex}</p>
+      </div>
+    ))}
+  </div>
+</Preview>
+
+### Semantic palette
+
+Semantic colors communicate state — success, warning, and danger — and drive the color variants on Badge, Button, Alert, Callout, Progress, Meter, Avatar, and Spinner.
+
+<Preview>
+  <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-4">
+    {[
+      ['Success', 'bg-nb-success', '#15803d'],
+      ['Warning', 'bg-nb-warning', '#b45309'],
+      ['Info', 'bg-nb-info', '#1d4ed8'],
+      ['Danger', 'bg-nb-destructive', '#dc2626'],
+    ].map(([name, cls, hex]) => (
+      <div key={name} className="rounded-lg border border-nb-border p-3">
+        <div className={`h-10 w-full rounded-md ${cls} text-nb-white`}>
+          <p className="flex h-full items-center justify-center text-xs font-medium text-white">{name}</p>
+        </div>
+        <p className="mt-2 text-sm font-medium text-nb-fg">{name}</p>
+        <p className="text-xs text-nb-muted-fg">{hex}</p>
+      </div>
+    ))}
+  </div>
+</Preview>
+
+### In context
+
+Colors combine to create readable, consistent components.
+
+<Preview>
+  <div className="flex w-full flex-wrap items-center gap-3">
+    <Button>Primary</Button>
+    <Button variant="secondary">Secondary</Button>
+    <Button variant="outline">Outline</Button>
+    <Button variant="ghost">Ghost</Button>
+    <Button variant="danger">Danger</Button>
+    <Button variant="success">Success</Button>
+    <Button variant="warning">Warning</Button>
+    <Button variant="link">Link</Button>
+  </div>
+</Preview>
+
+### Token reference
+
+Every CSS variable below can be overridden in `:root` and `.dark`. Each color token maps to Tailwind utilities prefixed with `nb-` — for example, `--primary` → `bg-nb-primary`, `text-nb-primary`, `border-nb-primary`, `ring-nb-primary`.
+
+#### Color tokens
+
+| Token | Light | Dark | Utilities | Description |
+|-------|-------|------|-----------|-------------|
+| `--background` | `#fafafa` | `#0a0a0a` | `bg-nb-bg` | Page background |
+| `--foreground` | `#171717` | `#fafafa` | `text-nb-fg` | Default text |
+| `--card` | `#ffffff` | `#171717` | `bg-nb-card` | Card surface |
+| `--card-foreground` | `#171717` | `#fafafa` | `text-nb-card-fg` | Text on card |
+| `--popover` | `#ffffff` | `#171717` | `bg-nb-popover` | Overlay surface |
+| `--popover-foreground` | `#171717` | `#fafafa` | `text-nb-popover-fg` | Text on overlay |
+| `--primary` | `#093c5d` | `#38749e` | `bg-nb-primary` | Primary action color |
+| `--primary-foreground` | `#ffffff` | `#ffffff` | `text-nb-primary-fg` | Text on primary |
+| `--secondary` | `#e8e8e8` | `#262626` | `bg-nb-secondary` | Secondary surface |
+| `--secondary-foreground` | `#171717` | `#fafafa` | `text-nb-secondary-fg` | Text on secondary |
+| `--muted` | `#f1f1f1` | `#262626` | `bg-nb-muted` | Muted surface |
+| `--muted-foreground` | `#6f6f6f` | `#a3a3a3` | `text-nb-muted-fg` | Muted text |
+| `--accent` | `#e3e3e3` | `#2d2d2d` | `bg-nb-accent` | Hover / highlight surface |
+| `--accent-foreground` | `#171717` | `#fafafa` | `text-nb-accent-fg` | Text on accent |
+| `--destructive` | `#dc2626` | `#b91c1c` | `bg-nb-destructive` | Destructive action |
+| `--destructive-foreground` | `#ffffff` | `#fafafa` | `text-nb-destructive-fg` | Text on destructive |
+| `--success` | `#15803d` | `#22c55e` | `bg-nb-success` | Success state |
+| `--success-foreground` | `#ffffff` | `#052e16` | `text-nb-success-fg` | Text on success |
+| `--warning` | `#b45309` | `#f59e0b` | `bg-nb-warning` | Warning state |
+| `--warning-foreground` | `#ffffff` | `#451a03` | `text-nb-warning-fg` | Text on warning |
+| `--info` | `#1d4ed8` | `#3b82f6` | `bg-nb-info` | Info state |
+| `--info-foreground` | `#ffffff` | `#0f172a` | `text-nb-info-fg` | Text on info |
+| `--border` | `#e5e5e5` | `#404040` | `border-nb-border` | Borders & separators |
+| `--input` | `#d4d4d4` | `#4d4d4d` | `border-nb-input` | Input borders |
+| `--ring` | `#171717` | `#d4d4d4` | `ring-nb-ring` | Focus ring color |
+
+Every color token also supports opacity modifiers: `bg-nb-primary/10`, `text-nb-muted-fg/80`, etc.
+
+#### Radius tokens
+
+| Token | Default | Description |
+|-------|---------|-------------|
+| `--radius` | `0.625rem` | Base radius — drives the whole scale |
+| `--radius-sm` | `calc(var(--radius) * 0.4)` | Small elements, badges |
+| `--radius-md` | `calc(var(--radius) * 0.6)` | Buttons, inputs, dropdowns |
+| `--radius-lg` | `calc(var(--radius) * 0.8)` | Cards, dialogs |
+| `--radius-xl` | `var(--radius)` | Large surfaces |
+
+Change `--radius` and every component's corner updates. See the [Borders](#borders) section for details.
+
+## Color accessibility
+
+Nebula UI color pairs are designed to meet **WCAG 2.1 AA** contrast requirements. All foreground/background combinations used by components maintain at least a **4.5:1** contrast ratio for normal text and **3:1** for UI components and large text.
+
+<Preview>
+  <div className="flex w-full flex-col gap-3">
+    {[
+      ['Foreground on Background', '#171717', '#fafafa', '17.18'],
+      ['Primary foreground on Primary', '#ffffff', '#093c5d', '11.56'],
+      ['Muted foreground on Background', '#6f6f6f', '#fafafa', '4.81'],
+      ['Muted foreground on Card', '#6f6f6f', '#ffffff', '5.02'],
+      ['Secondary foreground on Secondary', '#171717', '#e8e8e8', '14.63'],
+      ['Success foreground on Success', '#ffffff', '#15803d', '5.02'],
+      ['Warning foreground on Warning', '#ffffff', '#b45309', '5.02'],
+      ['Info foreground on Info', '#ffffff', '#1d4ed8', '6.70'],
+    ].map(([name, fg, bg, ratio]) => (
+      <div key={name} className="flex items-center gap-4 rounded-lg border border-nb-border p-3">
+        <div
+          className="flex h-12 w-28 shrink-0 items-center justify-center rounded-md text-sm font-medium"
+          style={{ color: fg, backgroundColor: bg }}
+        >
+          Aa
+        </div>
+        <div className="flex-1">
+          <p className="text-sm font-medium text-nb-fg">{name}</p>
+          <p className="text-xs text-nb-muted-fg">
+            {fg} on {bg} · {ratio}:1
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</Preview>
+
+When creating custom themes or overriding tokens, verify contrast with the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/). A good rule of thumb: keep muted/foreground pairs above **4.5:1**, and reserve low-contrast colors for decorative or disabled states.
+
+## Standard Tailwind tokens
+
+Beyond the Nebula tokens above, you can override **any Tailwind CSS v4 theme token** via `@theme` in your global CSS. These are the namespaces available — the ones Nebula UI doesn't own are fully free to customize.
+
+```css
+@theme {
+  /* Font families */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Font sizes (size + line-height) */
+  --text-sm: 0.875rem 1.25rem;
+
+  /* Border width */
+  --border-width: 1px;
+
+  /* Spacing base */
+  --spacing: 0.25rem;
+}
+```
+
+### Theme namespaces
+
+| Namespace | Tokens | Controls |
+|-----------|--------|----------|
+| `--font-*` | `--font-sans`, `--font-serif`, `--font-mono` | Font families (`font-sans`) |
+| `--text-*` | `--text-xs` … `--text-9xl` | Font sizes + line-heights (`text-sm`) |
+| `--font-weight-*` | `--font-weight-medium`, `--font-weight-bold` | Font weights (`font-medium`) |
+| `--tracking-*` | `--tracking-tight`, `--tracking-wide` | Letter spacing (`tracking-tight`) |
+| `--leading-*` | `--leading-none`, `--leading-relaxed` | Line heights (`leading-7`) |
+| `--spacing-*` | `--spacing`, scale multiples | Padding, margins, gaps (`p-4`, `gap-2`) |
+| `--radius-*` | `--radius`, `--radius-sm/md/lg/xl` | Border radius (`rounded-md`) |
+| `--shadow-*` | `--shadow-sm`, `--shadow-md`, `--shadow-lg` | Box shadows (`shadow-lg`) |
+| `--drop-shadow-*` | `--drop-shadow-md` | Drop shadows (`drop-shadow-md`) |
+| `--border-width-*` | `--border-width` | Border thickness (`border`) |
+| `--breakpoint-*` | `--breakpoint-sm/md/lg/xl/2xl` | Responsive breakpoints (`md:`) |
+| `--container-*` | `--container-sm/md/lg/xl` | `container` widths |
+| `--ease-*` | `--ease-in`, `--ease-out` | Transition easing (`ease-out`) |
+| `--duration-*` | `--duration-150`, `--duration-300` | Transition durations (`duration-150`) |
+| `--animate-*` | `--animate-spin`, `--animate-pulse` | Animations (`animate-spin`) |
+| `--blur-*` | `--blur-sm`, `--blur-md` | Blur effects (`blur-sm`) |
+| `--perspective-*` | `--perspective-*` | Perspective utilities |
+| `--aspect-*` | `--aspect-video` | Aspect ratios (`aspect-video`) |
+
+### Overriding fonts
+
+Components inherit the font stack from the page. Override `--font-sans` and every component updates:
+
+```css
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+```
+
+### Overriding border
+
+Set a global border width, or restyle specific utilities:
+
+```css
+@theme {
+  --border-width: 1px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-nb-border);
+  }
+}
+```
+
+### Overriding spacing
+
+Adjust the global spacing scale base (default `0.25rem` = 4px):
+
+```css
+@theme {
+  --spacing: 0.25rem; /* p-1 = 4px, p-2 = 8px, etc. */
+}
+```
+
+### Shadow default for buttons
+
+Nebula UI's filled buttons use `shadow-sm` from the default scale. To change all button shadows:
+
+```css
+@theme {
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.08);
+}
+```
+
+Any token you don't override keeps Tailwind's default — Nebula UI only ships defaults for the color and radius tokens it owns.
+
+## Borders
+
+Border radius is used consistently across components. A single `--radius` base token (`0.625rem`) drives the whole scale via `@theme` — change it and every component updates. Derived tokens:
+
+| Token | Calculation |
+|-------|-------------|
+| `--radius-sm` | `calc(var(--radius) * 0.4)` |
+| `--radius-md` | `calc(var(--radius) * 0.6)` |
+| `--radius-lg` | `calc(var(--radius) * 0.8)` |
+| `--radius-xl` | `var(--radius)` |
+
+With the default `--radius: 0.625rem`, components use:
+
+<Preview>
+  <div className="flex w-full flex-wrap items-center gap-4">
+    <div className="flex flex-col items-center gap-2">
+      <div className="h-16 w-16 rounded-sm border-2 border-nb-border" />
+      <span className="text-xs text-nb-muted-fg">rounded-sm · 4px</span>
+    </div>
+    <div className="flex flex-col items-center gap-2">
+      <div className="h-16 w-16 rounded-md border-2 border-nb-border" />
+      <span className="text-xs text-nb-muted-fg">rounded-md · 6px</span>
+    </div>
+    <div className="flex flex-col items-center gap-2">
+      <div className="h-16 w-16 rounded-lg border-2 border-nb-border" />
+      <span className="text-xs text-nb-muted-fg">rounded-lg · 8px</span>
+    </div>
+    <div className="flex flex-col items-center gap-2">
+      <div className="h-16 w-16 rounded-full border-2 border-nb-border" />
+      <span className="text-xs text-nb-muted-fg">rounded-full</span>
+    </div>
+  </div>
+</Preview>
+
+| Scale | Value | Used for |
+|-------|-------|----------|
+| `rounded-sm` | 4px | Small elements, badges |
+| `rounded-md` | 6px | Buttons, inputs, dropdowns |
+| `rounded-lg` | 8px | Cards, dialogs, larger surfaces |
+| `rounded-full` | 50% | Pills, avatars, indicators |
+
+## Spacing
+
+Spacing follows an **8px grid**, built on Tailwind's default 4px base (`0.25rem`). Each step is a multiple of 4px. Use it for padding, margins, gaps, and layout rhythm.
+
+<Preview>
+  <div className="flex w-full flex-wrap items-end gap-4">
+    {[1, 2, 3, 4, 5, 6].map((step) => (
+      <div key={step} className="flex flex-col items-center gap-1.5">
+        <div className="w-14 rounded-md bg-nb-primary/20" style={{ height: `${step * 4}px` }} />
+        <span className="text-xs text-nb-muted-fg">{step} · {step * 4}px</span>
+      </div>
+    ))}
+  </div>
+</Preview>
+
+| Step | Value | Common usage |
+|------|-------|--------------|
+| `1` | 4px | Tight inner padding, icon gaps |
+| `1.5` | 6px | Compact gaps |
+| `2` | 8px | Default gaps between related items |
+| `3` | 12px | Field groups, stacked elements |
+| `4` | 16px | Standard card/control padding (`p-4`) |
+| `6` | 24px | Section spacing, larger surfaces |
+
+These map to utilities like `p-4`, `px-3`, `py-2`, `gap-2`, and `space-y-4`. For layout rhythm, prefer the 8px-grid steps (`2`, `4`, `6`, `8`) over fractional values.
+
+## Breakpoints
+
+Nebula UI uses Tailwind v4 default breakpoints, which follow a mobile-first approach. Media queries apply at the given width and above.
+
+| Name | Min-width | Common usage |
+|------|-----------|--------------|
+| `sm` | 640px | Two-column layouts |
+| `md` | 768px | Sidebar becomes visible |
+| `lg` | 1024px | Larger spacing, three-column |
+| `xl` | 1280px | Wide content containers |
+| `2xl` | 1536px | Maximum content widths |
+
+```tsx
+<div className="flex flex-col gap-2 sm:flex-row md:gap-4 lg:gap-6">
+  {/* stacks on mobile, rows on sm+ */}
+</div>
+```
+
+## Focus ring
+
+All interactive elements show a visible focus indicator using a 2px ring in the primary color. This is applied via `focus-visible:ring-2 focus-visible:ring-nb-primary`.
+
+<Preview>
+  <div className="flex w-full flex-wrap items-center gap-4">
+    <Button>Default button</Button>
+    <Button variant="outline">Outline button</Button>
+    <Input placeholder="Focus me with Tab" className="max-w-xs" />
+    <CheckboxRoot>
+      <CheckboxIndicator />
+    </CheckboxRoot>
+  </div>
+</Preview>
+
+Press `Tab` to move focus between elements and see the focus ring.
+
+## Typography
+
+Typography follows a clear hierarchy. Text sizes scale from small captions to large page titles.
+
+<Preview>
+  <div className="w-full space-y-2">
+    <p className="text-xs text-nb-muted-fg">text-xs — 12px · Labels, descriptions, helper text</p>
+    <p className="text-sm text-nb-fg">text-sm — 14px · Body text, buttons, inputs</p>
+    <p className="text-base font-medium text-nb-fg">text-base — 16px · Emphasis, card labels</p>
+    <p className="text-lg font-semibold text-nb-fg">text-lg — 18px · Section titles</p>
+    <p className="text-xl font-semibold text-nb-fg">text-xl — 20px · Card headers</p>
+    <p className="text-3xl font-bold text-nb-fg">text-3xl — 30px · Page titles</p>
+  </div>
+</Preview>
+
+| Size | Class | Usage |
+|------|-------|-------|
+| 12px | `text-xs` | Field descriptions, helper text, group labels |
+| 14px | `text-sm` | Body text, buttons, form inputs |
+| 16px | `text-base` | Emphasis text, card labels |
+| 18px | `text-lg` | Section headings |
+| 20px | `text-xl` | Card / dialog titles |
+| 30px | `text-3xl` | Page titles |
+
+## Dark mode
+
+Nebula UI uses **class-based dark mode**. Adding `.dark` to any ancestor enables dark token values and `dark:` utilities within that subtree — not just on `<html>`.
+
+```css
+/* Enabled by @custom-variant dark (&:is(.dark *)) */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  /* ... */
+}
+```
+
+```tsx
+<html className="dark"> {/* dark theme for the whole app */ }
+<div className="dark"> {/* dark theme for this subtree only */ }
+```
+
+To toggle between light and dark:
+
+```tsx
+// With next-themes or any theme provider
+<html className={theme === 'dark' ? 'dark' : ''}>
+```

@@ -1,0 +1,40 @@
+---
+title: Menu
+description: A dropdown menu for navigation and actions.
+---
+
+import { Button, Menu, MenuItem, MenuPopup, MenuPortal, MenuPositioner, MenuRoot, MenuSeparator, MenuTrigger } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<MenuRoot>
+  <MenuTrigger render={<Button variant="outline">Open menu</Button>} />
+  <MenuPortal>
+    <MenuPositioner>
+      <MenuPopup>
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>Settings</MenuItem>
+        <MenuSeparator />
+        <MenuItem>Logout</MenuItem>
+      </MenuPopup>
+    </MenuPositioner>
+  </MenuPortal>
+</MenuRoot>
+```
+
+<Preview>
+  <MenuRoot>
+    <MenuTrigger render={<Button variant="outline">Open menu</Button>} />
+    <MenuPortal>
+      <MenuPositioner>
+        <MenuPopup>
+          <MenuItem>Profile</MenuItem>
+          <MenuItem>Settings</MenuItem>
+          <MenuSeparator />
+          <MenuItem>Logout</MenuItem>
+        </MenuPopup>
+      </MenuPositioner>
+    </MenuPortal>
+  </MenuRoot>
+</Preview>

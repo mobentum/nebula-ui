@@ -1,0 +1,61 @@
+---
+title: Installation
+description: Install Nebula UI and set up Tailwind CSS v4.
+---
+
+Nebula UI is a component library built on [Base UI](https://base-ui.com) and Tailwind CSS v4, designed to be accessible, composable, and easy to style.
+
+## Install the package
+
+```bash
+npm install @nebula/ui
+```
+
+With other package managers:
+
+```bash
+pnpm add @nebula/ui
+yarn add @nebula/ui
+bun add @nebula/ui
+```
+
+## Tailwind CSS setup
+
+Add the Nebula UI styles to your global CSS. Requires Tailwind CSS v4.
+
+```css
+@import "tailwindcss";
+@import "@nebula/ui/css/tailwind.css";
+@import "@nebula/ui/css/default-theme.css";
+
+/* Include Nebula UI components for utility generation */
+@source "../../node_modules/@nebula/ui/dist";
+```
+
+`tailwind.css` maps the theme tokens to `nb-*` utilities, and `default-theme.css` provides the default light/dark color variables. See [Theme](/theme/tokens) to customize.
+
+> **Important:** `@source` paths are resolved **relative to the CSS file**, not the project root. The example above assumes `src/app/globals.css`. Adjust the `../` count to match your CSS file's depth — e.g. `app/globals.css` (no `src/`) needs `../node_modules/@nebula/ui/dist`. See [Next.js integration](/docs/getting-started/nextjs) for a full walkthrough.
+
+## Usage
+
+```tsx
+import { Button, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogRoot, DialogTitle, DialogTrigger } from '@nebula/ui';
+
+function App() {
+  return (
+    <DialogRoot>
+      <DialogTrigger render={<Button>Open Dialog</Button>} />
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Welcome</DialogTitle>
+          <DialogDescription>This is a Nebula UI dialog.</DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <DialogClose render={<Button variant="outline">Cancel</Button>} />
+          <Button>Save</Button>
+        </DialogFooter>
+      </DialogContent>
+    </DialogRoot>
+  );
+}
+```

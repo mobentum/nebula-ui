@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "@nebula/ui/css/tailwind.css";
+@import "@nebula/ui/css/default-theme.css";
+
+@source "../../packages/ui/src/components/**/*.{ts,tsx}";
+
+html {
+  scrollbar-gutter: stable;
+}

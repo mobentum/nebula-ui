@@ -1,0 +1,75 @@
+---
+title: Icons
+description: How Nebula UI uses Phosphor Icons across components.
+---
+
+Nebula UI uses [Phosphor Icons](https://phosphoricons.com/) (`@phosphor-icons/react`) for all component icons. Icons are tree-shakable, support six weights, and inherit color via `currentColor`.
+
+## Usage in components
+
+Icons are baked into components internally — you don't need to install anything to use them. For your own UI, install the package:
+
+```bash
+npm install @phosphor-icons/react
+```
+
+Then import any icon:
+
+```tsx
+import { CaretDown, Check, X } from '@phosphor-icons/react';
+
+<CaretDown className="h-4 w-4" aria-hidden />
+<Check className="h-4 w-4" aria-hidden />
+<X className="h-4 w-4" aria-hidden />
+```
+
+## Icons used by components
+
+| Icon | Component | Purpose |
+|------|-----------|---------|
+| `CaretDown` | Accordion, Combobox, Select | Expand/select indicator |
+| `CaretLeft` / `CaretRight` | Calendar | Month navigation |
+| `Check` | Checkbox, Select | Selected state |
+| `X` | Dialog, Drawer, Popover, Toast | Close action |
+| `CalendarBlank` | DatePicker, DateRangePicker | Date trigger icon |
+| `Minus` / `Plus` | NumberField | Increment/decrement |
+| `DotsSixVertical` | Resizable | Drag handle |
+| `SpinnerGap` | Spinner, Button loading | Loading indicator |
+
+## Sizing and color
+
+Icons inherit size via `className` and color via `currentColor`.
+
+<Preview>
+  <div className="flex w-full flex-wrap items-center gap-6">
+    {[
+      ['h-3 w-3', 'text-nb-muted-fg'],
+      ['h-4 w-4', 'text-nb-primary'],
+      ['h-5 w-5', 'text-nb-destructive'],
+      ['h-6 w-6', 'text-nb-fg'],
+    ].map(([size, color]) => (
+      <div key={size} className="flex flex-col items-center gap-2">
+        <svg className={`${size} ${color}`} viewBox="0 0 256 256" fill="currentColor" aria-hidden>
+          <path d="M128,24a104,104,0,1,0,104,104A104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z" />
+        </svg>
+        <span className="text-xs text-nb-muted-fg">{size}</span>
+      </div>
+    ))}
+  </div>
+</Preview>
+
+## Weights
+
+Phosphor offers six weights. Components default to `regular`, except loading indicators which use `bold` for visibility.
+
+| Weight | Use |
+|--------|-----|
+| `thin` / `light` | Decorative, large display icons |
+| `regular` | Default component icons |
+| `bold` | Loading spinners, emphasis |
+| `fill` | Filled states, active indicators |
+| `duotone` | Rich illustrations |
+
+## Accessibility
+
+All component icons are marked `aria-hidden` since they're decorative alongside text or visible labels. If an icon is the sole indicator of a state (e.g., a standalone close button), the interactive element it lives in has an `aria-label`.

@@ -1,0 +1,32 @@
+---
+title: Resizable
+description: A resizable panel group for creating split layouts.
+---
+
+import { ResizableGroup, ResizableHandle, ResizablePanel } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<ResizableGroup direction="horizontal" className="h-48 rounded-lg border">
+  <ResizablePanel defaultSize={50} className="flex items-center justify-center p-4">
+    <span className="text-sm">Panel A</span>
+  </ResizablePanel>
+  <ResizableHandle className="w-1 bg-border" />
+  <ResizablePanel defaultSize={50} className="flex items-center justify-center p-4">
+    <span className="text-sm">Panel B</span>
+  </ResizablePanel>
+</ResizableGroup>
+```
+
+<Preview>
+  <ResizableGroup direction="horizontal" className="h-48 rounded-lg border">
+    <ResizablePanel defaultSize={50} className="flex items-center justify-center p-4">
+      <span className="text-sm">Panel A</span>
+    </ResizablePanel>
+    <ResizableHandle className="w-1 bg-border" />
+    <ResizablePanel defaultSize={50} className="flex items-center justify-center p-4">
+      <span className="text-sm">Panel B</span>
+    </ResizablePanel>
+  </ResizableGroup>
+</Preview>

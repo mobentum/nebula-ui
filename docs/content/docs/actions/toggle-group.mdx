@@ -1,0 +1,24 @@
+---
+title: Toggle Group
+description: A group of toggleable buttons for selecting multiple options.
+---
+
+import { ToggleGroup, ToggleGroupItem, ToggleGroupRoot } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<ToggleGroupRoot>
+  <ToggleGroupItem value="bold">B</ToggleGroupItem>
+  <ToggleGroupItem value="italic">I</ToggleGroupItem>
+  <ToggleGroupItem value="underline">U</ToggleGroupItem>
+</ToggleGroupRoot>
+```
+
+<Preview>
+  <ToggleGroupRoot multiple defaultValue={[]}>
+    <ToggleGroupItem value="bold" className="font-bold">B</ToggleGroupItem>
+    <ToggleGroupItem value="italic" className="italic">I</ToggleGroupItem>
+    <ToggleGroupItem value="underline" className="underline">U</ToggleGroupItem>
+  </ToggleGroupRoot>
+</Preview>

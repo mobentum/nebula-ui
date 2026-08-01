@@ -1,0 +1,30 @@
+---
+title: Calendar
+description: A date calendar widget with month navigation and day selection.
+---
+
+import { CalendarRoot } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<CalendarRoot />
+```
+
+<Preview>
+  <div className="w-full max-w-xs">
+    <CalendarRoot />
+  </div>
+</Preview>
+
+## With selected date
+
+```tsx
+<CalendarRoot selected={new Date()} />
+```
+
+<Preview>
+  <div className="w-full max-w-xs">
+    <CalendarRoot selected={new Date()} />
+  </div>
+</Preview>

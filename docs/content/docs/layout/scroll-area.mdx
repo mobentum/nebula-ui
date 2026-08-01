@@ -1,0 +1,52 @@
+---
+title: Scroll Area
+description: A scrollable container with custom scrollbar styling.
+---
+
+import { ScrollAreaRoot, ScrollAreaScrollbar, ScrollAreaThumb, ScrollAreaViewport } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<ScrollAreaRoot className="h-48 w-64 rounded-md border">
+  <ScrollAreaViewport>
+    <div className="p-4 text-sm space-y-2">
+      <p>Line 1: Some scrollable content here.</p>
+      <p>Line 2: Some scrollable content here.</p>
+      <p>Line 3: Some scrollable content here.</p>
+      <p>Line 4: Some scrollable content here.</p>
+      <p>Line 5: Some scrollable content here.</p>
+      <p>Line 6: Some scrollable content here.</p>
+      <p>Line 7: Some scrollable content here.</p>
+      <p>Line 8: Some scrollable content here.</p>
+      <p>Line 9: Some scrollable content here.</p>
+      <p>Line 10: Some scrollable content here.</p>
+    </div>
+  </ScrollAreaViewport>
+  <ScrollAreaScrollbar>
+    <ScrollAreaThumb />
+  </ScrollAreaScrollbar>
+</ScrollAreaRoot>
+```
+
+<Preview>
+  <ScrollAreaRoot className="h-48 w-64 rounded-md border">
+    <ScrollAreaViewport>
+      <div className="p-4 text-sm space-y-2">
+        <p>Line 1: Some scrollable content here.</p>
+        <p>Line 2: Some scrollable content here.</p>
+        <p>Line 3: Some scrollable content here.</p>
+        <p>Line 4: Some scrollable content here.</p>
+        <p>Line 5: Some scrollable content here.</p>
+        <p>Line 6: Some scrollable content here.</p>
+        <p>Line 7: Some scrollable content here.</p>
+        <p>Line 8: Some scrollable content here.</p>
+        <p>Line 9: Some scrollable content here.</p>
+        <p>Line 10: Some scrollable content here.</p>
+      </div>
+    </ScrollAreaViewport>
+    <ScrollAreaScrollbar>
+      <ScrollAreaThumb />
+    </ScrollAreaScrollbar>
+  </ScrollAreaRoot>
+</Preview>

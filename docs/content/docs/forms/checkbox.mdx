@@ -1,0 +1,61 @@
+---
+title: Checkbox
+description: A checkbox input with indicator for selection state.
+---
+
+import { CheckboxIndicator, CheckboxRoot } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<CheckboxRoot>
+  <CheckboxIndicator />
+</CheckboxRoot>
+```
+
+<Preview>
+  <CheckboxRoot>
+    <CheckboxIndicator />
+  </CheckboxRoot>
+</Preview>
+
+## Checked
+
+```tsx
+<CheckboxRoot defaultChecked>
+  <CheckboxIndicator />
+</CheckboxRoot>
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-4">
+    <CheckboxRoot defaultChecked>
+      <CheckboxIndicator />
+    </CheckboxRoot>
+    <CheckboxRoot>
+      <CheckboxIndicator />
+    </CheckboxRoot>
+  </div>
+</Preview>
+
+## Disabled
+
+```tsx
+<CheckboxRoot disabled>
+  <CheckboxIndicator />
+</CheckboxRoot>
+<CheckboxRoot disabled defaultChecked>
+  <CheckboxIndicator />
+</CheckboxRoot>
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-4">
+    <CheckboxRoot disabled>
+      <CheckboxIndicator />
+    </CheckboxRoot>
+    <CheckboxRoot disabled defaultChecked>
+      <CheckboxIndicator />
+    </CheckboxRoot>
+  </div>
+</Preview>

@@ -1,0 +1,50 @@
+---
+title: Skeleton
+description: Placeholder loading animation for content in progress.
+---
+
+import { Skeleton } from '@nebula/ui';
+
+## Text
+
+```tsx
+<Skeleton className="h-4 w-3/4" />
+<Skeleton className="h-4 w-1/2" />
+<Skeleton className="h-4 w-2/3" />
+```
+
+<Preview>
+  <div className="flex flex-col gap-2 max-w-sm">
+    <Skeleton className="h-4 w-3/4" />
+    <Skeleton className="h-4 w-1/2" />
+    <Skeleton className="h-4 w-2/3" />
+  </div>
+</Preview>
+
+## Circular
+
+```tsx
+<Skeleton className="h-12 w-12 rounded-full" />
+<Skeleton className="h-16 w-16 rounded-full" />
+```
+
+<Preview>
+  <div className="flex items-center gap-3">
+    <Skeleton className="h-12 w-12 rounded-full" />
+    <Skeleton className="h-16 w-16 rounded-full" />
+  </div>
+</Preview>
+
+## Rectangular
+
+```tsx
+<Skeleton className="h-32 w-48 rounded-lg" />
+<Skeleton className="h-32 w-32 rounded-lg" />
+```
+
+<Preview>
+  <div className="flex gap-4">
+    <Skeleton className="h-32 w-48 rounded-lg" />
+    <Skeleton className="h-32 w-32 rounded-lg" />
+  </div>
+</Preview>

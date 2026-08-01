@@ -1,0 +1,52 @@
+---
+title: Navigation Menu
+description: A horizontal navigation bar with dropdown menus for site navigation.
+---
+
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuRoot, NavigationMenuTrigger } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<NavigationMenuRoot>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <div className="p-4">
+          <h4 className="text-sm font-medium">Components</h4>
+          <p className="text-xs text-muted-foreground">UI building blocks</p>
+        </div>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+    <NavigationMenuItem>
+      <NavigationMenuLink href="/docs">Docs</NavigationMenuLink>
+    </NavigationMenuItem>
+    <NavigationMenuItem>
+      <NavigationMenuLink href="/about">About</NavigationMenuLink>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenuRoot>
+```
+
+<Preview>
+  <NavigationMenuRoot>
+    <NavigationMenuList>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <div className="p-4">
+            <h4 className="text-sm font-medium">Components</h4>
+            <p className="text-xs text-muted-foreground">UI building blocks</p>
+          </div>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuLink href="/docs">Docs</NavigationMenuLink>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuLink href="/about">About</NavigationMenuLink>
+      </NavigationMenuItem>
+    </NavigationMenuList>
+  </NavigationMenuRoot>
+</Preview>

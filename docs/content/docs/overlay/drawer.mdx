@@ -1,0 +1,52 @@
+---
+title: Drawer
+description: A panel that slides in from the edge of the screen.
+---
+
+import { Button, Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerRoot, DrawerTitle, DrawerTrigger } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<DrawerRoot>
+  <DrawerTrigger render={<Button variant="outline">Open drawer</Button>} />
+  <DrawerContent>
+    <DrawerTitle>Drawer Title</DrawerTitle>
+    <DrawerDescription>This is a drawer panel.</DrawerDescription>
+  </DrawerContent>
+</DrawerRoot>
+```
+
+<Preview>
+  <DrawerRoot>
+    <DrawerTrigger render={<Button variant="outline">Open drawer</Button>} />
+    <DrawerContent>
+      <DrawerTitle>Drawer Title</DrawerTitle>
+      <DrawerDescription>This is a drawer panel.</DrawerDescription>
+    </DrawerContent>
+  </DrawerRoot>
+</Preview>
+
+## Explicit close button
+
+```tsx
+<DrawerRoot>
+  <DrawerTrigger render={<Button variant="outline">Open drawer</Button>} />
+  <DrawerContent showCloseButton={false}>
+    <DrawerTitle>Drawer Title</DrawerTitle>
+    <DrawerDescription>This drawer has a custom close button.</DrawerDescription>
+    <DrawerClose render={<Button variant="ghost">Close</Button>} />
+  </DrawerContent>
+</DrawerRoot>
+```
+
+<Preview>
+  <DrawerRoot>
+    <DrawerTrigger render={<Button variant="outline">Open drawer</Button>} />
+    <DrawerContent showCloseButton={false}>
+      <DrawerTitle>Drawer Title</DrawerTitle>
+      <DrawerDescription>This drawer has a custom close button.</DrawerDescription>
+      <DrawerClose render={<Button variant="ghost">Close</Button>} />
+    </DrawerContent>
+  </DrawerRoot>
+</Preview>

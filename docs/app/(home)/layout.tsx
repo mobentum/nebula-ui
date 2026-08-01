@@ -1,0 +1,31 @@
+import type { ReactNode } from 'react';
+import Link from 'next/link';
+import { appName } from '@/lib/shared';
+import { NebulaBackground } from '@/components/nebula-background';
+
+export default function Layout({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <NebulaBackground />
+      <header className="sticky top-0 z-30 border-b border-nb-border bg-white/60 backdrop-blur-xl">
+        <div className="mx-auto flex h-14 max-w-5xl items-center gap-6 px-4">
+          <Link href="/" className="text-lg font-bold text-nb-fg">
+            {appName}
+          </Link>
+          <nav className="flex items-center gap-4 text-sm">
+            <Link href="/docs" className="text-nb-muted-fg hover:text-nb-fg transition-colors">
+              Docs
+            </Link>
+            <Link href="/patterns/button-organization" className="text-nb-muted-fg hover:text-nb-fg transition-colors">
+              Patterns
+            </Link>
+            <Link href="/theme/tokens" className="text-nb-muted-fg hover:text-nb-fg transition-colors">
+              Theme
+            </Link>
+          </nav>
+        </div>
+      </header>
+      {children}
+    </>
+  );
+}

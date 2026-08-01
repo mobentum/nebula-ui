@@ -1,0 +1,56 @@
+---
+title: Hover Card
+description: A rich content preview that appears when hovering over an element.
+---
+
+import { HoverCard, HoverCardPopup, HoverCardPortal, HoverCardPositioner, HoverCardRoot, HoverCardTrigger } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<HoverCardRoot>
+  <HoverCardTrigger>
+    <span className="underline decoration-dotted cursor-pointer">@username</span>
+  </HoverCardTrigger>
+  <HoverCardPortal>
+    <HoverCardPositioner>
+      <HoverCardPopup>
+        <div className="flex gap-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
+            JD
+          </div>
+          <div>
+            <p className="text-sm font-semibold">John Doe</p>
+            <p className="text-xs text-muted-foreground">@username</p>
+            <p className="mt-1 text-xs text-muted-foreground">Software developer</p>
+          </div>
+        </div>
+      </HoverCardPopup>
+    </HoverCardPositioner>
+  </HoverCardPortal>
+</HoverCardRoot>
+```
+
+<Preview>
+  <HoverCardRoot>
+    <HoverCardTrigger>
+      <span className="underline decoration-dotted cursor-pointer">@username</span>
+    </HoverCardTrigger>
+    <HoverCardPortal>
+      <HoverCardPositioner>
+        <HoverCardPopup>
+          <div className="flex gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
+              JD
+            </div>
+            <div>
+              <p className="text-sm font-semibold">John Doe</p>
+              <p className="text-xs text-muted-foreground">@username</p>
+              <p className="mt-1 text-xs text-muted-foreground">Software developer</p>
+            </div>
+          </div>
+        </HoverCardPopup>
+      </HoverCardPositioner>
+    </HoverCardPortal>
+  </HoverCardRoot>
+</Preview>

@@ -1,0 +1,66 @@
+---
+title: Field
+description: A form field wrapper with label, description, and error message.
+---
+
+import { FieldControl, FieldDescription, FieldError, FieldLabel, FieldRoot } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<FieldRoot>
+  <FieldLabel>Email</FieldLabel>
+  <FieldControl placeholder="Enter your email" />
+  <FieldDescription>We'll never share your email.</FieldDescription>
+</FieldRoot>
+```
+
+<Preview>
+  <div className="max-w-sm">
+    <FieldRoot>
+      <FieldLabel>Email</FieldLabel>
+      <FieldControl placeholder="Enter your email" />
+      <FieldDescription>We'll never share your email.</FieldDescription>
+    </FieldRoot>
+  </div>
+</Preview>
+
+## Required
+
+```tsx
+<FieldRoot>
+  <FieldLabel>Password</FieldLabel>
+  <FieldControl type="password" required placeholder="Enter a password" />
+  <FieldDescription>Must be at least 8 characters.</FieldDescription>
+</FieldRoot>
+```
+
+<Preview>
+  <div className="max-w-sm">
+    <FieldRoot>
+      <FieldLabel>Password</FieldLabel>
+      <FieldControl type="password" required placeholder="Enter a password" />
+      <FieldDescription>Must be at least 8 characters.</FieldDescription>
+    </FieldRoot>
+  </div>
+</Preview>
+
+## Error
+
+```tsx
+<FieldRoot invalid>
+  <FieldLabel>Email</FieldLabel>
+  <FieldControl placeholder="Enter your email" value="invalid" />
+  <FieldError>Please enter a valid email address.</FieldError>
+</FieldRoot>
+```
+
+<Preview>
+  <div className="max-w-sm">
+    <FieldRoot invalid>
+      <FieldLabel>Email</FieldLabel>
+      <FieldControl placeholder="Enter your email" />
+      <FieldError>Please enter a valid email address.</FieldError>
+    </FieldRoot>
+  </div>
+</Preview>

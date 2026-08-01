@@ -1,0 +1,70 @@
+---
+title: Radio
+description: Radio buttons for selecting a single option from a group.
+---
+
+import { RadioGroup, RadioIndicator, RadioItem } from '@nebula/ui';
+
+## Radio group
+
+```tsx
+<RadioGroup defaultValue="1">
+  <RadioItem value="1">
+    <RadioIndicator />
+    Option 1
+  </RadioItem>
+  <RadioItem value="2">
+    <RadioIndicator />
+    Option 2
+  </RadioItem>
+  <RadioItem value="3">
+    <RadioIndicator />
+    Option 3
+  </RadioItem>
+</RadioGroup>
+```
+
+<Preview>
+  <RadioGroup defaultValue="1">
+    <RadioItem value="1">
+      <RadioIndicator />
+      <span className="text-sm">Option 1</span>
+    </RadioItem>
+    <RadioItem value="2">
+      <RadioIndicator />
+      <span className="text-sm">Option 2</span>
+    </RadioItem>
+    <RadioItem value="3">
+      <RadioIndicator />
+      <span className="text-sm">Option 3</span>
+    </RadioItem>
+  </RadioGroup>
+</Preview>
+
+## Disabled
+
+```tsx
+<RadioGroup defaultValue="1">
+  <RadioItem value="1">
+    <RadioIndicator />
+    Enabled
+  </RadioItem>
+  <RadioItem value="2" disabled>
+    <RadioIndicator />
+    Disabled
+  </RadioItem>
+</RadioGroup>
+```
+
+<Preview>
+  <RadioGroup defaultValue="1">
+    <RadioItem value="1">
+      <RadioIndicator />
+      <span className="text-sm">Enabled</span>
+    </RadioItem>
+    <RadioItem value="2" disabled>
+      <RadioIndicator />
+      <span className="text-sm text-nb-muted-fg">Disabled</span>
+    </RadioItem>
+  </RadioGroup>
+</Preview>

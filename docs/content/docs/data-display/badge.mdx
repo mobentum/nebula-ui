@@ -1,0 +1,78 @@
+---
+title: Badge
+description: Displays short status or category labels.
+---
+
+import { Badge } from '@nebula/ui';
+
+## Variants
+
+```tsx
+<Badge>Default</Badge>
+<Badge variant="solid">Solid</Badge>
+<Badge variant="outline">Outline</Badge>
+<Badge variant="subtle">Subtle</Badge>
+```
+
+<Preview>
+  <div className="flex flex-wrap gap-3">
+    <Badge>Default</Badge>
+    <Badge variant="solid">Solid</Badge>
+    <Badge variant="outline">Outline</Badge>
+    <Badge variant="subtle">Subtle</Badge>
+  </div>
+</Preview>
+
+## Sizes
+
+```tsx
+<Badge size="sm">Small</Badge>
+<Badge size="md">Medium</Badge>
+<Badge size="lg">Large</Badge>
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-3">
+    <Badge size="sm">Small</Badge>
+    <Badge size="md">Medium</Badge>
+    <Badge size="lg">Large</Badge>
+  </div>
+</Preview>
+
+## Colors
+
+Badges support semantic colors that combine with any variant.
+
+```tsx
+<Badge color="primary">Primary</Badge>
+<Badge color="success">Success</Badge>
+<Badge color="warning">Warning</Badge>
+<Badge color="danger">Danger</Badge>
+<Badge color="info">Info</Badge>
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-3">
+    <Badge color="primary">Primary</Badge>
+    <Badge color="success">Success</Badge>
+    <Badge color="warning">Warning</Badge>
+    <Badge color="danger">Danger</Badge>
+    <Badge color="info">Info</Badge>
+  </div>
+</Preview>
+
+Colors work with every variant:
+
+```tsx
+<Badge variant="outline" color="success">Outline success</Badge>
+<Badge variant="subtle" color="danger">Subtle danger</Badge>
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-3">
+    <Badge variant="outline" color="success">Outline success</Badge>
+    <Badge variant="subtle" color="danger">Subtle danger</Badge>
+    <Badge variant="subtle" color="warning">Subtle warning</Badge>
+    <Badge variant="subtle" color="info">Subtle info</Badge>
+  </div>
+</Preview>

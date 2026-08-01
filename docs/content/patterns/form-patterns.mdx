@@ -1,0 +1,181 @@
+---
+title: Form Patterns
+description: Guidelines for delivering user-centric forms with consistent spacing, layout, and validation.
+---
+
+A form is a container that houses various inputs and controls. These guidelines outline best practices for form design using Nebula UI form components.
+
+## Spacing
+
+Spacing between form elements follows a decreasing scale on an 8px grid, creating consistent visual hierarchy.
+
+### Sections
+
+Sections organize fields into logical groups. A form with more than one section uses a **32px** gap between sections.
+
+### Fields
+
+A field pairs a label with a control. Multiple fields within a section use a **24px** gap.
+
+<Preview>
+  <div className="w-full max-w-md">
+    <div className="space-y-6">
+      <div>
+        <h4 className="mb-4 text-sm font-semibold text-nb-fg">Account</h4>
+        <div className="space-y-6">
+          <div>
+            <label className="mb-1.5 block text-sm font-medium text-nb-fg">Name</label>
+            <Input placeholder="Ada Lovelace" />
+          </div>
+          <div>
+            <label className="mb-1.5 block text-sm font-medium text-nb-fg">Email</label>
+            <Input type="email" placeholder="ada@company.com" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Preview>
+
+### Field groups
+
+Fields collecting related information (e.g., first/last name, card number + expiry) are grouped in rows with a **16px** gap.
+
+<Preview>
+  <div className="w-full max-w-md">
+    <div className="flex gap-4">
+      <div className="flex-1">
+        <label className="mb-1.5 block text-sm font-medium text-nb-fg">First name</label>
+        <Input placeholder="Ada" />
+      </div>
+      <div className="flex-1">
+        <label className="mb-1.5 block text-sm font-medium text-nb-fg">Last name</label>
+        <Input placeholder="Lovelace" />
+      </div>
+    </div>
+  </div>
+</Preview>
+
+## Layout
+
+### Single column
+
+Use a **single-column layout** for forms to streamline data entry. Limit forms to a comfortable reading width.
+
+<Preview>
+  <div className="w-full max-w-md">
+    <div className="space-y-4">
+      <div>
+        <label className="mb-1.5 block text-sm font-medium text-nb-fg">Username</label>
+        <Input placeholder="ada" />
+      </div>
+      <div>
+        <label className="mb-1.5 block text-sm font-medium text-nb-fg">Password</label>
+        <Input type="password" placeholder="••••••••" />
+      </div>
+    </div>
+  </div>
+</Preview>
+
+### Multi-column
+
+Place related fields in a row when needed, but keep columns consistent throughout the form and **don't exceed three fields per group**.
+
+<Preview>
+  <div className="w-full max-w-md">
+    <div className="flex gap-4">
+      <div className="flex-1">
+        <label className="mb-1.5 block text-sm font-medium text-nb-fg">Country</label>
+        <Input placeholder="US" />
+      </div>
+      <div className="flex-1">
+        <label className="mb-1.5 block text-sm font-medium text-nb-fg">City</label>
+        <Input placeholder="London" />
+      </div>
+    </div>
+    <div className="mt-4">
+      <label className="mb-1.5 block text-sm font-medium text-nb-fg">ZIP / Postal code</label>
+      <Input placeholder="10001" />
+    </div>
+  </div>
+</Preview>
+
+### Responsive
+
+Stack multi-column fields vertically at the `md` breakpoint:
+
+```tsx
+<div className="flex flex-col gap-4 md:flex-row">
+  <div className="flex-1">...</div>
+  <div className="flex-1">...</div>
+</div>
+```
+
+## Required and optional
+
+For **complex forms**, indicate **required** fields. For **short, simple forms**, indicate **optional** fields instead. Don't mix both — pick one approach and apply it consistently.
+
+<Preview>
+  <div className="w-full max-w-md">
+    <div>
+      <label className="mb-1.5 block text-sm font-medium text-nb-fg">
+        Email <span className="text-nb-destructive">*</span>
+      </label>
+      <Input type="email" placeholder="ada@company.com" />
+    </div>
+    <div className="mt-4">
+      <label className="mb-1.5 block text-sm font-medium text-nb-fg">
+        Company <span className="text-nb-muted-fg">(optional)</span>
+      </label>
+      <Input placeholder="Analytical Engine Co." />
+    </div>
+  </div>
+</Preview>
+
+## Validation
+
+A successful validation strategy relies on three concepts:
+
+1. **Clear language** — error messages are human-readable and specific.
+2. **Placement** — errors appear in close proximity to the field.
+3. **Timing** — errors appear as soon as possible after the error occurs.
+
+Use **field-level inline validation** to inform the user immediately, shown as soon as the field is validated:
+
+<Preview>
+  <div className="w-full max-w-md">
+    <div>
+      <label className="mb-1.5 block text-sm font-medium text-nb-fg">Email</label>
+      <Input type="email" value="invalid" className="border-nb-destructive focus-visible:ring-nb-destructive" />
+      <p className="mt-1 text-xs text-nb-destructive">Please enter a valid email address.</p>
+    </div>
+  </div>
+</Preview>
+
+For server-side or submission-level errors, use a form-level alert at the top of the form:
+
+<Preview>
+  <div className="w-full max-w-md">
+    <div className="mb-4 rounded-lg border border-nb-destructive/30 bg-nb-destructive/5 p-4 text-sm text-nb-fg">
+      <p className="font-medium text-nb-fg">Please correct the following errors and resubmit the form.</p>
+      <ul className="mt-2 list-disc space-y-1 pl-5 text-nb-muted-fg">
+        <li>Email is required.</li>
+        <li>Password must be at least 8 characters.</li>
+      </ul>
+    </div>
+    <div>
+      <label className="mb-1.5 block text-sm font-medium text-nb-fg">Email</label>
+      <Input type="email" placeholder="ada@company.com" />
+    </div>
+  </div>
+</Preview>
+
+## Anatomy
+
+| Element | Description |
+|---------|-------------|
+| Form | Exterior container that wraps sections and handles submission |
+| Section | Groups related content and fields |
+| Field | A label/control pairing |
+| Group | Layout mechanism to group related fields in a row |
+| Actions | Submit, cancel, or "go back" buttons — see [button organization](/patterns/button-organization) |

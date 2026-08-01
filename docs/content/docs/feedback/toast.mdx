@@ -1,0 +1,33 @@
+---
+title: Toast
+description: A brief notification that appears temporarily to provide feedback.
+---
+
+import { Button, Toast, ToastClose, ToastDescription, ToastProvider, ToastRoot, ToastTitle, ToastViewport } from '@nebula/ui';
+
+## Basic
+
+Toasts are managed imperatively with a toast manager. Call `manager.add()` to show a toast, and use `useToastManager()` to render them.
+
+```tsx
+import { Toast as BaseToast } from '@base-ui/react/toast';
+
+const manager = BaseToast.createToastManager();
+
+function App() {
+  return (
+    <ToastProvider toastManager={manager}>
+      <Button onClick={() => manager.add({ title: 'Saved', description: 'Changes saved.' })}>
+        Show Toast
+      </Button>
+      <ToastViewport>
+        <ToastRoot toast={toast}>
+          <ToastTitle>{toast.title}</ToastTitle>
+          <ToastDescription>{toast.description}</ToastDescription>
+          <ToastClose />
+        </ToastRoot>
+      </ToastViewport>
+    </ToastProvider>
+  );
+}
+```

@@ -1,0 +1,44 @@
+---
+title: Divider
+description: A horizontal divider with an optional label for separating content sections.
+---
+
+import { Divider, DividerLabel, DividerLine, DividerRoot } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<div className="space-y-4">
+  <p className="text-sm">Above the divider</p>
+  <DividerRoot />
+  <p className="text-sm">Below the divider</p>
+</div>
+```
+
+<Preview>
+  <div className="w-full space-y-4">
+    <p className="text-sm">Above the divider</p>
+    <DividerRoot />
+    <p className="text-sm">Below the divider</p>
+  </div>
+</Preview>
+
+## With label
+
+```tsx
+<DividerRoot>
+  <DividerLine />
+  <DividerLabel>Section Label</DividerLabel>
+  <DividerLine />
+</DividerRoot>
+```
+
+<Preview>
+  <div className="w-full">
+    <DividerRoot>
+      <DividerLine />
+      <DividerLabel>Section Label</DividerLabel>
+      <DividerLine />
+    </DividerRoot>
+  </div>
+</Preview>

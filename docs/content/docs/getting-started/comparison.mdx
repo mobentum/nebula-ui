@@ -1,0 +1,63 @@
+---
+title: Comparison
+description: How Nebula UI compares to other React component libraries.
+---
+
+Nebula UI sits at a unique intersection: it gives you the **pre-styled, production-ready experience** of a full component library with the **flexibility of a headless primitive library** — all on a modern Tailwind CSS v4 foundation.
+
+## What Nebula UI does best
+
+### Native Tailwind CSS v4
+
+We don't retrofit a v3 config or ship a legacy setup. The library is built on Tailwind v4's modern architecture:
+
+- `@theme inline` design tokens that map directly to utilities
+- `@custom-variant dark` for class-based dark mode
+- `@source` scanning for the component package
+- A single `--radius` token that derives the entire radius scale
+
+### Single-source design tokens
+
+One CSS variable controls an entire scale. Override `--radius`, `--primary`, or any semantic token and the whole library updates — no component-level overrides needed.
+
+### Full Base UI API, unlocked
+
+Built on Base UI (the foundation shadcn/ui uses), but we don't hide the primitives. Every subcomponent is exported — `DialogViewport`, `SelectList`, `MenuSubmenuTrigger`, `TabsIndicator` — so nothing is locked behind a wrapper. You get the headless power AND the styling.
+
+### Pre-styled, but never in the way
+
+Unlike copy-paste libraries, Nebula UI is an npm package — install and update it like normal. But every component:
+
+- Merges `className` via tailwind-merge (real overrides, not string concat)
+- Forwards refs and render props
+- Supports `as` for semantic customization
+
+### Blocks built in
+
+Beyond 50+ components, we ship template blocks — page shells, pricing, logins, banners, grid lists, empty states — so you can scaffold full pages, not just single controls.
+
+## Side-by-side
+
+| | Nebula UI | shadcn/ui | MUI | Chakra UI | Tremor | Raw Base UI |
+|---|---|---|---|---|---|---|
+| **Styling** | Tailwind v4 native | Tailwind | Emotion (CSS-in-JS) | CSS-in-JS | Tailwind | None |
+| **Install model** | npm package | Copy-paste / CLI | npm | npm | npm | npm (headless) |
+| **Dark mode** | Class-based (any subtree) | Class-based | System preference | Class-based | Class-based | — |
+| **Design tokens** | Single-source `@theme inline` | CSS variables | Theme provider | Theme provider | Yes | — |
+| **Pre-styled** | Yes | Yes | Yes | Yes | Yes | No |
+| **Full primitive API** | Yes (passthroughs) | Partial | Yes | Partial | Partial | Yes |
+| **Blocks/templates** | Yes | Yes | No | No | Yes (dashboards) | No |
+| **Tree-shakable** | Yes | Yes | No (heavy) | No | Medium | Yes |
+| **Bundle weight** | Light | Light | Heavy | Medium | Medium | Lightest |
+
+## When to choose what
+
+**Choose Nebula UI** if you want pre-styled, accessible components that are still fully overridable, a modern Tailwind v4 setup, and complete access to the underlying Base UI API — without maintaining copied source code.
+
+**Choose shadcn/ui** if you prefer owning every line of component code and using a CLI to distribute it (the "open code" model).
+
+**Choose MUI/Ant/Chakra** if you're locked into a CSS-in-JS ecosystem and want their specific design languages.
+
+**Choose raw Base UI/Radix** if you want zero styling and don't mind building every component style yourself.
+
+**Choose Tremor** if you're building dashboards specifically and want chart-focused building blocks.

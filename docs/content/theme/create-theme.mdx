@@ -1,0 +1,144 @@
+---
+title: Create a New Theme
+description: How to customize Nebula UI tokens or create a fully custom theme.
+---
+
+Nebula UI's theming is built entirely on CSS custom properties. Every color, surface, and border is a variable that `@theme inline` maps to Tailwind utilities (`bg-nb-primary`, `text-nb-fg`, etc.). Because of this, creating a new theme is just a matter of overriding the CSS variables.
+
+## How theming works
+
+Three pieces work together:
+
+1. **`default-theme.css`** — defines `--background`, `--primary`, `--muted`, etc. in `:root` (light) and `.dark`.
+2. **`tailwind.css`** — `@theme inline` maps each `--color-nb-*` token to a CSS variable: `--color-nb-primary: var(--primary)`.
+3. **Components** — use Tailwind utilities like `bg-nb-primary`, so they resolve through the variables automatically.
+
+Change the variable, and every component updates instantly — no component code changes needed.
+
+## Quick customization
+
+To tweak a single value, override the variable after the library imports:
+
+```css
+@import "tailwindcss";
+@import "@nebula/ui/css/tailwind.css";
+@import "@nebula/ui/css/default-theme.css";
+
+/* Override after the theme import */
+:root {
+  --primary: #ff6b35;
+  --primary-foreground: #ffffff;
+}
+
+.dark {
+  --primary: #ff8c5a;
+}
+```
+
+Now every component using `bg-nb-primary` uses your brand color — in both light and dark mode.
+
+## Creating a brand new theme
+
+You can scope a theme to any selector. The class or attribute can be applied to `<html>`, `<body>`, or any wrapper element.
+
+```css
+/* Custom theme scoped to a class */
+.theme-coral {
+  --background: #fff8f5;
+  --foreground: #2d1b12;
+  --card: #ffffff;
+  --card-foreground: #2d1b12;
+  --primary: #ff6b35;
+  --primary-foreground: #ffffff;
+  --secondary: #ffe8dd;
+  --secondary-foreground: #2d1b12;
+  --muted: #ffefe6;
+  --muted-foreground: #8a6a58;
+  --accent: #ffddd0;
+  --accent-foreground: #2d1b12;
+  --destructive: #d64545;
+  --destructive-foreground: #ffffff;
+  --border: #f2d5c7;
+  --input: #e8c0ad;
+  --ring: #ff6b35;
+}
+```
+
+Apply it to an element:
+
+```html
+<html class="theme-coral">...</html>
+```
+
+Or toggle it with a data attribute:
+
+```css
+[data-theme="coral"] {
+  --primary: #ff6b35;
+  /* ...all tokens */
+}
+```
+
+```html
+<html data-theme="coral">...</html>
+```
+
+## Dark mode for custom themes
+
+The default `.dark` class provides dark values for the base theme. Custom themes should define their own dark variants using the same selector with a dark-mode modifier.
+
+Using a class-based approach:
+
+```css
+.theme-coral {
+  /* light tokens */
+}
+
+.theme-coral.dark {
+  --background: #1a120c;
+  --foreground: #faf5f2;
+  --card: #241a14;
+  --primary: #ff8c5a;
+  /* ... */
+}
+```
+
+Using a data attribute:
+
+```css
+[data-theme="coral"] {
+  /* light tokens */
+}
+
+[data-theme="coral"][data-mode="dark"] {
+  /* dark tokens */
+}
+```
+
+## Complete token reference
+
+Every theme must define these variables in both `:root` (or theme scope) and the dark variant:
+
+| Variable | Purpose |
+|----------|---------|
+| `--background` | Page background |
+| `--foreground` | Default text |
+| `--card` / `--card-foreground` | Card surface and text |
+| `--popover` / `--popover-foreground` | Dropdown/overlay surface and text |
+| `--primary` / `--primary-foreground` | Primary action and its text |
+| `--secondary` / `--secondary-foreground` | Secondary surface and text |
+| `--muted` / `--muted-foreground` | Muted surface and text |
+| `--accent` / `--accent-foreground` | Hover/highlight surface and text |
+| `--destructive` / `--destructive-foreground` | Destructive action and its text |
+| `--border` | General borders |
+| `--input` | Input borders |
+| `--ring` | Focus ring |
+
+## Accessibility
+
+When defining a new theme, verify every foreground/background pair meets [WCAG 2.1 AA](https://webaim.org/resources/contrastchecker/) contrast:
+
+- Normal text: at least **4.5:1**
+- Large text and UI components: at least **3:1**
+
+A common mistake is a low-contrast `--muted-foreground`. Keep it comfortably above 4.5:1 against both `--background` and `--card`.

@@ -1,0 +1,75 @@
+---
+title: Description List
+description: A pattern for presenting metadata as label/value pairs.
+---
+
+A description list presents read-only metadata — labels paired with their values. It's ideal for property sheets, details views, and summary information.
+
+## Structure
+
+Use semantic HTML with `dl`, `dt`, and `dd` elements for accessibility.
+
+<Preview>
+  <div className="w-full max-w-md">
+    <dl className="divide-y divide-nb-border rounded-lg border border-nb-border">
+      <div className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <dt className="text-sm text-nb-muted-fg">Status</dt>
+        <dd className="text-sm font-medium text-nb-fg">
+          <Badge>Active</Badge>
+        </dd>
+      </div>
+      <div className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <dt className="text-sm text-nb-muted-fg">Region</dt>
+        <dd className="text-sm font-medium text-nb-fg">us-east-1</dd>
+      </div>
+      <div className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <dt className="text-sm text-nb-muted-fg">Created</dt>
+        <dd className="text-sm font-medium text-nb-fg">Jul 12, 2026</dd>
+      </div>
+    </dl>
+  </div>
+</Preview>
+
+## Two-column layout
+
+Wide values and long labels benefit from a two-column layout where labels stay in a fixed-width column.
+
+<Preview>
+  <div className="w-full max-w-md">
+    <dl className="divide-y divide-nb-border rounded-lg border border-nb-border">
+      <div className="grid grid-cols-3 gap-4 px-4 py-3">
+        <dt className="text-sm text-nb-muted-fg">Name</dt>
+        <dd className="col-span-2 text-sm text-nb-fg">nebula-ui</dd>
+      </div>
+      <div className="grid grid-cols-3 gap-4 px-4 py-3">
+        <dt className="text-sm text-nb-muted-fg">Description</dt>
+        <dd className="col-span-2 text-sm text-nb-fg">
+          A Base UI + Tailwind CSS component library for building modern web applications.
+        </dd>
+      </div>
+      <div className="grid grid-cols-3 gap-4 px-4 py-3">
+        <dt className="text-sm text-nb-muted-fg">License</dt>
+        <dd className="col-span-2 text-sm text-nb-fg">MIT</dd>
+      </div>
+    </dl>
+  </div>
+</Preview>
+
+## Rules
+
+- Use `dl`, `dt`, `dd` semantics — don't approximate with divs.
+- Labels are `text-sm text-nb-muted-fg`; values are `text-sm text-nb-fg`.
+- For long lists, wrap rows in a bordered container and divide rows with `divide-y divide-nb-border`.
+- Stack label above value on small screens (`flex-col`), and align side-by-side on larger screens (`sm:flex-row`).
+- If a value is a status or has formatting, use the appropriate component (`Badge`, `Kbd`, etc.).
+
+## Example markup
+
+```tsx
+<dl className="divide-y divide-nb-border rounded-lg border border-nb-border">
+  <div className="grid grid-cols-3 gap-4 px-4 py-3">
+    <dt className="text-sm text-nb-muted-fg">Region</dt>
+    <dd className="col-span-2 text-sm text-nb-fg">us-east-1</dd>
+  </div>
+</dl>
+```

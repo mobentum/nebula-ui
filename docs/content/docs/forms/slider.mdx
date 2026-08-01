@@ -1,0 +1,40 @@
+---
+title: Slider
+description: A range slider for selecting a value from a continuous range.
+---
+
+import { SliderBasic, SliderWithLabel } from '@/components/slider-demo';
+
+## Basic
+
+```tsx
+<SliderRoot defaultValue={50}>
+  <SliderControl>
+    <SliderTrack>
+      <SliderRange />
+    </SliderTrack>
+    <SliderThumb />
+  </SliderControl>
+</SliderRoot>
+```
+
+<Preview>
+  <SliderBasic />
+</Preview>
+
+## With label
+
+```tsx
+<SliderRoot defaultValue={75}>
+  <SliderControl>
+    <SliderTrack>
+      <SliderRange />
+    </SliderTrack>
+    <SliderThumb aria-label="Volume" />
+  </SliderControl>
+</SliderRoot>
+```
+
+<Preview>
+  <SliderWithLabel />
+</Preview>

@@ -1,0 +1,26 @@
+---
+title: Collapsible
+description: A toggleable panel that shows and hides content.
+---
+
+import { Collapsible, CollapsiblePanel, CollapsibleRoot, CollapsibleTrigger } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<CollapsibleRoot>
+  <CollapsibleTrigger>Toggle content</CollapsibleTrigger>
+  <CollapsiblePanel>
+    This content can be shown or hidden.
+  </CollapsiblePanel>
+</CollapsibleRoot>
+```
+
+<Preview>
+  <CollapsibleRoot className="max-w-sm">
+    <CollapsibleTrigger className="text-sm font-medium">Toggle content</CollapsibleTrigger>
+    <CollapsiblePanel className="text-sm text-muted-foreground">
+      This content can be shown or hidden.
+    </CollapsiblePanel>
+  </CollapsibleRoot>
+</Preview>

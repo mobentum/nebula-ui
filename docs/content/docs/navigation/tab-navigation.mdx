@@ -1,0 +1,30 @@
+---
+title: TabNavigation
+description: A navigation-style tab bar with underline indicator for switching between views.
+---
+
+import { TabNavigation, TabNavigationList, TabNavigationRoot, TabNavigationTab } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<TabNavigationRoot defaultValue="tab1">
+  <TabNavigationList>
+    <TabNavigationTab value="tab1">Tab 1</TabNavigationTab>
+    <TabNavigationTab value="tab2">Tab 2</TabNavigationTab>
+    <TabNavigationTab value="tab3">Tab 3</TabNavigationTab>
+  </TabNavigationList>
+</TabNavigationRoot>
+```
+
+<Preview>
+  <div className="w-full">
+    <TabNavigationRoot defaultValue="tab1">
+      <TabNavigationList>
+        <TabNavigationTab value="tab1">Tab 1</TabNavigationTab>
+        <TabNavigationTab value="tab2">Tab 2</TabNavigationTab>
+        <TabNavigationTab value="tab3">Tab 3</TabNavigationTab>
+      </TabNavigationList>
+    </TabNavigationRoot>
+  </div>
+</Preview>

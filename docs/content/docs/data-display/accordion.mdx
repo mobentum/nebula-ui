@@ -1,0 +1,116 @@
+---
+title: Accordion
+description: A vertically stacked set of interactive headings that reveal associated content sections.
+---
+
+import { Accordion, AccordionHeader, AccordionItem, AccordionPanel, AccordionRoot, AccordionTrigger } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<AccordionRoot defaultValue={['item-1']}>
+  <AccordionItem value="item-1">
+    <AccordionHeader>
+      <AccordionTrigger>What is Nebula UI?</AccordionTrigger>
+    </AccordionHeader>
+    <AccordionPanel>
+      Nebula UI is a React component library built on Base UI with Tailwind CSS,
+      providing accessible, composable components for building modern web applications.
+    </AccordionPanel>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionHeader>
+      <AccordionTrigger>How is it different from Chakra UI?</AccordionTrigger>
+    </AccordionHeader>
+    <AccordionPanel>
+      Inspired by Chakra UI's API philosophy, Nebula UI is built on Base UI (the
+      headless successor to Radix) and uses Tailwind CSS v4 for styling.
+    </AccordionPanel>
+  </AccordionItem>
+  <AccordionItem value="item-3">
+    <AccordionHeader>
+      <AccordionTrigger>Can I use it in production?</AccordionTrigger>
+    </AccordionHeader>
+    <AccordionPanel>
+      Nebula UI is currently in active development. While components are built with
+      production in mind, the API may change before a stable release.
+    </AccordionPanel>
+  </AccordionItem>
+</AccordionRoot>
+```
+
+<Preview>
+  <AccordionRoot defaultValue={['item-1']}>
+    <AccordionItem value="item-1">
+      <AccordionHeader>
+        <AccordionTrigger>What is Nebula UI?</AccordionTrigger>
+      </AccordionHeader>
+      <AccordionPanel>
+        Nebula UI is a React component library built on Base UI with Tailwind CSS,
+        providing accessible, composable components for building modern web applications.
+      </AccordionPanel>
+    </AccordionItem>
+    <AccordionItem value="item-2">
+      <AccordionHeader>
+        <AccordionTrigger>How is it different from Chakra UI?</AccordionTrigger>
+      </AccordionHeader>
+      <AccordionPanel>
+        Inspired by Chakra UI's API philosophy, Nebula UI is built on Base UI (the
+        headless successor to Radix) and uses Tailwind CSS v4 for styling.
+      </AccordionPanel>
+    </AccordionItem>
+    <AccordionItem value="item-3">
+      <AccordionHeader>
+        <AccordionTrigger>Can I use it in production?</AccordionTrigger>
+      </AccordionHeader>
+      <AccordionPanel>
+        Nebula UI is currently in active development. While components are built with
+        production in mind, the API may change before a stable release.
+      </AccordionPanel>
+    </AccordionItem>
+  </AccordionRoot>
+</Preview>
+
+## Multiple open
+
+```tsx
+<AccordionRoot defaultValue={['step-1']}>
+  <AccordionItem value="step-1">
+    <AccordionHeader>
+      <AccordionTrigger>Step 1: Installation</AccordionTrigger>
+    </AccordionHeader>
+    <AccordionPanel>
+      <code>pnpm add @nebula/ui</code>
+    </AccordionPanel>
+  </AccordionItem>
+  <AccordionItem value="step-2">
+    <AccordionHeader>
+      <AccordionTrigger>Step 2: Setup</AccordionTrigger>
+    </AccordionHeader>
+    <AccordionPanel>
+      Configure your Tailwind CSS to scan the library's dist files for class names.
+    </AccordionPanel>
+  </AccordionItem>
+</AccordionRoot>
+```
+
+<Preview>
+  <AccordionRoot defaultValue={['step-1']}>
+    <AccordionItem value="step-1">
+      <AccordionHeader>
+        <AccordionTrigger>Step 1: Installation</AccordionTrigger>
+      </AccordionHeader>
+      <AccordionPanel>
+        <code>pnpm add @nebula/ui</code>
+      </AccordionPanel>
+    </AccordionItem>
+    <AccordionItem value="step-2">
+      <AccordionHeader>
+        <AccordionTrigger>Step 2: Setup</AccordionTrigger>
+      </AccordionHeader>
+      <AccordionPanel>
+        Configure your Tailwind CSS to scan the library's dist files for class names.
+      </AccordionPanel>
+    </AccordionItem>
+  </AccordionRoot>
+</Preview>

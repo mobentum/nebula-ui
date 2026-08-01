@@ -1,0 +1,33 @@
+import type { ReactNode } from 'react';
+import { SectionLayout } from '@/components/section-layout';
+import { getPatternNavigation } from '@/lib/patterns';
+
+export default function Layout({ children }: { children: ReactNode }) {
+  const navigation = getPatternNavigation();
+
+  return (
+    <>
+      <header className="sticky top-0 z-30 border-b border-nb-border bg-nb-bg/95 backdrop-blur">
+        <div className="mx-auto flex h-14 items-center gap-6 px-4">
+          <a href="/" className="text-lg font-bold text-nb-fg">
+            Nebula UI
+          </a>
+          <nav className="flex items-center gap-4 text-sm">
+            <a href="/docs" className="text-nb-muted-fg hover:text-nb-fg transition-colors">
+              Docs
+            </a>
+            <a href="/patterns/button-organization" className="text-nb-fg font-medium">
+              Patterns
+            </a>
+            <a href="/theme/tokens" className="text-nb-muted-fg hover:text-nb-fg transition-colors">
+              Theme
+            </a>
+          </nav>
+        </div>
+      </header>
+      <SectionLayout navTitle="Patterns" basePath="/patterns" navigation={navigation}>
+        {children}
+      </SectionLayout>
+    </>
+  );
+}

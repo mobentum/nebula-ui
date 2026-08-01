@@ -1,0 +1,111 @@
+---
+title: Button Organization
+description: Guidelines for aligning, ordering, and grouping buttons.
+---
+
+Guidelines for aligning, ordering, and grouping buttons. Different alignment, ordering, and grouping of actions result in different outcomes in user experience. What is most important is **consistency** across an application in how actions are aligned, ordered, and grouped.
+
+## Alignment
+
+Alignment refers to how buttons are aligned relative to the container or page. When considering internationalization (i18n), **start** and **end** are suitable substitutes for **left** and **right** alignment to account for right-to-left (RTL) languages.
+
+### Left alignment
+
+In most scenarios, align buttons to the **left side** of a container or page. The primary button should be leftmost, followed by secondary, then tertiary.
+
+- Reinforces natural reading patterns and a conversational "dialog-like" messaging strategy.
+- The primary button is prioritized in the reading direction.
+- A common example is in modals and page-level forms.
+
+<Preview>
+  <div className="flex w-full items-center justify-start gap-2">
+    <Button>Save changes</Button>
+    <Button variant="secondary">Cancel</Button>
+    <Button variant="ghost">Learn more</Button>
+  </div>
+</Preview>
+
+### Right alignment
+
+For page-level functions or actions that manage elements within the page, align buttons to the right of the page. The primary button should be the farthest right, then secondary, then tertiary.
+
+<Preview>
+  <div className="flex w-full items-center justify-end gap-2">
+    <Button variant="secondary">Cancel</Button>
+    <Button>Save changes</Button>
+  </div>
+</Preview>
+
+### Center alignment
+
+Center alignment is **not recommended** in the majority of scenarios — it can cause buttons to needlessly fill horizontal space and appear detached from the content they are paired with.
+
+<Preview>
+  <div className="flex w-full items-center justify-center gap-2">
+    <Button>Save changes</Button>
+    <Button variant="secondary">Cancel</Button>
+  </div>
+</Preview>
+
+## Order
+
+Users generally think from highest to lowest priority and positive to negative when performing an action. Order buttons from the **primary** (most important) action to the **secondary** action and, if applicable, the **tertiary** action.
+
+<Preview>
+  <div className="flex w-full items-center gap-2">
+    <Button>Save changes</Button>
+    <Button variant="secondary">Cancel</Button>
+    <Button variant="ghost">Learn more</Button>
+  </div>
+</Preview>
+
+### Destructive actions
+
+For a destructive action, replace the primary button with a **critical** button in the same position. The priority of the action takes precedence over whether the action is positive or negative.
+
+<Preview>
+  <div className="flex w-full items-center gap-2">
+    <Button variant="danger">Delete</Button>
+    <Button variant="secondary">Cancel</Button>
+  </div>
+</Preview>
+
+### Conversational messaging
+
+Users often expect to communicate with applications as if they were humans. Approached conversationally, the highest priority positive action comes first, with less important and negative actions following.
+
+<Preview>
+  <div className="flex w-full items-center gap-2">
+    <Button>Save changes</Button>
+    <Button variant="secondary">Cancel</Button>
+  </div>
+</Preview>
+
+## Grouping
+
+Group buttons together that perform similar, related, and inverse functions — like "yes/no" or "ok/cancel". As a best practice, tertiary actions should only be used if they help the user make a decision.
+
+<Preview>
+  <div className="flex w-full items-center gap-2">
+    <Button>Confirm</Button>
+    <Button variant="secondary">Cancel</Button>
+  </div>
+</Preview>
+
+## Stacking order
+
+As the viewport size shrinks, buttons should stack vertically in accordance with their order in the **DOM**. This naturally adheres to the ordering guidelines and ensures the DOM order matches the visual order.
+
+<Preview>
+  <div className="flex w-full flex-col items-stretch gap-2 sm:flex-row sm:items-center">
+    <Button>Save changes</Button>
+    <Button variant="secondary">Cancel</Button>
+  </div>
+</Preview>
+
+## Constrained vs. unconstrained
+
+- **Constrained** — components wrapped within a container element: dialogs, modals, toolbars, alerts, banners.
+- **Unconstrained** — components at the page level: general page content, in-page forms.
+
+Constrained components are often used in an interstitial experience triggered by the user and elicits a quick, progressive action. Unconstrained refers to a more static experience tied to a page-level function or navigational element.

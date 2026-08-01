@@ -1,0 +1,82 @@
+---
+title: Meter
+description: A gauge component for visualizing a value within a known range.
+---
+
+import { Meter, MeterIndicator, MeterLabel, MeterRoot, MeterTrack, MeterValueLabel } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<MeterRoot value={75}>
+  <MeterLabel>Storage</MeterLabel>
+  <MeterTrack>
+    <MeterIndicator />
+  </MeterTrack>
+  <MeterValueLabel />
+</MeterRoot>
+```
+
+<Preview>
+  <MeterRoot value={75} className="max-w-sm">
+    <MeterLabel>Storage</MeterLabel>
+    <MeterTrack>
+      <MeterIndicator />
+    </MeterTrack>
+    <MeterValueLabel />
+  </MeterRoot>
+</Preview>
+
+## Colors
+
+```tsx
+<MeterRoot value={75} color="primary">
+  <MeterTrack>
+    <MeterIndicator />
+  </MeterTrack>
+</MeterRoot>
+<MeterRoot value={75} color="success">
+  <MeterTrack>
+    <MeterIndicator />
+  </MeterTrack>
+</MeterRoot>
+<MeterRoot value={75} color="warning">
+  <MeterTrack>
+    <MeterIndicator />
+  </MeterTrack>
+</MeterRoot>
+<MeterRoot value={75} color="danger">
+  <MeterTrack>
+    <MeterIndicator />
+  </MeterTrack>
+</MeterRoot>
+```
+
+<Preview>
+  <div className="flex w-full flex-col gap-4">
+    <MeterRoot value={75} color="primary" className="max-w-sm">
+      <MeterLabel>Primary</MeterLabel>
+      <MeterTrack>
+        <MeterIndicator />
+      </MeterTrack>
+    </MeterRoot>
+    <MeterRoot value={75} color="success" className="max-w-sm">
+      <MeterLabel>Success</MeterLabel>
+      <MeterTrack>
+        <MeterIndicator />
+      </MeterTrack>
+    </MeterRoot>
+    <MeterRoot value={75} color="warning" className="max-w-sm">
+      <MeterLabel>Warning</MeterLabel>
+      <MeterTrack>
+        <MeterIndicator />
+      </MeterTrack>
+    </MeterRoot>
+    <MeterRoot value={75} color="danger" className="max-w-sm">
+      <MeterLabel>Danger</MeterLabel>
+      <MeterTrack>
+        <MeterIndicator />
+      </MeterTrack>
+    </MeterRoot>
+  </div>
+</Preview>

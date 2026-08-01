@@ -1,0 +1,24 @@
+---
+title: Number Field
+description: A numeric input with increment and decrement controls.
+---
+
+import { NumberFieldDecrement, NumberFieldIncrement, NumberFieldInput, NumberFieldRoot } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<NumberFieldRoot defaultValue={0}>
+  <NumberFieldDecrement>-</NumberFieldDecrement>
+  <NumberFieldInput />
+  <NumberFieldIncrement>+</NumberFieldIncrement>
+</NumberFieldRoot>
+```
+
+<Preview>
+  <NumberFieldRoot defaultValue={0}>
+    <NumberFieldDecrement>-</NumberFieldDecrement>
+    <NumberFieldInput />
+    <NumberFieldIncrement>+</NumberFieldIncrement>
+  </NumberFieldRoot>
+</Preview>

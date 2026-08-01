@@ -1,0 +1,38 @@
+---
+title: Spinner
+description: A spinning indicator for loading states.
+---
+
+import { Spinner } from '@nebula/ui';
+
+## Sizes
+
+```tsx
+<Spinner size="sm" />
+<Spinner size="md" />
+<Spinner size="lg" />
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-4">
+    <Spinner size="sm" />
+    <Spinner size="md" />
+    <Spinner size="lg" />
+  </div>
+</Preview>
+
+## Custom color
+
+```tsx
+<Spinner size="md" className="text-brand-600" />
+<Spinner size="md" className="text-red-500" />
+<Spinner size="md" className="text-green-500" />
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-4">
+    <Spinner size="md" className="text-primary" />
+    <Spinner size="md" className="text-red-500" />
+    <Spinner size="md" className="text-green-500" />
+  </div>
+</Preview>

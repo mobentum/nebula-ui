@@ -1,0 +1,196 @@
+---
+title: Next.js integration
+description: Set up Nebula UI in a Next.js app with the App Router and Tailwind CSS v4.
+---
+
+Nebula UI works with the Next.js App Router out of the box. All components are client components, so they can be rendered directly from server components — Next.js handles the client boundary for you.
+
+## 1. Create a project
+
+Create a new Next.js app with TypeScript and Tailwind CSS:
+
+```bash
+npx create-next-app@latest my-app --ts --tailwind --app --src-dir
+```
+
+`create-next-app` ships with Tailwind CSS v4, so no upgrade is needed.
+
+## 2. Install Nebula UI
+
+```bash
+npm install @nebula/ui
+```
+
+## 3. Configure global CSS
+
+Replace the contents of `src/app/globals.css`:
+
+```css
+@import "tailwindcss";
+@import "@nebula/ui/css/tailwind.css";
+@import "@nebula/ui/css/default-theme.css";
+
+@source "../../node_modules/@nebula/ui/dist";
+```
+
+- `tailwind.css` maps the theme tokens to `nb-*` utilities.
+- `default-theme.css` provides the default light/dark color variables.
+- The `@source` directive tells Tailwind to scan the installed package for component class names.
+
+> **Important:** `@source` paths are **relative to the CSS file**, not the project root. `src/app/globals.css` needs `../../node_modules/...`. Without the `src/` directory (`app/globals.css`), use `../node_modules/@nebula/ui/dist`. If you skip `@source`, Nebula components render unstyled.
+
+## 4. Use components
+
+Client components can be imported directly into server components:
+
+```tsx
+// src/app/page.tsx
+import { Button } from '@nebula/ui';
+
+export default function Page() {
+  return <Button>Hello</Button>;
+}
+```
+
+Interactive components work the same way. Base UI renders popups (dialogs, selects, menus) in portals, which Next.js supports natively:
+
+```tsx
+// src/app/demo.tsx
+'use client';
+
+import {
+  Button,
+  DialogRoot,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogHeader,
+  DialogFooter,
+  DialogClose,
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
+  SelectIcon,
+  SelectPortal,
+  SelectPositioner,
+  SelectPopup,
+  SelectItem,
+} from '@nebula/ui';
+
+export function Demo() {
+  return (
+    <div className="flex flex-col items-start gap-4 p-8">
+      <SelectRoot defaultValue="next">
+        <SelectTrigger>
+          <SelectValue />
+          <SelectIcon />
+        </SelectTrigger>
+        <SelectPortal>
+          <SelectPositioner>
+            <SelectPopup>
+              <SelectItem value="next">Next.js</SelectItem>
+              <SelectItem value="remix">Remix</SelectItem>
+            </SelectPopup>
+          </SelectPositioner>
+        </SelectPortal>
+      </SelectRoot>
+
+      <DialogRoot>
+        <DialogTrigger render={<Button>Open dialog</Button>} />
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Dialog title</DialogTitle>
+            <DialogDescription>Dialog description</DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <DialogClose render={<Button variant="outline">Cancel</Button>} />
+            <Button>Continue</Button>
+          </DialogFooter>
+        </DialogContent>
+      </DialogRoot>
+    </div>
+  );
+}
+```
+
+```tsx
+// src/app/page.tsx
+import { Demo } from './demo';
+
+export default function Page() {
+  return <Demo />;
+}
+```
+
+## 5. Icons
+
+Nebula UI uses [Phosphor Icons](https://phosphoricons.com) internally for chevrons, close buttons, and other glyphs. `@phosphor-icons/react` is a **regular dependency** of `@nebula/ui`, so it installs automatically — no separate setup needed for components to render correctly.
+
+To use Phosphor icons in your own code (e.g. a `Button` with a leading icon), install the package explicitly:
+
+```bash
+npm install @phosphor-icons/react
+```
+
+```tsx
+import { Plus } from '@phosphor-icons/react';
+import { Button } from '@nebula/ui';
+
+export function AddButton() {
+  return (
+    <Button>
+      <Plus className="h-4 w-4" aria-hidden />
+      Add
+    </Button>
+  );
+}
+```
+
+## 6. Dark mode
+
+Theme tokens ship light and dark values, switched with a `.dark` class on the root element:
+
+```tsx
+// src/app/theme-provider.tsx
+'use client';
+
+import { useEffect, useState } from 'react';
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark);
+  }, [dark]);
+
+  return <>{children}</>;
+}
+```
+
+Use a toggle to flip state:
+
+```tsx
+'use client';
+
+import { Button } from '@nebula/ui';
+
+export function ThemeToggle() {
+  const [dark, setDark] = useState(false);
+
+  return (
+    <Button
+      variant="outline"
+      size="sm"
+      onClick={() => {
+        setDark((d) => {
+          document.documentElement.classList.toggle('dark', !d);
+          return !d;
+        });
+      }}
+    >
+      Toggle theme
+    </Button>
+  );
+}
+```

@@ -1,0 +1,27 @@
+{
+  "name": "nebula",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "docs",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "release": "turbo run build --filter=@nebula/ui && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.28.1",
+    "prettier": "^3.5.3",
+    "turbo": "^2.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@10.33.4"
+}

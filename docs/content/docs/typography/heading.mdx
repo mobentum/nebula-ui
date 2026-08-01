@@ -1,0 +1,77 @@
+---
+title: Heading
+description: A typography component for page and section headings.
+---
+
+import { Heading } from '@nebula/ui';
+
+## Levels
+
+```tsx
+<Heading as="h1">Heading 1</Heading>
+<Heading as="h2">Heading 2</Heading>
+<Heading as="h3">Heading 3</Heading>
+<Heading as="h4">Heading 4</Heading>
+<Heading as="h5">Heading 5</Heading>
+<Heading as="h6">Heading 6</Heading>
+```
+
+<Preview>
+  <div className="flex flex-col gap-2">
+    <Heading as="h1">Heading 1</Heading>
+    <Heading as="h2">Heading 2</Heading>
+    <Heading as="h3">Heading 3</Heading>
+    <Heading as="h4">Heading 4</Heading>
+    <Heading as="h5">Heading 5</Heading>
+    <Heading as="h6">Heading 6</Heading>
+  </div>
+</Preview>
+
+## Weight
+
+```tsx
+<Heading as="h3" weight="bold">Bold heading</Heading>
+<Heading as="h3" weight="semibold">Semibold heading</Heading>
+<Heading as="h3" weight="medium">Medium heading</Heading>
+<Heading as="h3" weight="normal">Normal heading</Heading>
+```
+
+<Preview>
+  <div className="flex flex-col gap-2">
+    <Heading as="h3" weight="bold">Bold heading</Heading>
+    <Heading as="h3" weight="semibold">Semibold heading</Heading>
+    <Heading as="h3" weight="medium">Medium heading</Heading>
+    <Heading as="h3" weight="normal">Normal heading</Heading>
+  </div>
+</Preview>
+
+## Alignment
+
+```tsx
+<Heading as="h4" align="center">Centered heading</Heading>
+<Heading as="h4" align="right">Right-aligned heading</Heading>
+```
+
+<Preview>
+  <div className="flex flex-col gap-2">
+    <Heading as="h4" align="left">Left-aligned heading</Heading>
+    <Heading as="h4" align="center">Centered heading</Heading>
+    <Heading as="h4" align="right">Right-aligned heading</Heading>
+  </div>
+</Preview>
+
+## Customization
+
+Every heading is fully overridable — `className` merges via tailwind-merge, so you can change size, color, spacing, or anything else:
+
+```tsx
+<Heading as="h2" className="text-2xl text-nb-primary">Custom heading</Heading>
+<Heading as="h2" className="mt-8 tracking-wide">Custom spacing</Heading>
+```
+
+<Preview>
+  <div className="flex flex-col gap-2">
+    <Heading as="h2" className="text-2xl text-nb-primary">Custom color & size</Heading>
+    <Heading as="h2" className="tracking-wide">Custom letter spacing</Heading>
+  </div>
+</Preview>

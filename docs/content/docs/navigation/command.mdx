@@ -1,0 +1,48 @@
+---
+title: Command
+description: A command palette for keyboard-driven search and navigation.
+---
+
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandRoot, CommandSeparator } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<CommandRoot className="w-96 border shadow-md">
+  <CommandInput placeholder="Type a command or search..." />
+  <CommandList>
+    <CommandEmpty>No results found.</CommandEmpty>
+    <CommandGroup heading="Suggestions">
+      <CommandItem>Calendar</CommandItem>
+      <CommandItem>Search Emoji</CommandItem>
+      <CommandItem>Calculator</CommandItem>
+    </CommandGroup>
+    <CommandSeparator />
+    <CommandGroup heading="Settings">
+      <CommandItem>Profile</CommandItem>
+      <CommandItem>Billing</CommandItem>
+      <CommandItem>Settings</CommandItem>
+    </CommandGroup>
+  </CommandList>
+</CommandRoot>
+```
+
+<Preview>
+  <CommandRoot className="w-96 rounded-lg border shadow-md">
+    <CommandInput placeholder="Type a command or search..." />
+    <CommandList>
+      <CommandEmpty>No results found.</CommandEmpty>
+      <CommandGroup heading="Suggestions">
+        <CommandItem>Calendar</CommandItem>
+        <CommandItem>Search Emoji</CommandItem>
+        <CommandItem>Calculator</CommandItem>
+      </CommandGroup>
+      <CommandSeparator />
+      <CommandGroup heading="Settings">
+        <CommandItem>Profile</CommandItem>
+        <CommandItem>Billing</CommandItem>
+        <CommandItem>Settings</CommandItem>
+      </CommandGroup>
+    </CommandList>
+  </CommandRoot>
+</Preview>

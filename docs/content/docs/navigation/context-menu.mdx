@@ -1,0 +1,46 @@
+---
+title: Context Menu
+description: A menu that appears on right-click, providing contextual actions.
+---
+
+import { ContextMenu, ContextMenuItem, ContextMenuPopup, ContextMenuPortal, ContextMenuPositioner, ContextMenuRoot, ContextMenuSeparator, ContextMenuTrigger } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<ContextMenuRoot>
+  <ContextMenuTrigger className="flex h-32 w-64 items-center justify-center rounded-lg border border-dashed text-sm text-muted-foreground">
+    Right click here
+  </ContextMenuTrigger>
+  <ContextMenuPortal>
+    <ContextMenuPositioner>
+      <ContextMenuPopup>
+        <ContextMenuItem>Back</ContextMenuItem>
+        <ContextMenuItem>Forward</ContextMenuItem>
+        <ContextMenuItem>Reload</ContextMenuItem>
+        <ContextMenuSeparator />
+        <ContextMenuItem>Inspect</ContextMenuItem>
+      </ContextMenuPopup>
+    </ContextMenuPositioner>
+  </ContextMenuPortal>
+</ContextMenuRoot>
+```
+
+<Preview>
+  <ContextMenuRoot>
+    <ContextMenuTrigger className="flex h-32 w-64 items-center justify-center rounded-lg border border-dashed text-sm text-muted-foreground">
+      Right click here
+    </ContextMenuTrigger>
+    <ContextMenuPortal>
+      <ContextMenuPositioner>
+        <ContextMenuPopup>
+          <ContextMenuItem>Back</ContextMenuItem>
+          <ContextMenuItem>Forward</ContextMenuItem>
+          <ContextMenuItem>Reload</ContextMenuItem>
+          <ContextMenuSeparator />
+          <ContextMenuItem>Inspect</ContextMenuItem>
+        </ContextMenuPopup>
+      </ContextMenuPositioner>
+    </ContextMenuPortal>
+  </ContextMenuRoot>
+</Preview>

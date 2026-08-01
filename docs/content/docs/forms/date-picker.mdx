@@ -1,0 +1,38 @@
+---
+title: DatePicker
+description: A date input with a popover calendar for selecting dates.
+---
+
+import { DatePickerInput, DatePickerRoot, DatePickerTrigger } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<DatePickerRoot>
+  <DatePickerInput placeholder="Select a date" />
+</DatePickerRoot>
+```
+
+<Preview>
+  <div className="w-full max-w-xs">
+    <DatePickerRoot>
+      <DatePickerInput placeholder="Select a date" />
+    </DatePickerRoot>
+  </div>
+</Preview>
+
+## Custom trigger
+
+```tsx
+<DatePickerRoot>
+  <DatePickerTrigger>Pick date</DatePickerTrigger>
+</DatePickerRoot>
+```
+
+<Preview>
+  <div className="w-full max-w-xs">
+    <DatePickerRoot>
+      <DatePickerTrigger>Pick date</DatePickerTrigger>
+    </DatePickerRoot>
+  </div>
+</Preview>

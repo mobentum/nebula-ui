@@ -1,0 +1,118 @@
+---
+title: Callout
+description: A contextual callout banner with icon, title, and description.
+---
+
+import { Callout, CalloutContent, CalloutDescription, CalloutIcon, CalloutRoot, CalloutTitle } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<CalloutRoot variant="info">
+  <CalloutContent>
+    <CalloutTitle>Heads up!</CalloutTitle>
+    <CalloutDescription>This is an informational message.</CalloutDescription>
+  </CalloutContent>
+</CalloutRoot>
+```
+
+<Preview>
+  <div className="w-full">
+    <CalloutRoot variant="info">
+      <CalloutContent>
+        <CalloutTitle>Heads up!</CalloutTitle>
+        <CalloutDescription>This is an informational message.</CalloutDescription>
+      </CalloutContent>
+    </CalloutRoot>
+  </div>
+</Preview>
+
+## Variants
+
+```tsx
+<CalloutRoot variant="info">
+  <CalloutContent>
+    <CalloutTitle>Info</CalloutTitle>
+    <CalloutDescription>General information.</CalloutDescription>
+  </CalloutContent>
+</CalloutRoot>
+<CalloutRoot variant="success">
+  <CalloutContent>
+    <CalloutTitle>Success</CalloutTitle>
+    <CalloutDescription>Operation completed.</CalloutDescription>
+  </CalloutContent>
+</CalloutRoot>
+<CalloutRoot variant="warning">
+  <CalloutContent>
+    <CalloutTitle>Warning</CalloutTitle>
+    <CalloutDescription>Check your inputs.</CalloutDescription>
+  </CalloutContent>
+</CalloutRoot>
+<CalloutRoot variant="error">
+  <CalloutContent>
+    <CalloutTitle>Error</CalloutTitle>
+    <CalloutDescription>Something went wrong.</CalloutDescription>
+  </CalloutContent>
+</CalloutRoot>
+```
+
+<Preview>
+  <div className="flex w-full flex-col gap-3">
+    <CalloutRoot variant="info">
+      <CalloutContent>
+        <CalloutTitle>Info</CalloutTitle>
+        <CalloutDescription>General information.</CalloutDescription>
+      </CalloutContent>
+    </CalloutRoot>
+    <CalloutRoot variant="success">
+      <CalloutContent>
+        <CalloutTitle>Success</CalloutTitle>
+        <CalloutDescription>Operation completed.</CalloutDescription>
+      </CalloutContent>
+    </CalloutRoot>
+    <CalloutRoot variant="warning">
+      <CalloutContent>
+        <CalloutTitle>Warning</CalloutTitle>
+        <CalloutDescription>Check your inputs.</CalloutDescription>
+      </CalloutContent>
+    </CalloutRoot>
+    <CalloutRoot variant="error">
+      <CalloutContent>
+        <CalloutTitle>Error</CalloutTitle>
+        <CalloutDescription>Something went wrong.</CalloutDescription>
+      </CalloutContent>
+    </CalloutRoot>
+  </div>
+</Preview>
+
+## With icon
+
+```tsx
+<CalloutRoot variant="info">
+  <CalloutIcon>
+    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  </CalloutIcon>
+  <CalloutContent>
+    <CalloutTitle>Heads up!</CalloutTitle>
+    <CalloutDescription>This is an informational message.</CalloutDescription>
+  </CalloutContent>
+</CalloutRoot>
+```
+
+<Preview>
+  <div className="w-full">
+    <CalloutRoot variant="info">
+      <CalloutIcon>
+        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </CalloutIcon>
+      <CalloutContent>
+        <CalloutTitle>Heads up!</CalloutTitle>
+        <CalloutDescription>This is an informational message.</CalloutDescription>
+      </CalloutContent>
+    </CalloutRoot>
+  </div>
+</Preview>

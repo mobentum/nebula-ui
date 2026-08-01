@@ -1,0 +1,56 @@
+---
+title: Alert
+description: A contextual notification banner for important messages.
+---
+
+import { Alert, AlertDescription, AlertRoot, AlertTitle } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<AlertRoot variant="info">
+  <AlertTitle>Heads up!</AlertTitle>
+  <AlertDescription>This is an informational message to draw attention.</AlertDescription>
+</AlertRoot>
+```
+
+<Preview>
+  <AlertRoot variant="info">
+    <AlertTitle>Heads up!</AlertTitle>
+    <AlertDescription>This is an informational message to draw attention.</AlertDescription>
+  </AlertRoot>
+</Preview>
+
+## Variants
+
+```tsx
+<AlertRoot variant="info">
+  <AlertDescription>This is an info alert.</AlertDescription>
+</AlertRoot>
+<AlertRoot variant="success">
+  <AlertDescription>This is a success alert.</AlertDescription>
+</AlertRoot>
+<AlertRoot variant="warning">
+  <AlertDescription>This is a warning alert.</AlertDescription>
+</AlertRoot>
+<AlertRoot variant="error">
+  <AlertDescription>This is an error alert.</AlertDescription>
+</AlertRoot>
+```
+
+<Preview>
+  <div className="flex w-full flex-col gap-3">
+    <AlertRoot variant="info">
+      <AlertDescription>This is an info alert.</AlertDescription>
+    </AlertRoot>
+    <AlertRoot variant="success">
+      <AlertDescription>This is a success alert.</AlertDescription>
+    </AlertRoot>
+    <AlertRoot variant="warning">
+      <AlertDescription>This is a warning alert.</AlertDescription>
+    </AlertRoot>
+    <AlertRoot variant="error">
+      <AlertDescription>This is an error alert.</AlertDescription>
+    </AlertRoot>
+  </div>
+</Preview>

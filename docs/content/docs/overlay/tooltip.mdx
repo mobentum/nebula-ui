@@ -1,0 +1,44 @@
+---
+title: Tooltip
+description: A floating label that provides additional context on hover.
+---
+
+import { Button, Tooltip, TooltipArrow, TooltipPopup, TooltipPortal, TooltipPositioner, TooltipProvider, TooltipRoot, TooltipTrigger } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<TooltipProvider>
+  <TooltipRoot>
+    <TooltipTrigger>
+      <Button variant="outline">Hover me</Button>
+    </TooltipTrigger>
+    <TooltipPortal>
+      <TooltipPositioner>
+        <TooltipPopup>
+          <p className="text-sm">Tooltip content</p>
+          <TooltipArrow />
+        </TooltipPopup>
+      </TooltipPositioner>
+    </TooltipPortal>
+  </TooltipRoot>
+</TooltipProvider>
+```
+
+<Preview>
+  <TooltipProvider>
+    <TooltipRoot>
+      <TooltipTrigger>
+        <Button variant="outline">Hover me</Button>
+      </TooltipTrigger>
+      <TooltipPortal>
+        <TooltipPositioner>
+          <TooltipPopup>
+            <p className="text-sm">Tooltip content</p>
+            <TooltipArrow />
+          </TooltipPopup>
+        </TooltipPositioner>
+      </TooltipPortal>
+    </TooltipRoot>
+  </TooltipProvider>
+</Preview>

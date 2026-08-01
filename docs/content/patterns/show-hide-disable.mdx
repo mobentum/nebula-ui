@@ -1,0 +1,61 @@
+---
+title: Show, Hide, and Disable
+description: Guidelines for when to show, hide, or disable controls and content.
+---
+
+Content and controls can be shown, hidden, or disabled depending on the context. Choosing the right approach affects discoverability, accessibility, and user trust.
+
+## Hide
+
+Hidden content is removed from the page and from the accessibility tree. Use hiding when content is **not relevant** to the current context and should not be discoverable.
+
+- Hide content that doesn't apply to the user's current state.
+- Hidden elements should not be focusable — a hidden but focusable control is a keyboard trap.
+- Use `hidden` or conditional rendering, not opacity or `visibility: hidden` alone (those can leave focusable elements in the tab order).
+
+## Disable
+
+Disabled controls are visible but non-interactive. They communicate that an action exists but isn't available right now. Use disabling when the user **needs to understand** the control exists, but can't use it yet.
+
+Use `disabled` for controls that are unavailable due to state:
+
+<Preview>
+  <div className="flex w-full flex-wrap items-center gap-3">
+    <Button disabled>Save changes</Button>
+    <Input disabled placeholder="Read-only field" className="max-w-xs" />
+    <CheckboxRoot disabled>
+      <CheckboxIndicator />
+    </CheckboxRoot>
+  </div>
+</Preview>
+
+Disabled controls should:
+
+- Remove the control from the tab order (`disabled` does this natively for inputs and buttons).
+- Not fire events.
+- Not change appearance beyond a clear "not interactive" cue (`opacity-50`, removed cursor).
+
+## Show
+
+Showing content is the default. Content that appears conditionally should:
+
+- Appear in a predictable location so the layout doesn't jump.
+- Use a visual transition (fade or slide) so the appearance isn't abrupt — unless it's an error state, which should be immediate.
+- Be announced to screen readers when it contains critical information (e.g., form errors).
+
+## Choosing the right approach
+
+| Situation | Recommended |
+|-----------|-------------|
+| Content is irrelevant to the current context | **Hide** it |
+| The user needs to know an option exists | **Disable** it |
+| Content is ready and available | **Show** it |
+| The user can't complete an action yet (e.g., form incomplete) | **Disable** the action |
+| The feature was removed or never applied to this user | **Hide** it |
+
+## Accessibility
+
+- **Don't disable everything** — disabling without explanation is frustrating. Prefer enabling controls and showing contextual help about what's needed.
+- **Explain disabled states** — if a control is disabled because of missing context, surface a hint (e.g., a tooltip or helper text).
+- **Respect reduced motion** — use `motion-reduce:transition-none` for conditional reveals so users with `prefers-reduced-motion` aren't affected.
+- Disabled state is communicated via `aria-disabled`/`disabled` semantics — don't rely on visual style alone.

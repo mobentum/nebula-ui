@@ -1,0 +1,44 @@
+---
+title: SelectNative
+description: A styled native select element for simple dropdown choices.
+---
+
+import { SelectNative } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<SelectNative>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</SelectNative>
+```
+
+<Preview>
+  <div className="w-full max-w-xs">
+    <SelectNative>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </SelectNative>
+  </div>
+</Preview>
+
+## Disabled
+
+```tsx
+<SelectNative disabled>
+  <option>Option 1</option>
+  <option>Option 2</option>
+</SelectNative>
+```
+
+<Preview>
+  <div className="w-full max-w-xs">
+    <SelectNative disabled>
+      <option>Option 1</option>
+      <option>Option 2</option>
+    </SelectNative>
+  </div>
+</Preview>

@@ -1,0 +1,100 @@
+---
+title: Dialog
+description: A modal dialog overlay for focused user interactions.
+---
+
+import { Button, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogRoot, DialogTitle, DialogTrigger } from '@nebula/ui';
+
+## Basic Usage
+
+```tsx
+<DialogRoot>
+  <DialogTrigger render={<Button>Open dialog</Button>} />
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Dialog Title</DialogTitle>
+      <DialogDescription>This is a simple dialog description.</DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</DialogRoot>
+```
+
+<Preview>
+  <DialogRoot>
+    <DialogTrigger render={<Button>Open dialog</Button>} />
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle>Dialog Title</DialogTitle>
+        <DialogDescription>This is a simple dialog description.</DialogDescription>
+      </DialogHeader>
+    </DialogContent>
+  </DialogRoot>
+</Preview>
+
+## With Form
+
+```tsx
+<DialogRoot>
+  <DialogTrigger render={<Button>Edit profile</Button>} />
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Edit Profile</DialogTitle>
+      <DialogDescription>Update your profile information.</DialogDescription>
+    </DialogHeader>
+    <div className="py-4">
+      <input
+        placeholder="Your name"
+        className="w-full rounded-md border px-3 py-2 text-sm"
+      />
+    </div>
+    <DialogFooter>
+      <DialogClose render={<Button variant="outline">Cancel</Button>} />
+      <Button>Save</Button>
+    </DialogFooter>
+  </DialogContent>
+</DialogRoot>
+```
+
+<Preview>
+  <DialogRoot>
+    <DialogTrigger render={<Button>Edit profile</Button>} />
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle>Edit Profile</DialogTitle>
+        <DialogDescription>Update your profile information.</DialogDescription>
+      </DialogHeader>
+      <div className="py-4">
+        <input
+          placeholder="Your name"
+          className="w-full rounded-md border px-3 py-2 text-sm"
+        />
+      </div>
+      <DialogFooter>
+        <DialogClose render={<Button variant="outline">Cancel</Button>} />
+        <Button>Save</Button>
+      </DialogFooter>
+    </DialogContent>
+  </DialogRoot>
+</Preview>
+
+## Hide Close Button
+
+```tsx
+<DialogContent showCloseButton={false}>
+  <DialogHeader>
+    <DialogTitle>No close button</DialogTitle>
+  </DialogHeader>
+</DialogContent>
+```
+
+<Preview>
+  <DialogRoot>
+    <DialogTrigger render={<Button>Open</Button>} />
+    <DialogContent showCloseButton={false}>
+      <DialogHeader>
+        <DialogTitle>No close button</DialogTitle>
+        <DialogDescription>The close button is hidden on this dialog.</DialogDescription>
+      </DialogHeader>
+    </DialogContent>
+  </DialogRoot>
+</Preview>

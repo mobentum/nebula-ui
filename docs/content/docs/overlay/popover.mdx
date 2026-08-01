@@ -1,0 +1,42 @@
+---
+title: Popover
+description: A floating overlay for secondary content and actions.
+---
+
+import { Button, Popover, PopoverArrow, PopoverDescription, PopoverPopup, PopoverPortal, PopoverPositioner, PopoverRoot, PopoverTitle, PopoverTrigger } from '@nebula/ui';
+
+## Basic
+
+```tsx
+<PopoverRoot>
+  <PopoverTrigger>
+    <Button variant="outline">Open popover</Button>
+  </PopoverTrigger>
+  <PopoverPortal>
+    <PopoverPositioner>
+      <PopoverPopup>
+        <PopoverTitle>Popover Title</PopoverTitle>
+        <PopoverDescription>This is some popover content.</PopoverDescription>
+        <PopoverArrow />
+      </PopoverPopup>
+    </PopoverPositioner>
+  </PopoverPortal>
+</PopoverRoot>
+```
+
+<Preview>
+  <PopoverRoot>
+    <PopoverTrigger>
+      <Button variant="outline">Open popover</Button>
+    </PopoverTrigger>
+    <PopoverPortal>
+      <PopoverPositioner>
+        <PopoverPopup>
+          <PopoverTitle>Popover Title</PopoverTitle>
+          <PopoverDescription>This is some popover content.</PopoverDescription>
+          <PopoverArrow />
+        </PopoverPopup>
+      </PopoverPositioner>
+    </PopoverPortal>
+  </PopoverRoot>
+</Preview>

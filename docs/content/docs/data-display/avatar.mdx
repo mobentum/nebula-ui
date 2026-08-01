@@ -1,0 +1,74 @@
+---
+title: Avatar
+description: Displays user profile images or initials as a fallback.
+---
+
+import { Avatar } from '@nebula/ui';
+
+## Image
+
+```tsx
+<Avatar src="https://i.pravatar.cc/150?u=1" alt="User avatar" />
+<Avatar src="https://i.pravatar.cc/150?u=2" alt="User avatar" />
+<Avatar src="https://i.pravatar.cc/150?u=3" alt="User avatar" />
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-3">
+    <Avatar src="https://i.pravatar.cc/150?u=1" alt="User avatar" />
+    <Avatar src="https://i.pravatar.cc/150?u=2" alt="User avatar" />
+    <Avatar src="https://i.pravatar.cc/150?u=3" alt="User avatar" />
+  </div>
+</Preview>
+
+## Fallback
+
+```tsx
+<Avatar fallback="JD" />
+<Avatar fallback="AK" />
+<Avatar fallback="SM" />
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-3">
+    <Avatar fallback="JD" />
+    <Avatar fallback="AK" />
+    <Avatar fallback="SM" />
+  </div>
+</Preview>
+
+## Colors
+
+```tsx
+<Avatar color="primary" fallback="PR" />
+<Avatar color="success" fallback="OK" />
+<Avatar color="warning" fallback="WA" />
+<Avatar color="danger" fallback="ER" />
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-3">
+    <Avatar color="primary" fallback="PR" />
+    <Avatar color="success" fallback="OK" />
+    <Avatar color="warning" fallback="WA" />
+    <Avatar color="danger" fallback="ER" />
+  </div>
+</Preview>
+
+## Sizes
+
+```tsx
+<Avatar size="sm" fallback="SM" />
+<Avatar size="md" fallback="MD" />
+<Avatar size="lg" fallback="LG" />
+<Avatar size="xl" fallback="XL" />
+```
+
+<Preview>
+  <div className="flex flex-wrap items-center gap-3">
+    <Avatar size="sm" fallback="SM" />
+    <Avatar size="md" fallback="MD" />
+    <Avatar size="lg" fallback="LG" />
+    <Avatar size="xl" fallback="XL" />
+  </div>
+</Preview>
