@@ -1,0 +1,93 @@
+---
+title: Workflow builder
+description: Drag nodes from the palette, connect them, validate, undo, and auto-layout.
+---
+
+import { WorkflowBuilderDemo } from '@/components/flow/workflow-builder-demo';
+
+A complete workflow builder: drag nodes from the palette onto the canvas, connect them (only valid edges are allowed), then layout, undo, or redo.
+
+<Preview resettable>
+  <WorkflowBuilderDemo />
+</Preview>
+
+## Node palette
+
+`NodePalette` renders a list of draggable items. Each item sets `application/reactflow` with its node `type` on drag start:
+
+```tsx
+import { NodePalette, useNodeDrop } from '@nebula/flow';
+
+const items = [
+  { type: 'trigger', label: 'Trigger', description: 'Inbound event' },
+  { type: 'agent', label: 'Agent', description: 'Model + persona' },
+];
+
+function Canvas() {
+  const { onDrop, onDragOver } = useNodeDrop({ onAddNode: addNode });
+
+  return (
+    <Flow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+      onDrop={onDrop}
+      onDragOver={onDragOver}
+      className="h-[440px]"
+    />
+  );
+}
+```
+
+`useNodeDrop` reads the dropped type, converts the pointer position with `screenToFlowPosition`, and calls `onAddNode` (typically `addNode` from `useFlowGraph`). Use it inside `FlowProvider`.
+
+## Connection validation
+
+Pass `rules` to `Flow` to restrict which nodes can connect. A rule matches a source → target node-type pair; `'*'` matches anything. `preventCycles` is on by default.
+
+```tsx
+import { Flow, createFlowRules } from '@nebula/flow';
+
+const rules = [
+  { source: 'trigger', target: 'agent' },
+  { source: 'agent', target: 'task' },
+  { source: 'task', target: 'condition' },
+];
+
+<Flow nodes={nodes} edges={edges} rules={rules} className="h-[400px]" />;
+```
+
+`rules` also accepts a full validator from `createFlowRules` (e.g. with `preventCycles: false`), and any custom `isValidConnection` is combined with the rules.
+
+## Undo / redo
+
+Enable `history` on `useFlowGraph` to get `undo`, `redo`, `canUndo`, and `canRedo`. Structural changes (connect, add, remove, update, layout) are undoable; node drags are grouped per gesture.
+
+```tsx
+const graph = useFlowGraph({ initialNodes, initialEdges, history: true });
+// graph.undo(), graph.redo(), graph.canUndo, graph.canRedo
+```
+
+## Auto-layout
+
+`layoutFlow` arranges a DAG into clean layers (dependency-free):
+
+```tsx
+import { layoutFlow } from '@nebula/flow';
+
+const arranged = layoutFlow(nodes, edges, { direction: 'LR' });
+setGraph(arranged, edges);
+```
+
+Options: `direction` (`'TB'` default or `'LR'`), `nodeWidth`/`nodeHeight`, and `horizontalSpacing`/`verticalSpacing`.
+
+## Serialization
+
+Persist a flow with `toJSON` / `fromJSON` from `useFlowGraph` (or `serializeFlow` / `deserializeFlow`). The output is a versioned, idempotent schema with computed fields (`positionAbsolute`, `width`, `height`, `selected`, `measured`) stripped — safe to store in your workspace or backend.
+
+```tsx
+const json = graph.toJSON();          // { version: 1, nodes, edges }
+graph.fromJSON(json);
+```

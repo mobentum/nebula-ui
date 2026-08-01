@@ -1,0 +1,112 @@
+---
+title: Nodes
+description: The themed node types shipped with @nebula/flow.
+---
+
+`@nebula/flow` ships a generic node plus four domain nodes, all styled with Nebula UI tokens. The bundled `nodeTypes` map registers them so `<Flow>` picks them up automatically — you can also pass extra `nodeTypes` to override or extend.
+
+## nodeTypes
+
+| type | Component | data |
+| --- | --- | --- |
+| `flow` | `FlowNode` | generic `FlowNodeData` |
+| `agent` | `AgentNode` | `AgentNodeData` |
+| `task` | `TaskNode` | `TaskNodeData` |
+| `condition` | `ConditionNode` | `ConditionNodeData` |
+| `trigger` | `TriggerNode` | `TriggerNodeData` |
+
+## Data shapes
+
+All nodes share a base set of fields. `NodeStatus` is `'idle' | 'running' | 'success' | 'error' | 'pending'`.
+
+```ts
+interface FlowNodeData {
+  label?: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  icon?: string;
+  status?: NodeStatus;
+}
+
+interface AgentNodeData {
+  label?: string;
+  title?: string;
+  subtitle?: string;
+  model?: string;   // e.g. a model provider/name
+  icon?: string;
+  status?: NodeStatus;
+}
+
+interface TaskNodeData {
+  label?: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  icon?: string;
+  status?: NodeStatus;
+}
+
+interface ConditionNodeData {
+  label?: string;
+  title?: string;
+  branches?: string[];  // e.g. ['yes', 'no']
+  icon?: string;
+}
+
+interface TriggerNodeData {
+  label?: string;
+  title?: string;
+  event?: string;       // e.g. 'whatsapp' | 'cron' | 'webhook'
+  icon?: string;
+}
+```
+
+The data model is intentionally generic — map it to your domain (agents, channels, skills, cron) in your own app.
+
+## Example
+
+```tsx
+import { Flow } from '@nebula/flow';
+
+const nodes = [
+  {
+    id: 't1',
+    type: 'trigger',
+    position: { x: 0, y: 40 },
+    data: { title: 'Inbound message', event: 'whatsapp' },
+  },
+  {
+    id: 'a1',
+    type: 'agent',
+    position: { x: 280, y: 40 },
+    data: { title: 'Support Bot', model: 'gpt-5', status: 'running' },
+  },
+];
+
+<Flow nodes={nodes} edges={[]} className="h-[400px]" />;
+```
+
+Each node renders a themed card with a type badge, title, optional subtitle/status, and source + target handles.
+
+## Custom nodes
+
+Every node component is typed as an xyflow node — `NodeProps<Node<T>>`. To add your own, define a node type and pass it via `nodeTypes`:
+
+```tsx
+import { type Node, type NodeProps } from '@nebula/flow';
+
+type MyData = { title: string };
+export type MyNode = Node<MyData>;
+
+export function MyNode({ data, selected }: NodeProps<MyNode>) {
+  return <div>{data.title}</div>;
+}
+
+<Flow
+  nodes={nodes}
+  edges={edges}
+  nodeTypes={{ myNode: MyNode }}
+  className="h-[400px]"
+/>;
+```

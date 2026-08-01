@@ -17,21 +17,22 @@ import {
 } from './blocks/page-shells';
 import { PricingSection, PricingTable } from './blocks/pricing';
 import { SaaSTemplate } from './blocks/saas-template';
-import { ComboboxDemo } from './combobox-demo';
-import { UseControllableStateDemo } from './hooks/use-controllable-state-demo';
-import { UseDebouncedValueDemo } from './hooks/use-debounced-value-demo';
-import { UseMediaQueryDemo } from './hooks/use-media-query-demo';
-import { UseOnClickOutsideDemo } from './hooks/use-on-click-outside-demo';
-import { LineChartDemo } from './charts/line-chart-demo';
 import { AreaChartDemo } from './charts/area-chart-demo';
 import { BarChartDemo } from './charts/bar-chart-demo';
 import { BarChartStackedDemo } from './charts/bar-chart-stacked-demo';
 import { BarListDemo } from './charts/bar-list-demo';
+import { CategoryBarDemo } from './charts/category-bar-demo';
 import { ComboChartDemo } from './charts/combo-chart-demo';
 import { DonutChartDemo } from './charts/donut-chart-demo';
+import { LineChartDemo } from './charts/line-chart-demo';
 import { SparkChartDemo } from './charts/spark-chart-demo';
-import { CategoryBarDemo } from './charts/category-bar-demo';
 import { TrackerDemo } from './charts/tracker-demo';
+import { ComboboxDemo } from './combobox-demo';
+import { WorkflowBuilderDemo } from './flow/workflow-builder-demo';
+import { UseControllableStateDemo } from './hooks/use-controllable-state-demo';
+import { UseDebouncedValueDemo } from './hooks/use-debounced-value-demo';
+import { UseMediaQueryDemo } from './hooks/use-media-query-demo';
+import { UseOnClickOutsideDemo } from './hooks/use-on-click-outside-demo';
 import { UsePreviousDemo } from './hooks/use-previous-demo';
 import { UseToggleDemo } from './hooks/use-toggle-demo';
 import { LoginForm, LoginForm4, LoginForm5 } from './login-demo';
@@ -86,6 +87,7 @@ export function useMDXComponents(): MDXComponents {
     SparkChartDemo,
     CategoryBarDemo,
     TrackerDemo,
+    WorkflowBuilderDemo,
     ...Nebula,
     ...({
       h1: ({ children, ...props }: any) => (

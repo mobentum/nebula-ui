@@ -1,0 +1,78 @@
+---
+title: Getting started
+description: Install @nebula/flow and render a themed workflow canvas.
+---
+
+`@nebula/flow` is a node-based workflow/graph editor built on [React Flow](https://reactflow.dev) (`@xyflow/react`) and styled with Nebula UI tokens. It gives you a themed canvas, domain nodes, drag-and-drop, connection validation, undo/redo, and auto-layout — while keeping the full xyflow API available.
+
+```bash
+pnpm add @nebula/flow
+```
+
+## CSS
+
+Import the stylesheet once in your global CSS (after Tailwind and `@nebula/ui`):
+
+```css
+@import "tailwindcss";
+@import "@nebula/ui/css/tailwind.css";
+@import "@nebula/ui/css/default-theme.css";
+@import "@nebula/flow/css/flow.css";
+```
+
+## Minimal canvas
+
+```tsx
+import {
+  Flow,
+  FlowBackground,
+  FlowControls,
+  FlowProvider,
+} from '@nebula/flow';
+
+const nodes = [
+  { id: 'a', type: 'agent', position: { x: 0, y: 0 }, data: { title: 'Support Bot' } },
+];
+const edges = [];
+
+export function App() {
+  return (
+    <FlowProvider>
+      <Flow nodes={nodes} edges={edges} className="h-[400px] w-full">
+        <FlowBackground />
+        <FlowControls />
+      </Flow>
+    </FlowProvider>
+  );
+}
+```
+
+`Flow` must be wrapped in `FlowProvider` (it renders `<ReactFlow>` and reads the store for validation). The provider is how `useReactFlow`, `useNodeDrop`, and other hooks stay in sync with the canvas.
+
+## Managed state
+
+For controlled state, undo/redo, and serialization, use `useFlowGraph`:
+
+```tsx
+import { Flow, useFlowGraph } from '@nebula/flow';
+
+function Canvas() {
+  const { nodes, edges, onNodesChange, onEdgesChange, onConnect } =
+    useFlowGraph({ initialNodes, initialEdges, history: true });
+
+  return (
+    <Flow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+      className="h-[400px]"
+    />
+  );
+}
+```
+
+## Peers
+
+`@nebula/flow` expects `react`, `react-dom`, `@nebula/ui`, and `@xyflow/react@^12` as peers. It re-exports the xyflow hooks and types you need (`useReactFlow`, `Node`, `Edge`, `NodeProps`, …), so you never have to import `@xyflow/react` directly unless you want to.
