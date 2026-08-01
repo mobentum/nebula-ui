@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
+    "@nebula/charts": "workspace:*",
     "@nebula/ui": "workspace:*",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.21.0",

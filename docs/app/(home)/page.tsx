@@ -54,6 +54,13 @@ const features = [
     icon: 'M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6l1.4 1.4m9.9 9.9 1.4 1.4M18.4 5.6l-1.4 1.4m-9.9 9.9-1.4 1.4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
   },
   {
+    title: 'Data visualization',
+    description:
+      'Line, area, bar, combo, donut, and bar-list charts built on Recharts and themed with your Nebula tokens.',
+    href: '/docs/data-display/charts',
+    icon: 'M3 3v18h18M7 14l4-5 3 3 5-7',
+  },
+  {
     title: 'Blocks & templates',
     description:
       'Production-ready pages — SaaS template, pricing, login, banners, and more — built entirely from Nebula components.',
@@ -73,6 +80,7 @@ const categories = [
   { title: 'Actions', href: '/docs/actions/button', count: 4 },
   { title: 'Forms', href: '/docs/forms/input', count: 17 },
   { title: 'Data Display', href: '/docs/data-display/card', count: 7 },
+  { title: 'Charts', href: '/docs/data-display/charts', count: 6 },
   { title: 'Feedback', href: '/docs/feedback/alert', count: 7 },
   { title: 'Overlay', href: '/docs/overlay/dialog', count: 6 },
   { title: 'Navigation', href: '/docs/navigation/menu', count: 9 },
