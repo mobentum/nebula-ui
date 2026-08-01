@@ -41,7 +41,7 @@ export function SectionLayout({ navTitle, basePath, navigation, children }: Sect
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="mb-6 px-2">
+        <div className="mb-3 px-2">
           <p className="text-xs font-medium uppercase tracking-wider text-nb-muted-fg">
             {navTitle}
           </p>

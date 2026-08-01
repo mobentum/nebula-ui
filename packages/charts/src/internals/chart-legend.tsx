@@ -16,7 +16,7 @@ export function ChartLegend({ payload, className }: ChartLegendProps) {
   if (!payload || payload.length === 0) return null;
 
   return (
-    <div className={cn('flex flex-wrap items-center gap-x-4 gap-y-1', className)}>
+    <div className={cn('flex flex-wrap items-center gap-2', className)}>
       {payload.map((entry) => (
         <span
           key={String(entry.value)}
