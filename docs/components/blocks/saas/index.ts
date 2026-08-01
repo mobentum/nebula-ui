@@ -1,0 +1,1 @@
+export { SaaSTemplate } from './template';
