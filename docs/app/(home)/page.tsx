@@ -57,8 +57,15 @@ const features = [
     title: 'Data visualization',
     description:
       'Line, area, bar, combo, donut, and bar-list charts built on Recharts and themed with your Nebula tokens.',
-    href: '/docs/data-display/charts',
+    href: '/docs/charts/overview',
     icon: 'M3 3v18h18M7 14l4-5 3 3 5-7',
+  },
+  {
+    title: 'Workflow builder',
+    description:
+      'Node-based flows on React Flow — themed nodes, drag-and-drop palette, connection validation, undo/redo, and auto-layout.',
+    href: '/docs/flow/workflow-builder',
+    icon: 'M12 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM5 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM19 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM12 9v3M7.5 16.5l3-1.5M16.5 16.5l-3-1.5',
   },
   {
     title: 'Blocks & templates',
@@ -80,7 +87,8 @@ const categories = [
   { title: 'Actions', href: '/docs/actions/button', count: 4 },
   { title: 'Forms', href: '/docs/forms/input', count: 17 },
   { title: 'Data Display', href: '/docs/data-display/card', count: 7 },
-  { title: 'Charts', href: '/docs/data-display/charts', count: 6 },
+  { title: 'Charts', href: '/docs/charts/overview', count: 6 },
+  { title: 'Flow', href: '/docs/flow/getting-started', count: 3 },
   { title: 'Feedback', href: '/docs/feedback/alert', count: 7 },
   { title: 'Overlay', href: '/docs/overlay/dialog', count: 6 },
   { title: 'Navigation', href: '/docs/navigation/menu', count: 9 },

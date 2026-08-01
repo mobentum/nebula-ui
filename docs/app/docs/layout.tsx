@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
 import { DocsLayout } from '@/components/docs-layout';
 import { getNavigation } from '@/lib/docs';
+import type { ReactNode } from 'react';
 
 export default function Layout({ children }: { children: ReactNode }) {
   const navigation = getNavigation();
@@ -16,8 +16,17 @@ export default function Layout({ children }: { children: ReactNode }) {
             <a href="/docs" className="text-nb-fg font-medium">
               Docs
             </a>
-            <a href="/patterns/button-organization" className="text-nb-muted-fg hover:text-nb-fg transition-colors">
-              Patterns
+            <a
+              href="/docs/charts/overview"
+              className="text-nb-muted-fg hover:text-nb-fg transition-colors"
+            >
+              Charts
+            </a>
+            <a
+              href="/docs/flow/workflow-builder"
+              className="text-nb-muted-fg hover:text-nb-fg transition-colors"
+            >
+              Flow
             </a>
             <a href="/theme/tokens" className="text-nb-muted-fg hover:text-nb-fg transition-colors">
               Theme

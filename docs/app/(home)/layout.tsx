@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react';
-import Link from 'next/link';
-import { appName } from '@/lib/shared';
 import { NebulaBackground } from '@/components/nebula-background';
+import { appName } from '@/lib/shared';
+import Link from 'next/link';
+import type { ReactNode } from 'react';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
@@ -16,10 +16,22 @@ export default function Layout({ children }: { children: ReactNode }) {
             <Link href="/docs" className="text-nb-muted-fg hover:text-nb-fg transition-colors">
               Docs
             </Link>
-            <Link href="/patterns/button-organization" className="text-nb-muted-fg hover:text-nb-fg transition-colors">
-              Patterns
+            <Link
+              href="/docs/charts/overview"
+              className="text-nb-muted-fg hover:text-nb-fg transition-colors"
+            >
+              Charts
             </Link>
-            <Link href="/theme/tokens" className="text-nb-muted-fg hover:text-nb-fg transition-colors">
+            <Link
+              href="/docs/flow/workflow-builder"
+              className="text-nb-muted-fg hover:text-nb-fg transition-colors"
+            >
+              Flow
+            </Link>
+            <Link
+              href="/theme/tokens"
+              className="text-nb-muted-fg hover:text-nb-fg transition-colors"
+            >
               Theme
             </Link>
           </nav>

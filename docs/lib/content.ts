@@ -1,5 +1,5 @@
-import { readFileSync, existsSync } from 'fs';
-import { join } from 'path';
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import matter from 'gray-matter';
 
 export interface ContentPage {
@@ -22,10 +22,38 @@ function readMeta(dir: string): { title: string; pages: string[] } | null {
 }
 
 export function createContentLoader(contentDir: string) {
+  function walk(dir: string, parentSlug: string[], sections: ContentSection[]) {
+    const meta = readMeta(dir);
+    if (!meta) return;
+
+    const pages: { slug: string[]; title: string }[] = [];
+    const subdirs: { entry: string; entryPath: string }[] = [];
+    for (const entry of meta.pages) {
+      const entryPath = join(dir, entry);
+      const slug = [...parentSlug, entry];
+
+      if (existsSync(`${entryPath}.mdx`)) {
+        const raw = readFileSync(`${entryPath}.mdx`, 'utf-8');
+        const { data } = matter(raw);
+        pages.push({ slug, title: data.title ?? entry });
+      } else if (existsSync(join(entryPath, 'meta.json'))) {
+        subdirs.push({ entry, entryPath });
+      }
+    }
+
+    if (pages.length > 0) {
+      sections.push({ title: meta.title, pages });
+    }
+
+    for (const { entry, entryPath } of subdirs) {
+      walk(entryPath, [...parentSlug, entry], sections);
+    }
+  }
+
   return {
     getPage(slug: string[]): ContentPage | null {
       const parts = slug.length === 0 ? ['index'] : slug;
-      const filePath = join(contentDir, ...parts) + '.mdx';
+      const filePath = `${join(contentDir, ...parts)}.mdx`;
       if (!existsSync(filePath)) return null;
       const raw = readFileSync(filePath, 'utf-8');
       const { data, content } = matter(raw);
@@ -38,31 +66,32 @@ export function createContentLoader(contentDir: string) {
     },
 
     getNavigation(): ContentSection[] {
-      const meta = readMeta(contentDir);
-      if (!meta) return [];
+      const sections: ContentSection[] = [];
+      walk(contentDir, [], sections);
+      return sections;
+    },
 
-      const pages: { slug: string[]; title: string }[] = [];
-      for (const entry of meta.pages) {
-        const entryPath = join(contentDir, entry);
-        const slug = [entry];
+    getPaths(): string[][] {
+      const paths: string[][] = [];
 
-        if (existsSync(entryPath + '.mdx')) {
-          const raw = readFileSync(entryPath + '.mdx', 'utf-8');
-          const { data } = matter(raw);
-          pages.push({ slug, title: data.title ?? entry });
+      function collect(dir: string, parentSlug: string[]) {
+        const meta = readMeta(dir);
+        if (!meta) return;
+
+        for (const entry of meta.pages) {
+          const entryPath = join(dir, entry);
+          const slug = [...parentSlug, entry];
+
+          if (existsSync(`${entryPath}.mdx`)) {
+            paths.push(slug);
+          } else if (existsSync(join(entryPath, 'meta.json'))) {
+            collect(entryPath, slug);
+          }
         }
       }
 
-      return [{ title: meta.title, pages }];
-    },
-
-    async getPaths(): Promise<string[][]> {
-      const meta = readMeta(contentDir);
-      if (!meta) return [];
-
-      return meta.pages
-        .filter((entry) => existsSync(join(contentDir, entry) + '.mdx'))
-        .map((entry) => [entry]);
+      collect(contentDir, []);
+      return paths;
     },
   };
 }
