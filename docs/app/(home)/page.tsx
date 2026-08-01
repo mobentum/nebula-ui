@@ -87,7 +87,7 @@ const categories = [
   { title: 'Actions', href: '/docs/actions/button', count: 4 },
   { title: 'Forms', href: '/docs/forms/input', count: 17 },
   { title: 'Data Display', href: '/docs/data-display/card', count: 7 },
-  { title: 'Charts', href: '/docs/charts/overview', count: 6 },
+  { title: 'Charts', href: '/docs/charts/overview', count: 9 },
   { title: 'Flow', href: '/docs/flow/getting-started', count: 3 },
   { title: 'Feedback', href: '/docs/feedback/alert', count: 7 },
   { title: 'Overlay', href: '/docs/overlay/dialog', count: 6 },

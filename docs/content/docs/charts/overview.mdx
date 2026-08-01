@@ -126,6 +126,55 @@ const topServices = [
   <BarListDemo />
 </Preview>
 
+## SparkChart
+
+A compact inline sparkline — no axes or grid, ideal for cards and KPIs.
+
+```tsx
+import { SparkChart } from '@nebula/charts';
+
+<SparkChart data={data} index="day" categories={['requests']} />;
+```
+
+<Preview>
+  <SparkChartDemo />
+</Preview>
+
+Use `showGradient={false}` for a plain line instead of a filled area.
+
+## CategoryBar
+
+A single value bar split into colored segments with an optional marker — good for showing a value against a scale.
+
+```tsx
+import { CategoryBar } from '@nebula/charts';
+
+<CategoryBar values={[30, 40, 30]} markerValue={55} showLabels />;
+```
+
+<Preview>
+  <CategoryBarDemo />
+</Preview>
+
+## Tracker
+
+A grid of status cells for uptime/activity history. Each cell accepts a `color` and optional `tooltip`.
+
+```tsx
+import { Tracker } from '@nebula/charts';
+
+const uptime = [
+  { color: 'var(--color-nb-success)' },
+  { color: 'var(--color-nb-warning)', tooltip: 'Degraded' },
+];
+
+<Tracker data={uptime} ariaLabel="Uptime over the last 90 days" />;
+```
+
+<Preview>
+  <TrackerDemo />
+</Preview>
+
 ## Colors
 
 By default, series cycle through `chartColors` — CSS-variable tokens (`var(--color-nb-primary)`, `var(--color-nb-success)`, `var(--color-nb-warning)`, `var(--color-nb-info)`, `var(--color-nb-destructive)`) so they follow your theme in light and dark mode. Pass any CSS color strings to override:
