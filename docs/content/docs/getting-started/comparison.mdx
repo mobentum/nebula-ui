@@ -32,6 +32,10 @@ Unlike copy-paste libraries, Nebula UI is an npm package — install and update 
 - Forwards refs and render props
 - Supports `as` for semantic customization
 
+### Charts included
+
+`@nebula/charts` ships charts built on Recharts — Line, Area, Bar, Combo, Donut, BarList, Spark, CategoryBar, and Tracker — styled with the same `nb-*` tokens and `@nebula/ui` design language. Same "pre-styled but overridable" philosophy as the component library.
+
 ### Blocks in the docs
 
 Beyond 50+ components, the documentation site ships template blocks — page shells, pricing, logins, banners, grid lists, empty states — so you can copy whole pages, not just single controls. Blocks are reference source, not part of the `@nebula/ui` npm package.
@@ -47,12 +51,13 @@ Beyond 50+ components, the documentation site ships template blocks — page she
 | **Pre-styled** | Yes | Yes | Yes | Yes | Yes | No |
 | **Full primitive API** | Yes (passthroughs) | Partial | Yes | Partial | Partial | Yes |
 | **Blocks/templates** | Yes | Yes | No | No | Yes (dashboards) | No |
+| **Charts** | Yes (`@nebula/charts`) | Community (recharts) | Yes (MUI X) | No | Yes | No |
 | **Tree-shakable** | Yes | Yes | No (heavy) | No | Medium | Yes |
 | **Bundle weight** | Light | Light | Heavy | Medium | Medium | Lightest |
 
 ## When to choose what
 
-**Choose Nebula UI** if you want pre-styled, accessible components that are still fully overridable, a modern Tailwind v4 setup, and complete access to the underlying Base UI API — without maintaining copied source code.
+**Choose Nebula UI** if you want pre-styled, accessible components that are still fully overridable, a modern Tailwind v4 setup, complete access to the underlying Base UI API, and first-party charts — without maintaining copied source code.
 
 **Choose shadcn/ui** if you prefer owning every line of component code and using a CLI to distribute it (the "open code" model).
 
@@ -60,4 +65,4 @@ Beyond 50+ components, the documentation site ships template blocks — page she
 
 **Choose raw Base UI/Radix** if you want zero styling and don't mind building every component style yourself.
 
-**Choose Tremor** if you're building dashboards specifically and want chart-focused building blocks.
+**Choose Tremor** if you want a dashboard-first library where charts are the headline feature and you prefer its dedicated component set.
