@@ -24,10 +24,10 @@ import {
 } from './blocks/page-shells';
 import { PricingSection, PricingTable } from './blocks/pricing';
 import { SaaSTemplate } from './blocks/saas-template';
-import { BadgeShowcase, BadgeStatuses } from './blocks/badges';
-import { ConfirmDialog, InviteDialog } from './blocks/dialogs';
-import { FileUpload } from './blocks/file-upload';
-import { KpiCards, KpiComposition } from './blocks/kpi-cards';
+import { BadgeShowcase, BadgeStatuses, BadgeWithIcons } from './blocks/badges';
+import { ConfirmDialog, FormDialog, InviteDialog } from './blocks/dialogs';
+import { FileUpload, FileUploadProgress } from './blocks/file-upload';
+import { KpiCards, KpiChangeList, KpiCompact, KpiComposition } from './blocks/kpi-cards';
 import {
   CommandNav,
   CompactSidebarNav,
@@ -37,10 +37,10 @@ import {
   TabsNav,
   TopNav,
 } from './blocks/navigation-layouts';
-import { ActivityFeed, OnboardingSteps } from './blocks/onboarding';
-import { IncidentFeed, UptimeStatus } from './blocks/status-monitoring';
+import { ActivityFeed, OnboardingSteps, WelcomeBanner } from './blocks/onboarding';
+import { IncidentFeed, ServiceList, UptimeStatus } from './blocks/status-monitoring';
 import { TablePagination, TableStandard, TableWithActions } from './blocks/tables';
-import { UserAvatarGroup, UserList } from './blocks/users';
+import { UserAvatarGroup, UserCards, UserList } from './blocks/users';
 import { AreaChartDemo } from './charts/area-chart-demo';
 import { BarChartDemo } from './charts/bar-chart-demo';
 import { BarChartStackedDemo } from './charts/bar-chart-stacked-demo';
@@ -101,11 +101,16 @@ export function useMDXComponents(): MDXComponents {
     SaaSTemplate,
     BadgeShowcase,
     BadgeStatuses,
+    BadgeWithIcons,
     ConfirmDialog,
     InviteDialog,
+    FormDialog,
     FileUpload,
+    FileUploadProgress,
     KpiCards,
     KpiComposition,
+    KpiCompact,
+    KpiChangeList,
     CommandNav,
     CompactSidebarNav,
     FloatingNav,
@@ -115,13 +120,16 @@ export function useMDXComponents(): MDXComponents {
     TopNav,
     ActivityFeed,
     OnboardingSteps,
+    WelcomeBanner,
     IncidentFeed,
     UptimeStatus,
+    ServiceList,
     TablePagination,
     TableStandard,
     TableWithActions,
     UserAvatarGroup,
     UserList,
+    UserCards,
     UseToggleDemo,
     UseControllableStateDemo,
     UseDebouncedValueDemo,

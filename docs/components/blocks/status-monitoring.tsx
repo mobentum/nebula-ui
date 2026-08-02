@@ -122,3 +122,27 @@ export function IncidentFeed() {
     </CardRoot>
   );
 }
+
+const services = [
+  { name: 'API', uptime: '99.99%', status: 'Operational', dot: 'bg-nb-success' },
+  { name: 'Web app', uptime: '99.97%', status: 'Operational', dot: 'bg-nb-success' },
+  { name: 'Webhooks', uptime: '99.9%', status: 'Degraded', dot: 'bg-nb-warning' },
+  { name: 'Realtime', uptime: '98.2%', status: 'Down', dot: 'bg-nb-destructive' },
+];
+
+export function ServiceList() {
+  return (
+    <CardRoot className="w-full max-w-2xl p-2">
+      <ul className="divide-y divide-nb-border">
+        {services.map((service) => (
+          <li key={service.name} className="flex items-center gap-3 px-3 py-3">
+            <span className={`h-2 w-2 shrink-0 rounded-full ${service.dot}`} aria-hidden />
+            <span className="flex-1 text-sm font-medium text-nb-fg">{service.name}</span>
+            <span className="text-xs text-nb-muted-fg">{service.uptime}</span>
+            <Badge variant="outline">{service.status}</Badge>
+          </li>
+        ))}
+      </ul>
+    </CardRoot>
+  );
+}

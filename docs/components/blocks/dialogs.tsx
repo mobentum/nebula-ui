@@ -13,8 +13,16 @@ import {
   FieldLabel,
   FieldRoot,
   Input,
+  SelectIcon,
+  SelectItem,
+  SelectPopup,
+  SelectPortal,
+  SelectPositioner,
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
 } from '@nebula/ui';
-import { Trash, UserPlus } from '@phosphor-icons/react';
+import { FolderPlus, Trash, UserPlus } from '@phosphor-icons/react';
 
 export function ConfirmDialog() {
   return (
@@ -80,6 +88,59 @@ export function InviteDialog() {
           <DialogFooter>
             <DialogTrigger render={<Button variant="outline">Cancel</Button>} />
             <Button>Send invite</Button>
+          </DialogFooter>
+        </DialogContent>
+      </DialogRoot>
+    </div>
+  );
+}
+
+export function FormDialog() {
+  return (
+    <div className="flex w-full items-center justify-center rounded-lg border border-dashed border-nb-border bg-nb-bg/50 p-10">
+      <DialogRoot>
+        <DialogTrigger
+          render={
+            <Button>
+              <FolderPlus className="-ml-1 mr-1.5 h-4 w-4" aria-hidden />
+              New project
+            </Button>
+          }
+        />
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Create a project</DialogTitle>
+            <DialogDescription>
+              Projects group deployments, environments, and settings together.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <FieldRoot>
+              <FieldLabel>Project name</FieldLabel>
+              <FieldControl placeholder="e.g. api-gateway" />
+            </FieldRoot>
+            <FieldRoot>
+              <FieldLabel>Region</FieldLabel>
+              <SelectRoot defaultValue="us-east">
+                <SelectTrigger>
+                  <SelectValue />
+                  <SelectIcon />
+                </SelectTrigger>
+                <SelectPortal>
+                  <SelectPositioner>
+                    <SelectPopup>
+                      <SelectItem value="us-east">US East</SelectItem>
+                      <SelectItem value="us-west">US West</SelectItem>
+                      <SelectItem value="eu-central">EU Central</SelectItem>
+                    </SelectPopup>
+                  </SelectPositioner>
+                </SelectPortal>
+              </SelectRoot>
+            </FieldRoot>
+          </div>
+          <DialogFooter>
+            <DialogTrigger render={<Button variant="outline">Cancel</Button>} />
+            <Button>Create project</Button>
           </DialogFooter>
         </DialogContent>
       </DialogRoot>

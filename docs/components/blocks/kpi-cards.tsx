@@ -1,7 +1,7 @@
 'use client';
 
 import { ComboChart, SparkChart } from '@nebula/charts';
-import { CardRoot } from '@nebula/ui';
+import { CardRoot, ProgressIndicator, ProgressRoot, ProgressTrack } from '@nebula/ui';
 
 const kpis = [
   {
@@ -82,6 +82,63 @@ export function KpiCards() {
         </CardRoot>
       ))}
     </div>
+  );
+}
+
+const quotas = [
+  { label: 'API requests', used: '1.7M / 2.0M', value: 85 },
+  { label: 'Storage', used: '61 GB / 100 GB', value: 61 },
+  { label: 'Seats', used: '5 / 10', value: 50 },
+];
+
+export function KpiCompact() {
+  return (
+    <div className="grid w-full gap-4 sm:grid-cols-3">
+      {quotas.map((quota) => (
+        <CardRoot key={quota.label} className="p-5">
+          <p className="text-sm font-medium text-nb-fg">{quota.label}</p>
+          <p className="mt-1 text-2xl font-bold text-nb-fg">{quota.value}%</p>
+          <ProgressRoot value={quota.value} className="mt-3">
+            <ProgressTrack>
+              <ProgressIndicator />
+            </ProgressTrack>
+          </ProgressRoot>
+          <p className="mt-2 text-xs text-nb-muted-fg">{quota.used}</p>
+        </CardRoot>
+      ))}
+    </div>
+  );
+}
+
+const changes = [
+  { label: 'Monthly active users', stat: '996', change: '+1.3%', up: true },
+  { label: 'Monthly sessions', stat: '1,672', change: '+9.1%', up: true },
+  { label: 'Monthly user growth', stat: '5.1%', change: '-4.8%', up: false },
+];
+
+export function KpiChangeList() {
+  return (
+    <CardRoot className="w-full max-w-md p-2">
+      <ul className="divide-y divide-nb-border">
+        {changes.map((item) => (
+          <li key={item.label} className="flex items-center gap-3 px-3 py-3">
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-sm text-nb-muted-fg">{item.label}</p>
+              <p className="text-lg font-bold text-nb-fg">{item.stat}</p>
+            </div>
+            <span
+              className={`rounded-full px-2 py-1 text-xs font-medium ${
+                item.up
+                  ? 'bg-nb-success/10 text-nb-success'
+                  : 'bg-nb-destructive/10 text-nb-destructive'
+              }`}
+            >
+              {item.change}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </CardRoot>
   );
 }
 

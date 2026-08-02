@@ -114,3 +114,27 @@ export function ActivityFeed() {
     </div>
   );
 }
+
+export function WelcomeBanner() {
+  return (
+    <div className="w-full max-w-2xl">
+      <CardRoot className="flex flex-col items-start gap-4 border-nb-primary/20 bg-nb-primary/5 p-6 sm:flex-row sm:items-center">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-nb-primary/10 text-nb-primary">
+          <Rocket className="h-6 w-6" aria-hidden />
+        </div>
+        <div className="min-w-0 flex-1">
+          <h3 className="text-base font-semibold text-nb-fg">Welcome to Acme</h3>
+          <p className="mt-1 text-sm text-nb-muted-fg">
+            Connect your first channel and deploy an agent to get started.
+          </p>
+        </div>
+        <div className="flex shrink-0 gap-2">
+          <Button size="sm" variant="outline">
+            Dismiss
+          </Button>
+          <Button size="sm">Get started</Button>
+        </div>
+      </CardRoot>
+    </div>
+  );
+}

@@ -67,3 +67,20 @@ export function UserAvatarGroup() {
     </div>
   );
 }
+
+export function UserCards() {
+  return (
+    <div className="grid w-full max-w-3xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {members.map((member) => (
+        <CardRoot key={member.email} className="flex flex-col items-center p-5 text-center">
+          <Avatar fallback={member.avatar} className="h-12 w-12 text-sm" />
+          <p className="mt-3 text-sm font-medium text-nb-fg">{member.name}</p>
+          <p className="mt-0.5 truncate text-xs text-nb-muted-fg">{member.email}</p>
+          <Badge variant={member.role === 'Admin' ? 'solid' : 'outline'} className="mt-3">
+            {member.role}
+          </Badge>
+        </CardRoot>
+      ))}
+    </div>
+  );
+}

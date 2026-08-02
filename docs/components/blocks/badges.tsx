@@ -1,6 +1,7 @@
 'use client';
 
 import { Badge, CardRoot } from '@nebula/ui';
+import { ArrowRight, Check, X } from '@phosphor-icons/react';
 
 const colors = ['primary', 'success', 'warning', 'danger', 'info'] as const;
 const variants = ['solid', 'outline', 'subtle'] as const;
@@ -45,6 +46,28 @@ export function BadgeStatuses() {
             <span className="text-xs text-nb-muted-fg">{item.note}</span>
           </div>
         ))}
+      </div>
+    </CardRoot>
+  );
+}
+
+export function BadgeWithIcons() {
+  return (
+    <CardRoot className="w-full max-w-2xl p-6">
+      <h3 className="text-base font-semibold text-nb-fg">With icons</h3>
+      <div className="mt-4 flex flex-wrap items-center gap-2">
+        <Badge variant="solid" color="success">
+          <Check className="-ml-0.5 mr-1 h-3 w-3" aria-hidden />
+          Verified
+        </Badge>
+        <Badge variant="outline" color="danger">
+          <X className="-ml-0.5 mr-1 h-3 w-3" aria-hidden />
+          Blocked
+        </Badge>
+        <Badge variant="subtle" color="primary">
+          <ArrowRight className="-ml-0.5 mr-1 h-3 w-3" aria-hidden />
+          Migrating
+        </Badge>
       </div>
     </CardRoot>
   );

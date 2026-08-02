@@ -51,3 +51,34 @@ export function FileUpload() {
     </CardRoot>
   );
 }
+
+export function FileUploadProgress() {
+  return (
+    <CardRoot className="w-full max-w-md p-6">
+      <div className="flex items-center gap-4 rounded-lg border border-nb-border px-4 py-3">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-nb-primary/10 text-nb-primary">
+          <FileText className="h-5 w-5" aria-hidden />
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center justify-between gap-3">
+            <p className="truncate text-sm font-medium text-nb-fg">deploy-bundle.tar.gz</p>
+            <span className="shrink-0 text-xs text-nb-muted-fg">64%</span>
+          </div>
+          <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-nb-muted">
+            <div className="h-full w-[64%] rounded-full bg-nb-primary" />
+          </div>
+        </div>
+        <button
+          type="button"
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-nb-muted-fg transition-colors hover:bg-nb-accent hover:text-nb-fg"
+          aria-label="Cancel upload"
+        >
+          <X className="h-4 w-4" aria-hidden />
+        </button>
+      </div>
+      <p className="mt-4 text-xs text-nb-muted-fg">
+        Uploading to <span className="font-medium text-nb-fg">/deployments</span>
+      </p>
+    </CardRoot>
+  );
+}
