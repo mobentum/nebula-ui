@@ -13,6 +13,14 @@
     "billing",
     "feature-sections",
     "navigation-layouts",
+    "kpi-cards",
+    "tables",
+    "dialogs",
+    "users",
+    "status-monitoring",
+    "badges",
+    "file-upload",
+    "onboarding",
     "saas-template"
   ]
 }

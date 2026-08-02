@@ -93,7 +93,7 @@ const categories = [
   { title: 'Overlay', href: '/docs/overlay/dialog', count: 6 },
   { title: 'Navigation', href: '/docs/navigation/menu', count: 9 },
   { title: 'Layout', href: '/docs/layout/scroll-area', count: 5 },
-  { title: 'Blocks', href: '/docs/blocks/page-shells', count: 7 },
+  { title: 'Blocks', href: '/docs/blocks/page-shells', count: 21 },
 ];
 
 export default function HomePage() {

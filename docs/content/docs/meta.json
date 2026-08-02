@@ -9,10 +9,10 @@
     "overlay",
     "navigation",
     "layout",
-    "blocks",
     "typography",
     "hooks",
     "charts",
-    "flow"
+    "flow",
+    "blocks"
   ]
 }
