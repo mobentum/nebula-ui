@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Badge } from '@nebula/ui';
+import { Badge, Button } from '@nebula/ui';
 
 const plans = [
   {
@@ -50,9 +50,7 @@ export function PricingSection() {
               }`}
             >
               {plan.featured && (
-                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  Most popular
-                </Badge>
+                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2">Most popular</Badge>
               )}
               <h4 className="text-sm font-medium text-nb-fg">{plan.name}</h4>
               <p className="mt-4 text-3xl font-bold text-nb-fg">{plan.price}</p>
@@ -60,17 +58,22 @@ export function PricingSection() {
               <ul className="mt-6 space-y-2">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-2 text-sm text-nb-fg">
-                    <svg className="h-4 w-4 shrink-0 text-nb-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                    {/* biome-ignore lint/a11y/noSvgWithoutTitle: decorative icon, hidden from screen readers */}
+                    <svg
+                      className="h-4 w-4 shrink-0 text-nb-primary"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      aria-hidden
+                    >
                       <path d="M20 6 9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     {feature}
                   </li>
                 ))}
               </ul>
-              <Button
-                variant={plan.featured ? 'primary' : 'outline'}
-                className="mt-8 w-full"
-              >
+              <Button variant={plan.featured ? 'primary' : 'outline'} className="mt-8 w-full">
                 {plan.cta}
               </Button>
             </div>
@@ -111,8 +114,11 @@ export function PricingTable() {
               {rows.map((row, i) => (
                 <tr key={row.label} className={i % 2 === 1 ? 'bg-nb-muted/20' : ''}>
                   <td className="border-t border-nb-border px-6 py-3.5 text-nb-fg">{row.label}</td>
-                  {row.values.map((v, j) => (
-                    <td key={j} className="border-t border-nb-border px-6 py-3.5 text-center text-nb-muted-fg">
+                  {row.values.map((v) => (
+                    <td
+                      key={String(v)}
+                      className="border-t border-nb-border px-6 py-3.5 text-center text-nb-muted-fg"
+                    >
                       {v}
                     </td>
                   ))}
@@ -132,6 +138,41 @@ export function PricingTable() {
           </table>
         </div>
       </div>
+    </div>
+  );
+}
+
+export function PricingTiers() {
+  return (
+    <div className="grid w-full gap-4 sm:grid-cols-3">
+      {plans.map((plan) => (
+        <div
+          key={plan.name}
+          className={`relative rounded-lg border p-6 ${
+            plan.featured ? 'border-nb-primary bg-nb-primary/5' : 'border-nb-border bg-nb-card'
+          }`}
+        >
+          {plan.featured && (
+            <span className="absolute right-4 top-4">
+              <Badge variant="solid">Popular</Badge>
+            </span>
+          )}
+          <h3 className="text-sm font-semibold text-nb-fg">{plan.name}</h3>
+          <p className="mt-2 text-2xl font-bold text-nb-fg">{plan.price}</p>
+          <p className="mt-1 text-xs text-nb-muted-fg">{plan.description}</p>
+          <ul className="mt-4 space-y-2 text-sm text-nb-fg">
+            {plan.features.map((feature) => (
+              <li key={feature} className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-nb-primary" aria-hidden />
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <Button variant={plan.featured ? 'primary' : 'outline'} className="mt-6 w-full">
+            {plan.featured ? 'Get started' : plan.cta}
+          </Button>
+        </div>
+      ))}
     </div>
   );
 }

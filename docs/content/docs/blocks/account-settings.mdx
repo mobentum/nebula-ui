@@ -1,186 +1,34 @@
 ---
 title: Account Settings
-description: A settings page template with account details, email, and password management.
+description: Account settings tabs, profile forms, and notification preferences.
 ---
 
-import { Button, DividerRoot, DividerLine, DividerLabel, Input, TabsRoot, TabsList, TabsTab, TabsPanel } from '@nebula/ui';
+import {
+  AccountSettingsTabs,
+  NotificationSettings,
+  ProfileSettings,
+} from '@/components/blocks/account-settings';
 
-## Settings
+## Settings tabs
 
-Manage your personal details, workspace governance and notifications.
-
-<TabsRoot defaultValue="account">
-  <TabsList>
-    <TabsTab value="account">Account details</TabsTab>
-    <TabsTab value="workspaces">Workspaces</TabsTab>
-    <TabsTab value="billing">Billing</TabsTab>
-  </TabsList>
-
-  <TabsPanel value="account" className="max-w-lg space-y-8 mt-6">
-    <div>
-        <h4 className="font-semibold text-nb-fg">Email</h4>
-        <div className="mt-1 text-sm text-nb-muted-fg">
-          Update your email address associated with this workspace.
-        </div>
-        <div className="mt-6">
-        <label htmlFor="email" className="text-sm font-medium text-nb-fg">
-          Update email address
-        </label>
-        <Input
-          type="email"
-          id="email"
-          placeholder="john@company.com"
-          className="mt-2 max-w-lg"
-        />
-      </div>
-      <Button className="mt-6">
-        Update email
-      </Button>
-    </div>
-
-    <DividerRoot />
-
-    <div>
-        <h4 className="font-semibold text-nb-fg">Password</h4>
-        <div className="mt-1 text-sm text-nb-muted-fg">
-          Update your password associated with this workspace.
-        </div>
-      <div className="mt-6 space-y-4">
-        <div>
-          <label htmlFor="current-password" className="text-sm font-medium text-nb-fg">
-            Current password
-          </label>
-          <Input
-            type="password"
-            id="current-password"
-            className="mt-2 max-w-lg"
-          />
-        </div>
-        <div>
-          <label htmlFor="new-password" className="text-sm font-medium text-nb-fg">
-            New password
-          </label>
-          <Input
-            type="password"
-            id="new-password"
-            className="mt-2 max-w-lg"
-          />
-        </div>
-      </div>
-      <Button className="mt-6">
-        Update password
-      </Button>
-    </div>
-  </TabsPanel>
-
-  <TabsPanel value="workspaces" className="mt-6">
-    <div className="text-sm text-nb-muted-fg">Workspace settings coming soon.</div>
-  </TabsPanel>
-
-  <TabsPanel value="billing" className="mt-6">
-    <div className="text-sm text-nb-muted-fg">Billing settings coming soon.</div>
-  </TabsPanel>
-</TabsRoot>
-
-## Profile form
-
-A profile details form with inline field errors.
+Account details, workspaces, and billing in one settings page.
 
 <Preview>
-  <div className="w-full max-w-lg">
-    <div className="space-y-6">
-      <div>
-        <h4 className="font-semibold text-nb-fg">Account details</h4>
-        <div className="mt-1 text-sm text-nb-muted-fg">
-          Update personal information used for account management and billing.
-        </div>
-      </div>
-      <div className="flex flex-col gap-4 sm:flex-row">
-        <div className="flex-1">
-          <label htmlFor="pf-first" className="text-sm font-medium text-nb-fg">First name</label>
-          <Input id="pf-first" placeholder="Ada" className="mt-1.5" />
-        </div>
-        <div className="flex-1">
-          <label htmlFor="pf-last" className="text-sm font-medium text-nb-fg">Last name</label>
-          <Input id="pf-last" placeholder="Lovelace" className="mt-1.5" />
-        </div>
-      </div>
-      <div>
-        <label htmlFor="pf-email" className="text-sm font-medium text-nb-fg">Email</label>
-        <Input id="pf-email" type="email" placeholder="ada@company.com" className="mt-1.5" />
-      </div>
-      <div>
-        <label htmlFor="pf-bio" className="text-sm font-medium text-nb-fg">Bio</label>
-        <Input id="pf-bio" placeholder="A short bio about yourself" className="mt-1.5" />
-      </div>
-      <div className="flex items-center justify-end gap-3 border-t border-nb-border pt-4">
-        <Button variant="outline">Cancel</Button>
-        <Button>Save changes</Button>
-      </div>
-    </div>
-  </div>
+  <AccountSettingsTabs />
 </Preview>
 
-<details className="mt-8">
-  <summary className="cursor-pointer text-sm font-medium text-nb-muted-fg hover:text-nb-fg">View code</summary>
+## Profile
 
-```tsx
-import { Button, DividerRoot, Input, TabsRoot, TabsList, TabsTab, TabsPanel } from '@nebula/ui';
+A profile form with an avatar upload area.
 
-export function AccountSettings() {
-  return (
-    <>
-      <h3>Settings</h3>
-      <p>Manage your personal details, workspace governance and notifications.</p>
+<Preview>
+  <ProfileSettings />
+</Preview>
 
-      <TabsRoot defaultValue="account">
-        <TabsList>
-          <TabsTab value="account">Account details</TabsTab>
-          <TabsTab value="workspaces">Workspaces</TabsTab>
-          <TabsTab value="billing">Billing</TabsTab>
-        </TabsList>
+## Notifications
 
-        <TabsPanel value="account" className="max-w-lg space-y-8 mt-6">
-          <div>
-            <h4>Email</h4>
-            <div>Update your email address associated with this workspace.</div>
-            <div className="mt-6">
-              <label htmlFor="email">Update email address</label>
-              <Input type="email" id="email" placeholder="john@company.com" />
-            </div>
-            <Button>Update email</Button>
-          </div>
+Email notification preferences with switches.
 
-          <DividerRoot />
-
-          <div>
-            <h4>Password</h4>
-            <div>Update your password associated with this workspace.</div>
-            <div className="mt-6 space-y-4">
-              <div>
-                <label htmlFor="current-password">Current password</label>
-                <Input type="password" id="current-password" />
-              </div>
-              <div>
-                <label htmlFor="new-password">New password</label>
-                <Input type="password" id="new-password" />
-              </div>
-            </div>
-            <Button>Update password</Button>
-          </div>
-        </TabsPanel>
-
-        <TabsPanel value="workspaces">
-          <p>Workspace settings coming soon.</p>
-        </TabsPanel>
-
-        <TabsPanel value="billing">
-          <p>Billing settings coming soon.</p>
-        </TabsPanel>
-      </TabsRoot>
-    </>
-  );
-}
-```
-
-</details>
+<Preview>
+  <NotificationSettings />
+</Preview>

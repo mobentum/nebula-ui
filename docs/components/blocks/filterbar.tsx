@@ -1,7 +1,20 @@
 'use client';
 
+import {
+  Button,
+  Input,
+  SelectIcon,
+  SelectItem,
+  SelectPopup,
+  SelectPortal,
+  SelectPositioner,
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
+  ToggleGroupItem,
+  ToggleGroupRoot,
+} from '@nebula/ui';
 import { useState } from 'react';
-import { Button, Input, SelectRoot, SelectTrigger, SelectValue, SelectIcon, SelectPortal, SelectPositioner, SelectPopup, SelectItem, ToggleGroupRoot, ToggleGroupItem } from '@nebula/ui';
 
 export function FilterBarBasic() {
   const [status, setStatus] = useState<string[]>(['all']);
@@ -14,9 +27,15 @@ export function FilterBarBasic() {
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <ToggleGroupRoot value={status} onValueChange={(value) => setStatus([...value])}>
-              <ToggleGroupItem value="all" className="px-3 py-1.5 text-xs">All</ToggleGroupItem>
-              <ToggleGroupItem value="active" className="px-3 py-1.5 text-xs">Active</ToggleGroupItem>
-              <ToggleGroupItem value="paused" className="px-3 py-1.5 text-xs">Paused</ToggleGroupItem>
+              <ToggleGroupItem value="all" className="px-3 py-1.5 text-xs">
+                All
+              </ToggleGroupItem>
+              <ToggleGroupItem value="active" className="px-3 py-1.5 text-xs">
+                Active
+              </ToggleGroupItem>
+              <ToggleGroupItem value="paused" className="px-3 py-1.5 text-xs">
+                Paused
+              </ToggleGroupItem>
             </ToggleGroupRoot>
           </div>
         </div>
@@ -36,7 +55,9 @@ export function FilterBarBasic() {
               </SelectPositioner>
             </SelectPortal>
           </SelectRoot>
-          <Button variant="outline" size="sm">Clear</Button>
+          <Button variant="outline" size="sm">
+            Clear
+          </Button>
         </div>
       </div>
     </div>
@@ -48,6 +69,7 @@ export function FilterBarAdvanced() {
     <div className="w-full rounded-lg border border-nb-border bg-nb-card p-4">
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <div>
+          {/* biome-ignore lint/a11y/noLabelWithoutControl: label wraps an accessible custom Select */}
           <label className="mb-1.5 block text-xs font-medium text-nb-muted-fg">Status</label>
           <SelectRoot defaultValue="all">
             <SelectTrigger className="h-8 w-full">
@@ -66,6 +88,7 @@ export function FilterBarAdvanced() {
           </SelectRoot>
         </div>
         <div>
+          {/* biome-ignore lint/a11y/noLabelWithoutControl: label wraps an accessible custom Select */}
           <label className="mb-1.5 block text-xs font-medium text-nb-muted-fg">Region</label>
           <SelectRoot defaultValue="all">
             <SelectTrigger className="h-8 w-full">
@@ -85,6 +108,7 @@ export function FilterBarAdvanced() {
           </SelectRoot>
         </div>
         <div>
+          {/* biome-ignore lint/a11y/noLabelWithoutControl: label wraps an accessible custom Select */}
           <label className="mb-1.5 block text-xs font-medium text-nb-muted-fg">Owner</label>
           <SelectRoot defaultValue="all">
             <SelectTrigger className="h-8 w-full">
@@ -103,6 +127,7 @@ export function FilterBarAdvanced() {
           </SelectRoot>
         </div>
         <div>
+          {/* biome-ignore lint/a11y/noLabelWithoutControl: label wraps an accessible custom Select */}
           <label className="mb-1.5 block text-xs font-medium text-nb-muted-fg">Date range</label>
           <SelectRoot defaultValue="7d">
             <SelectTrigger className="h-8 w-full">
@@ -123,8 +148,55 @@ export function FilterBarAdvanced() {
       </div>
       <div className="mt-4 flex items-center justify-between border-t border-nb-border pt-3">
         <span className="text-xs text-nb-muted-fg">Showing 3 of 128 results</span>
-        <Button variant="outline" size="sm">Reset filters</Button>
+        <Button variant="outline" size="sm">
+          Reset filters
+        </Button>
       </div>
+    </div>
+  );
+}
+
+export function FilterBarCompact() {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="flex w-full flex-wrap items-center gap-2 rounded-lg border border-nb-border bg-nb-card p-3">
+      <div className="relative flex-1 min-w-40">
+        <Input aria-label="Search" placeholder="Search…" className="pl-3" />
+      </div>
+      <SelectRoot defaultValue="all">
+        <SelectTrigger className="h-10 w-36">
+          <SelectValue />
+          <SelectIcon />
+        </SelectTrigger>
+        <SelectPortal>
+          <SelectPositioner>
+            <SelectPopup>
+              <SelectItem value="all">All statuses</SelectItem>
+              <SelectItem value="active">Active</SelectItem>
+              <SelectItem value="paused">Paused</SelectItem>
+            </SelectPopup>
+          </SelectPositioner>
+        </SelectPortal>
+      </SelectRoot>
+      <Button size="sm" variant="outline" onClick={() => setOpen(!open)} aria-expanded={open}>
+        More filters
+      </Button>
+      <Button size="sm">Apply</Button>
+      {open && (
+        <div className="w-full border-t border-nb-border pt-3">
+          <ToggleGroupRoot defaultValue={['active']}>
+            <ToggleGroupItem value="active" className="px-3 py-1.5 text-xs">
+              Active
+            </ToggleGroupItem>
+            <ToggleGroupItem value="paused" className="px-3 py-1.5 text-xs">
+              Paused
+            </ToggleGroupItem>
+            <ToggleGroupItem value="archived" className="px-3 py-1.5 text-xs">
+              Archived
+            </ToggleGroupItem>
+          </ToggleGroupRoot>
+        </div>
+      )}
     </div>
   );
 }

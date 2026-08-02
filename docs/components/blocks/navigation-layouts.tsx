@@ -46,15 +46,15 @@ export function SidebarNav() {
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
             return (
-              <a
+              <button
+                type="button"
                 key={item.id}
-                href="#"
-                aria-current={item.id === 'dashboard' ? 'page' : undefined}
+                data-active={item.id === 'dashboard' ? true : undefined}
                 className={navLinkClass(item.id === 'dashboard')}
               >
                 <Icon className="h-4 w-4" aria-hidden />
                 {item.label}
-              </a>
+              </button>
             );
           })}
         </nav>
@@ -85,11 +85,11 @@ export function CompactSidebarNav() {
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
             return (
-              <a
+              <button
+                type="button"
                 key={item.id}
-                href="#"
                 aria-label={item.label}
-                aria-current={item.id === 'projects' ? 'page' : undefined}
+                data-active={item.id === 'projects' ? true : undefined}
                 title={item.label}
                 className={`flex h-9 w-9 items-center justify-center rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary ${
                   item.id === 'projects'
@@ -98,7 +98,7 @@ export function CompactSidebarNav() {
                 }`}
               >
                 <Icon className="h-4 w-4" aria-hidden />
-              </a>
+              </button>
             );
           })}
         </nav>
@@ -129,10 +129,10 @@ export function TopNav() {
         </div>
         <nav className="ml-4 hidden items-center gap-1 sm:flex" aria-label="Primary">
           {NAV_ITEMS.slice(0, 4).map((item) => (
-            <a
+            <button
+              type="button"
               key={item.id}
-              href="#"
-              aria-current={item.id === 'dashboard' ? 'page' : undefined}
+              data-active={item.id === 'dashboard' ? true : undefined}
               className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                 item.id === 'dashboard'
                   ? 'bg-nb-primary/10 text-nb-primary'
@@ -140,7 +140,7 @@ export function TopNav() {
               }`}
             >
               {item.label}
-            </a>
+            </button>
           ))}
         </nav>
         <div className="ml-auto flex items-center gap-2">
@@ -181,10 +181,10 @@ export function FloatingNav() {
         {NAV_ITEMS.map((item) => {
           const Icon = item.icon;
           return (
-            <a
+            <button
+              type="button"
               key={item.id}
-              href="#"
-              aria-current={item.id === 'dashboard' ? 'page' : undefined}
+              data-active={item.id === 'dashboard' ? true : undefined}
               className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
                 item.id === 'dashboard'
                   ? 'bg-nb-primary text-nb-primary-fg'
@@ -193,7 +193,7 @@ export function FloatingNav() {
             >
               <Icon className="h-4 w-4" aria-hidden />
               <span className="hidden sm:inline">{item.label}</span>
-            </a>
+            </button>
           );
         })}
       </nav>
@@ -210,10 +210,10 @@ export function TabsNav() {
         {NAV_ITEMS.slice(0, 4).map((item) => {
           const Icon = item.icon;
           return (
-            <a
+            <button
+              type="button"
               key={item.id}
-              href="#"
-              aria-current={item.id === 'dashboard' ? 'page' : undefined}
+              data-active={item.id === 'dashboard' ? true : undefined}
               className={`-mb-px flex items-center gap-2 border-b-2 px-3 py-2 text-sm font-medium transition-colors ${
                 item.id === 'dashboard'
                   ? 'border-nb-primary text-nb-fg'
@@ -222,7 +222,7 @@ export function TabsNav() {
             >
               <Icon className="h-4 w-4" aria-hidden />
               {item.label}
-            </a>
+            </button>
           );
         })}
         <div className="ml-auto pb-2">
@@ -250,15 +250,15 @@ export function SidebarHeaderNav() {
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
             return (
-              <a
+              <button
+                type="button"
                 key={item.id}
-                href="#"
-                aria-current={item.id === 'projects' ? 'page' : undefined}
+                data-active={item.id === 'projects' ? true : undefined}
                 className={navLinkClass(item.id === 'projects')}
               >
                 <Icon className="h-4 w-4" aria-hidden />
                 {item.label}
-              </a>
+              </button>
             );
           })}
         </nav>
@@ -274,9 +274,9 @@ export function SidebarHeaderNav() {
             aria-label="Breadcrumb"
             className="flex items-center gap-1.5 text-sm text-nb-muted-fg"
           >
-            <a href="#" className="hover:text-nb-fg">
+            <button type="button" className="hover:text-nb-fg">
               Workspace
-            </a>
+            </button>
             <CaretRight className="h-3 w-3" aria-hidden />
             <span className="font-medium text-nb-fg">Projects</span>
           </nav>
@@ -325,14 +325,14 @@ export function CommandNav() {
         {NAV_ITEMS.map((item) => {
           const Icon = item.icon;
           return (
-            <a
+            <button
+              type="button"
               key={item.id}
-              href="#"
               className="flex items-center gap-3 px-3 py-2 text-sm text-nb-fg transition-colors hover:bg-nb-accent"
             >
               <Icon className="h-4 w-4 text-nb-muted-fg" aria-hidden />
               {item.label}
-            </a>
+            </button>
           );
         })}
       </div>

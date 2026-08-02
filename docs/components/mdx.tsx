@@ -1,10 +1,18 @@
 import * as Nebula from '@nebula/ui';
 import type { MDXComponents } from 'mdx/types';
-import { BannerAlert, BannerDismissible } from './blocks/banners';
-import { BillingTable, UsageCard } from './blocks/billing';
-import { EmptyStateCentered, EmptyStateInline } from './blocks/empty-states';
-import { FeatureGrid, FeatureSplit } from './blocks/feature-sections';
-import { FilterBarAdvanced, FilterBarBasic } from './blocks/filterbar';
+import {
+  AccountSettingsTabs,
+  NotificationSettings,
+  ProfileSettings,
+} from './blocks/account-settings';
+import { BadgeShowcase, BadgeStatuses, BadgeWithIcons } from './blocks/badges';
+import { BannerAlert, BannerDismissible, BannerTop } from './blocks/banners';
+import { BillingTable, PlanComparison, UsageCard } from './blocks/billing';
+import { ConfirmDialog, FormDialog, InviteDialog } from './blocks/dialogs';
+import { EmptyStateCentered, EmptyStateFullPage, EmptyStateInline } from './blocks/empty-states';
+import { FeatureAlternating, FeatureGrid, FeatureSplit } from './blocks/feature-sections';
+import { AvatarUpload, FileUpload, FileUploadProgress } from './blocks/file-upload';
+import { FilterBarAdvanced, FilterBarBasic, FilterBarCompact } from './blocks/filterbar';
 import {
   FormCreateWorkspace,
   FormFieldGroup,
@@ -13,20 +21,7 @@ import {
   FormSettings,
   FormSingleColumn,
 } from './blocks/form-layout';
-import { GridListCards, GridListCompact } from './blocks/grid-lists';
-import {
-  PageShellHero,
-  PageShellList,
-  PageShellReports,
-  PageShellSplit,
-  PageShellTabs,
-  PageShellWithNav,
-} from './blocks/page-shells';
-import { PricingSection, PricingTable } from './blocks/pricing';
-import { SaaSTemplate } from './blocks/saas-template';
-import { BadgeShowcase, BadgeStatuses, BadgeWithIcons } from './blocks/badges';
-import { ConfirmDialog, FormDialog, InviteDialog } from './blocks/dialogs';
-import { FileUpload, FileUploadProgress } from './blocks/file-upload';
+import { GridListAvatars, GridListCards, GridListCompact } from './blocks/grid-lists';
 import { KpiCards, KpiChangeList, KpiCompact, KpiComposition } from './blocks/kpi-cards';
 import {
   CommandNav,
@@ -38,6 +33,16 @@ import {
   TopNav,
 } from './blocks/navigation-layouts';
 import { ActivityFeed, OnboardingSteps, WelcomeBanner } from './blocks/onboarding';
+import {
+  PageShellHero,
+  PageShellList,
+  PageShellReports,
+  PageShellSplit,
+  PageShellTabs,
+  PageShellWithNav,
+} from './blocks/page-shells';
+import { PricingSection, PricingTable, PricingTiers } from './blocks/pricing';
+import { SaaSTemplate } from './blocks/saas-template';
 import { IncidentFeed, ServiceList, UptimeStatus } from './blocks/status-monitoring';
 import { TablePagination, TableStandard, TableWithActions } from './blocks/tables';
 import { UserAvatarGroup, UserCards, UserList } from './blocks/users';
@@ -74,12 +79,16 @@ export function useMDXComponents(): MDXComponents {
     LoginForm5,
     PricingSection,
     PricingTable,
+    PricingTiers,
     BannerDismissible,
     BannerAlert,
+    BannerTop,
     EmptyStateCentered,
     EmptyStateInline,
+    EmptyStateFullPage,
     GridListCards,
     GridListCompact,
+    GridListAvatars,
     PageShellTabs,
     PageShellSplit,
     PageShellWithNav,
@@ -88,7 +97,9 @@ export function useMDXComponents(): MDXComponents {
     PageShellList,
     FilterBarBasic,
     FilterBarAdvanced,
+    FilterBarCompact,
     UsageCard,
+    PlanComparison,
     BillingTable,
     FormSingleColumn,
     FormFieldGroup,
@@ -98,7 +109,11 @@ export function useMDXComponents(): MDXComponents {
     FormCreateWorkspace,
     FeatureGrid,
     FeatureSplit,
+    FeatureAlternating,
     SaaSTemplate,
+    AccountSettingsTabs,
+    ProfileSettings,
+    NotificationSettings,
     BadgeShowcase,
     BadgeStatuses,
     BadgeWithIcons,
@@ -107,6 +122,7 @@ export function useMDXComponents(): MDXComponents {
     FormDialog,
     FileUpload,
     FileUploadProgress,
+    AvatarUpload,
     KpiCards,
     KpiComposition,
     KpiCompact,

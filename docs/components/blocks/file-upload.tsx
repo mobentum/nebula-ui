@@ -82,3 +82,26 @@ export function FileUploadProgress() {
     </CardRoot>
   );
 }
+
+export function AvatarUpload() {
+  return (
+    <CardRoot className="flex w-full max-w-md items-center gap-4 p-5">
+      <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-nb-accent text-base font-semibold text-nb-fg">
+        AL
+      </div>
+      <div className="min-w-0 flex-1">
+        <p className="text-sm font-medium text-nb-fg">Avatar</p>
+        <p className="text-xs text-nb-muted-fg">Square image, at least 512×512.</p>
+        <div className="mt-2 flex gap-2">
+          <Button size="sm" variant="outline">
+            <FileArrowUp className="-ml-1 mr-1.5 h-4 w-4" aria-hidden />
+            Upload
+          </Button>
+          <Button size="sm" variant="ghost">
+            Remove
+          </Button>
+        </div>
+      </div>
+    </CardRoot>
+  );
+}

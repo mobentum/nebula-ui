@@ -1,14 +1,41 @@
 'use client';
 
+import {
+  AccordionHeader,
+  AccordionItem,
+  AccordionPanel,
+  AccordionRoot,
+  AccordionTrigger,
+  Button,
+  CardRoot,
+  Input,
+  SelectIcon,
+  SelectItem,
+  SelectPopup,
+  SelectPortal,
+  SelectPositioner,
+  SelectRoot,
+  SelectTrigger,
+  SelectValue,
+} from '@nebula/ui';
 import { useState } from 'react';
-import { Button, Input, CardRoot, SelectRoot, SelectTrigger, SelectValue, SelectIcon, SelectPortal, SelectPositioner, SelectPopup, SelectItem, AccordionRoot, AccordionItem, AccordionHeader, AccordionTrigger, AccordionPanel } from '@nebula/ui';
 
 function ContentPlaceholder({ className }: { className?: string }) {
   return (
-    <div className={`relative h-full w-full overflow-hidden rounded-md bg-nb-muted/50 ${className ?? ''}`}>
+    <div
+      className={`relative h-full w-full overflow-hidden rounded-md bg-nb-muted/50 ${className ?? ''}`}
+    >
+      {/* biome-ignore lint/a11y/noSvgWithoutTitle: decorative icon, hidden from screen readers */}
       <svg className="absolute inset-0 h-full w-full stroke-nb-border" fill="none" aria-hidden>
         <defs>
-          <pattern id="shell-pattern" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+          <pattern
+            id="shell-pattern"
+            x="0"
+            y="0"
+            width="10"
+            height="10"
+            patternUnits="userSpaceOnUse"
+          >
             <path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3" />
           </pattern>
         </defs>
@@ -84,7 +111,9 @@ export function PageShellTabs() {
               aria-selected={tab === t}
               onClick={() => setTab(t)}
               className={`-mb-px border-b-2 px-1 pb-3 pt-2 text-sm font-medium capitalize transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary rounded-sm ${
-                tab === t ? 'border-nb-primary text-nb-primary' : 'border-transparent text-nb-muted-fg hover:text-nb-fg'
+                tab === t
+                  ? 'border-nb-primary text-nb-primary'
+                  : 'border-transparent text-nb-muted-fg hover:text-nb-fg'
               }`}
             >
               {t}
@@ -138,8 +167,8 @@ export function PageShellSplit() {
         </div>
       </div>
       <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {['Title', 'Title', 'Title', 'Title'].map((t, i) => (
-          <CardRoot key={i} className="overflow-hidden p-0">
+        {['Title', 'Title', 'Title', 'Title'].map((t) => (
+          <CardRoot key={t} className="overflow-hidden p-0">
             <div className="border-b border-nb-border px-4 py-2">
               <h3 className="text-sm font-medium text-nb-fg">{t}</h3>
             </div>
@@ -163,17 +192,22 @@ export function PageShellWithNav() {
         <div className="px-4 sm:px-6">
           <div className="flex h-14 items-center sm:gap-7">
             <div className="hidden shrink-0 sm:flex sm:items-center">
-              <a href="#" className="rounded-md p-1.5 text-nb-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary" aria-label="Nebula">
+              <button
+                type="button"
+                className="rounded-md p-1.5 text-nb-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary"
+                aria-label="Nebula"
+              >
+                {/* biome-ignore lint/a11y/noSvgWithoutTitle: decorative icon, hidden from screen readers */}
                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                   <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
                 </svg>
-              </a>
+              </button>
             </div>
             <nav className="flex items-center gap-6" aria-label="Tabs">
               {nav.map((item, i) => (
-                <a
+                <button
+                  type="button"
                   key={item}
-                  href="#"
                   aria-current={i === 0 ? 'page' : undefined}
                   className={`-mb-px inline-flex items-center border-b-2 px-1 pb-3 pt-2 text-sm font-medium transition-colors ${
                     i === 0
@@ -182,7 +216,7 @@ export function PageShellWithNav() {
                   }`}
                 >
                   {item}
-                </a>
+                </button>
               ))}
             </nav>
           </div>
@@ -235,7 +269,12 @@ function ReportCards({ items }: { items: typeof reports }) {
             <ContentPlaceholder />
           </div>
           <h4 className="mt-2 px-1 text-sm font-medium text-nb-fg">
-            <a href="#" className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary">{r.name}</a>
+            <button
+              type="button"
+              className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary"
+            >
+              {r.name}
+            </button>
           </h4>
           <p className="mt-0.5 px-1 text-sm text-nb-muted-fg">{r.description}</p>
         </CardRoot>
@@ -252,7 +291,15 @@ export function PageShellReports() {
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-semibold text-nb-fg">Report</h3>
             <Button>
-              <svg className="-ml-1 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+              {/* biome-ignore lint/a11y/noSvgWithoutTitle: decorative icon, hidden from screen readers */}
+              <svg
+                className="-ml-1 h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden
+              >
                 <path d="M12 5v14M5 12h14" strokeLinecap="round" />
               </svg>
               Add report
@@ -264,7 +311,9 @@ export function PageShellReports() {
           <AccordionRoot defaultValue={['recent']} className="mt-6 space-y-6">
             <AccordionItem value="recent">
               <AccordionHeader>
-                <AccordionTrigger className="text-sm font-medium text-nb-fg">Recent (3)</AccordionTrigger>
+                <AccordionTrigger className="text-sm font-medium text-nb-fg">
+                  Recent (3)
+                </AccordionTrigger>
               </AccordionHeader>
               <AccordionPanel>
                 <ReportCards items={reports.slice(0, 3)} />
@@ -272,7 +321,9 @@ export function PageShellReports() {
             </AccordionItem>
             <AccordionItem value="all">
               <AccordionHeader>
-                <AccordionTrigger className="text-sm font-medium text-nb-fg">All (6)</AccordionTrigger>
+                <AccordionTrigger className="text-sm font-medium text-nb-fg">
+                  All (6)
+                </AccordionTrigger>
               </AccordionHeader>
               <AccordionPanel>
                 <ReportCards items={reports} />
@@ -297,12 +348,29 @@ export function PageShellHero() {
           <div className="mt-8 w-full gap-4 md:flex md:max-w-3xl md:items-stretch">
             <CardRoot className="w-full p-4 md:w-7/12">
               <div className="flex h-9 w-9 items-center justify-center rounded-md border border-nb-border text-nb-muted-fg">
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z" strokeLinecap="round" strokeLinejoin="round" />
+                {/* biome-ignore lint/a11y/noSvgWithoutTitle: decorative icon, hidden from screen readers */}
+                <svg
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden
+                >
+                  <path
+                    d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
               <h3 className="mt-4 text-sm font-medium text-nb-fg">
-                <a href="#" className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary">Documentation</a>
+                <button
+                  type="button"
+                  className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary"
+                >
+                  Documentation
+                </button>
               </h3>
               <p className="text-sm text-nb-muted-fg">
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
@@ -310,12 +378,29 @@ export function PageShellHero() {
             </CardRoot>
             <CardRoot className="mt-4 w-full p-4 md:mt-0 md:w-5/12">
               <div className="flex h-9 w-9 items-center justify-center rounded-md border border-nb-border text-nb-muted-fg">
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-                  <path d="M12 3l3 6 6.5.9-4.7 4.6 1.1 6.5L12 18l-5.9 3 1.1-6.5L2.5 9.9 9 9l3-6z" strokeLinecap="round" strokeLinejoin="round" />
+                {/* biome-ignore lint/a11y/noSvgWithoutTitle: decorative icon, hidden from screen readers */}
+                <svg
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden
+                >
+                  <path
+                    d="M12 3l3 6 6.5.9-4.7 4.6 1.1 6.5L12 18l-5.9 3 1.1-6.5L2.5 9.9 9 9l3-6z"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
               <h3 className="mt-4 text-sm font-medium text-nb-fg">
-                <a href="#" className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary">Models</a>
+                <button
+                  type="button"
+                  className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary"
+                >
+                  Models
+                </button>
               </h3>
               <p className="text-sm text-nb-muted-fg">Lorem ipsum dolor sit amet.</p>
             </CardRoot>
@@ -327,7 +412,15 @@ export function PageShellHero() {
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold text-nb-fg">Your reports</h2>
             <Button>
-              <svg className="-ml-1 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+              {/* biome-ignore lint/a11y/noSvgWithoutTitle: decorative icon, hidden from screen readers */}
+              <svg
+                className="-ml-1 h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden
+              >
                 <path d="M12 5v14M5 12h14" strokeLinecap="round" />
               </svg>
               Add report
@@ -336,7 +429,9 @@ export function PageShellHero() {
           <AccordionRoot defaultValue={['recent']} className="mt-6 space-y-6">
             <AccordionItem value="recent">
               <AccordionHeader>
-                <AccordionTrigger className="text-sm font-medium text-nb-fg">Recent (3)</AccordionTrigger>
+                <AccordionTrigger className="text-sm font-medium text-nb-fg">
+                  Recent (3)
+                </AccordionTrigger>
               </AccordionHeader>
               <AccordionPanel>
                 <ReportCards items={reports.slice(0, 3)} />
@@ -344,7 +439,9 @@ export function PageShellHero() {
             </AccordionItem>
             <AccordionItem value="all">
               <AccordionHeader>
-                <AccordionTrigger className="text-sm font-medium text-nb-fg">All (6)</AccordionTrigger>
+                <AccordionTrigger className="text-sm font-medium text-nb-fg">
+                  All (6)
+                </AccordionTrigger>
               </AccordionHeader>
               <AccordionPanel>
                 <ReportCards items={reports} />
@@ -389,7 +486,15 @@ export function PageShellList() {
                 </SelectPortal>
               </SelectRoot>
               <Button>
-                <svg className="-ml-1 h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                {/* biome-ignore lint/a11y/noSvgWithoutTitle: decorative icon, hidden from screen readers */}
+                <svg
+                  className="-ml-1 h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden
+                >
                   <path d="M12 5v14M5 12h14" strokeLinecap="round" />
                 </svg>
                 Add report
@@ -402,11 +507,26 @@ export function PageShellList() {
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex min-w-0 items-center gap-4">
                     <h4 className="truncate text-sm font-medium text-nb-fg">
-                      <a href="#" className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary">{r.name}</a>
+                      <button
+                        type="button"
+                        className="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary"
+                      >
+                        {r.name}
+                      </button>
                     </h4>
-                    <p className="hidden truncate text-sm text-nb-muted-fg sm:block">{r.description}</p>
+                    <p className="hidden truncate text-sm text-nb-muted-fg sm:block">
+                      {r.description}
+                    </p>
                   </div>
-                  <svg className="h-5 w-5 shrink-0 text-nb-muted-fg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                  {/* biome-ignore lint/a11y/noSvgWithoutTitle: decorative icon, hidden from screen readers */}
+                  <svg
+                    className="h-5 w-5 shrink-0 text-nb-muted-fg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    aria-hidden
+                  >
                     <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
