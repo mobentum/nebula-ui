@@ -36,6 +36,29 @@ Add the Nebula UI styles to your global CSS. Requires Tailwind CSS v4.
 
 > **Important:** `@source` paths are resolved **relative to the CSS file**, not the project root. The example above assumes `src/app/globals.css`. Adjust the `../` count to match your CSS file's depth — e.g. `app/globals.css` (no `src/`) needs `../node_modules/@nebula/ui/dist`. See [Next.js integration](/docs/getting-started/nextjs) for a full walkthrough.
 
+## Optional packages
+
+Nebula UI ships charts and a workflow editor as separate packages, plus icon support for the template blocks:
+
+```bash
+# Recharts-based charts (requires recharts)
+npm install @nebula/charts recharts
+
+# React Flow workflow editor (requires @xyflow/react)
+npm install @nebula/flow @xyflow/react
+
+# Phosphor icons — used by @nebula/ui itself and the template blocks.
+# Already installed as a dependency of @nebula/ui; declare it explicitly
+# only when you copy a block that imports icons directly.
+npm install @phosphor-icons/react
+```
+
+For `@nebula/flow`, also import its stylesheet in your global CSS:
+
+```css
+@import "@nebula/flow/css/flow.css";
+```
+
 ## Usage
 
 ```tsx

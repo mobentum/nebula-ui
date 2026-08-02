@@ -1,1 +1,18 @@
-{"title": "Blocks", "pages": ["account-settings", "login", "pricing", "banners", "empty-states", "grid-lists", "page-shells", "filterbar", "form-layouts", "billing", "feature-sections", "saas-template"]}
+{
+  "title": "Blocks",
+  "pages": [
+    "account-settings",
+    "login",
+    "pricing",
+    "banners",
+    "empty-states",
+    "grid-lists",
+    "page-shells",
+    "filterbar",
+    "form-layouts",
+    "billing",
+    "feature-sections",
+    "navigation-layouts",
+    "saas-template"
+  ]
+}

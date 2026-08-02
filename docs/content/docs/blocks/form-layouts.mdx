@@ -1,9 +1,16 @@
 ---
 title: Form Layouts
-description: Single-column and field-group form layout templates.
+description: Single-column, field-group, create-workspace, settings, and plan-selection form templates.
 ---
 
-import { FormSingleColumn, FormFieldGroup } from '@/components/blocks/form-layout';
+import {
+  FormCreateWorkspace,
+  FormFieldGroup,
+  FormPackageSelect,
+  FormRegister,
+  FormSettings,
+  FormSingleColumn,
+} from '@/components/blocks/form-layout';
 
 ## Single-column form
 
@@ -15,4 +22,36 @@ import { FormSingleColumn, FormFieldGroup } from '@/components/blocks/form-layou
 
 <Preview>
   <FormFieldGroup />
+</Preview>
+
+## Create workspace
+
+A split create-workspace form with a benefits summary aside.
+
+<Preview>
+  <FormRegister />
+</Preview>
+
+## Settings
+
+Profile, workspace defaults, and a danger zone.
+
+<Preview>
+  <FormSettings />
+</Preview>
+
+## Plan selection
+
+Pick a tier with a monthly/annual billing toggle.
+
+<Preview>
+  <FormPackageSelect />
+</Preview>
+
+## Create workspace with plan
+
+Select a region and a plan, with feature breakdowns.
+
+<Preview>
+  <FormCreateWorkspace />
 </Preview>

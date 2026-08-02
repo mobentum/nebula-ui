@@ -18,6 +18,7 @@
         "@nebula/charts": "workspace:*",
         "@nebula/flow": "workspace:*",
         "@nebula/ui": "workspace:*",
+        "@phosphor-icons/react": "^2.1.10",
         "@xyflow/react": "^12.11.2",
         "gray-matter": "^4.0.3",
         "lucide-react": "^1.21.0",

@@ -5,7 +5,14 @@ import { BillingTable, UsageCard } from './blocks/billing';
 import { EmptyStateCentered, EmptyStateInline } from './blocks/empty-states';
 import { FeatureGrid, FeatureSplit } from './blocks/feature-sections';
 import { FilterBarAdvanced, FilterBarBasic } from './blocks/filterbar';
-import { FormFieldGroup, FormSingleColumn } from './blocks/form-layout';
+import {
+  FormCreateWorkspace,
+  FormFieldGroup,
+  FormPackageSelect,
+  FormRegister,
+  FormSettings,
+  FormSingleColumn,
+} from './blocks/form-layout';
 import { GridListCards, GridListCompact } from './blocks/grid-lists';
 import {
   PageShellHero,
@@ -17,6 +24,15 @@ import {
 } from './blocks/page-shells';
 import { PricingSection, PricingTable } from './blocks/pricing';
 import { SaaSTemplate } from './blocks/saas-template';
+import {
+  CommandNav,
+  CompactSidebarNav,
+  FloatingNav,
+  SidebarHeaderNav,
+  SidebarNav,
+  TabsNav,
+  TopNav,
+} from './blocks/navigation-layouts';
 import { AreaChartDemo } from './charts/area-chart-demo';
 import { BarChartDemo } from './charts/bar-chart-demo';
 import { BarChartStackedDemo } from './charts/bar-chart-stacked-demo';
@@ -68,9 +84,20 @@ export function useMDXComponents(): MDXComponents {
     BillingTable,
     FormSingleColumn,
     FormFieldGroup,
+    FormRegister,
+    FormSettings,
+    FormPackageSelect,
+    FormCreateWorkspace,
     FeatureGrid,
     FeatureSplit,
     SaaSTemplate,
+    CommandNav,
+    CompactSidebarNav,
+    FloatingNav,
+    SidebarHeaderNav,
+    SidebarNav,
+    TabsNav,
+    TopNav,
     UseToggleDemo,
     UseControllableStateDemo,
     UseDebouncedValueDemo,
