@@ -5,7 +5,7 @@ import type { ReactNode } from 'react';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <>
+    <div className="relative">
       <NebulaBackground />
       <header className="sticky top-0 z-30 border-b border-nb-border bg-white/60 backdrop-blur-xl">
         <div className="mx-auto flex h-14 max-w-5xl items-center gap-6 px-4">
@@ -38,6 +38,6 @@ export default function Layout({ children }: { children: ReactNode }) {
         </div>
       </header>
       {children}
-    </>
+    </div>
   );
 }

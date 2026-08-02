@@ -230,6 +230,73 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Contributors */}
+      <section className="px-4 pb-20">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-center text-2xl font-semibold text-nb-fg">Contributors</h2>
+          <p className="mx-auto mt-2 max-w-xl text-center text-sm text-nb-muted-fg">
+            Nebula UI is built in the open. Here are the people shaping it.
+          </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="flex flex-col items-center rounded-2xl border border-nb-primary/20 bg-nb-primary/5 p-6 text-center">
+              <img
+                src="/suman.jpg"
+                alt="Suman Raj Venkatesan"
+                className="h-16 w-16 rounded-full object-cover"
+                width={64}
+                height={64}
+              />
+              <h3 className="mt-4 text-sm font-semibold text-nb-fg">Suman Raj Venkatesan</h3>
+              <p className="mt-0.5 text-xs text-nb-muted-fg">Creator</p>
+              <div className="mt-3 flex items-center gap-3">
+                <Link
+                  href="https://github.com/sraj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-nb-primary hover:text-nb-primary/80"
+                  aria-label="GitHub"
+                >
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .26.18.58.69.48A10 10 0 0 0 12 2z" />
+                  </svg>
+                  GitHub
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/srajvenkat/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-nb-primary hover:text-nb-primary/80"
+                  aria-label="LinkedIn"
+                >
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+                  </svg>
+                  LinkedIn
+                </Link>
+              </div>
+            </div>
+            {[
+              { initials: 'PS', name: 'Priya Sharma', role: 'Maintainer' },
+              { initials: 'MC', name: 'Marcus Chen', role: 'Maintainer' },
+              { initials: 'AP', name: 'Aisha Patel', role: 'Contributor' },
+              { initials: 'LS', name: 'Lucas Silva', role: 'Contributor' },
+              { initials: 'NK', name: 'Nina Kovač', role: 'Contributor' },
+            ].map((contributor) => (
+              <div
+                key={contributor.name}
+                className="flex flex-col items-center rounded-2xl border border-nb-border bg-nb-card p-6 text-center"
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-nb-accent text-lg font-semibold text-nb-fg">
+                  {contributor.initials}
+                </div>
+                <h3 className="mt-4 text-sm font-semibold text-nb-fg">{contributor.name}</h3>
+                <p className="mt-0.5 text-xs text-nb-muted-fg">{contributor.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
