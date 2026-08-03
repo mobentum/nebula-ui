@@ -1,0 +1,7 @@
+{
+  "rootDirectory": "docs",
+  "framework": "nextjs",
+  "installCommand": "bun install",
+  "buildCommand": "bun run --filter @nebula/ui build && bun run --filter @nebula/charts build && bun run --filter @nebula/flow build && bun run build",
+  "outputDirectory": ".next"
+}
