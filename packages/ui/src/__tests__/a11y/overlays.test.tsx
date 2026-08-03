@@ -160,11 +160,11 @@ describe('a11y: overlays', () => {
     const user = userEvent.setup();
     render(
       <Combobox.Root items={fruits}>
-        <Combobox.Trigger aria-label="Choose a fruit">Open</Combobox.Trigger>
+        <Combobox.Trigger id="combobox-trigger" aria-label="Choose a fruit">Open</Combobox.Trigger>
         <Combobox.Portal>
           <Combobox.Positioner>
-            <Combobox.Popup>
-              <Combobox.List>
+            <Combobox.Popup aria-labelledby="combobox-trigger">
+              <Combobox.List aria-label="Fruits">
                 {(item: string) => (
                   <Combobox.Item key={item} value={item}>
                     {item}
