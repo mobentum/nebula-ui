@@ -1,3 +1,7 @@
 {
-  "rootDirectory": "docs"
+  "rootDirectory": "docs",
+  "buildCommand": "bun run build",
+  "outputDirectory": ".next",
+  "installCommand": "bun install",
+  "framework": "nextjs"
 }
