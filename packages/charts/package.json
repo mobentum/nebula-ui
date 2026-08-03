@@ -2,7 +2,6 @@
   "name": "@nebula/charts",
   "version": "0.0.1",
   "license": "MIT",
-  "packageManager": "pnpm@10.33.4",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
