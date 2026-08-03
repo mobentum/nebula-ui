@@ -2,6 +2,7 @@
   "name": "@nebula/eslint-config",
   "version": "0.0.1",
   "private": true,
+  "packageManager": "pnpm@10.33.4",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
