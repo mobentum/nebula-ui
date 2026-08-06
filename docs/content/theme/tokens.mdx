@@ -16,12 +16,12 @@ The primary color is the base for most interactive elements. Nebula UI uses it a
 <Preview>
   <div className="flex w-full flex-col gap-3">
     {[
-      ['Primary', 'bg-nb-primary', '#f85804'],
-      ['Primary / 80', 'bg-nb-primary/80', 'rgba(248, 88, 4, 0.8)'],
-      ['Primary / 50', 'bg-nb-primary/50', 'rgba(248, 88, 4, 0.5)'],
-      ['Primary / 20', 'bg-nb-primary/20', 'rgba(248, 88, 4, 0.2)'],
-      ['Primary / 10', 'bg-nb-primary/10', 'rgba(248, 88, 4, 0.1)'],
-      ['Primary / 5', 'bg-nb-primary/5', 'rgba(248, 88, 4, 0.05)'],
+      ['Primary', 'bg-nb-primary', '#093c5d'],
+      ['Primary / 80', 'bg-nb-primary/80', 'rgba(9, 60, 93, 0.8)'],
+      ['Primary / 50', 'bg-nb-primary/50', 'rgba(9, 60, 93, 0.5)'],
+      ['Primary / 20', 'bg-nb-primary/20', 'rgba(9, 60, 93, 0.2)'],
+      ['Primary / 10', 'bg-nb-primary/10', 'rgba(9, 60, 93, 0.1)'],
+      ['Primary / 5', 'bg-nb-primary/5', 'rgba(9, 60, 93, 0.05)'],
     ].map(([name, cls, hex]) => (
       <div key={name} className="flex items-center gap-4">
         <div className={`h-8 w-24 shrink-0 rounded-md ${cls} border border-nb-border/50`} />
@@ -140,10 +140,10 @@ Every CSS variable below can be overridden in `:root` and `.dark`. Each color to
 | `--card-foreground` | `#171717` | `#fafafa` | `text-nb-card-fg` | Text on card |
 | `--popover` | `#ffffff` | `#171717` | `bg-nb-popover` | Overlay surface |
 | `--popover-foreground` | `#171717` | `#fafafa` | `text-nb-popover-fg` | Text on overlay |
-| `--primary` | `#f85804` | `#fb6313` | `bg-nb-primary` | Primary action color (Nebula Orange) |
-| `--primary-foreground` | `#10100e` | `#10100e` | `text-nb-primary-fg` | Text on primary |
-| `--secondary` | `#9ec3d2` | `#274653` | `bg-nb-secondary` | Secondary surface (Nebula Blue) |
-| `--secondary-foreground` | `#1a2f38` | `#fafafa` | `text-nb-secondary-fg` | Text on secondary |
+| `--primary` | `#093c5d` | `#38749e` | `bg-nb-primary` | Primary action color |
+| `--primary-foreground` | `#ffffff` | `#ffffff` | `text-nb-primary-fg` | Text on primary |
+| `--secondary` | `#e8e8e8` | `#262626` | `bg-nb-secondary` | Secondary surface |
+| `--secondary-foreground` | `#171717` | `#fafafa` | `text-nb-secondary-fg` | Text on secondary |
 | `--muted` | `#f1f1f1` | `#262626` | `bg-nb-muted` | Muted surface |
 | `--muted-foreground` | `#6f6f6f` | `#a3a3a3` | `text-nb-muted-fg` | Muted text |
 | `--accent` | `#e3e3e3` | `#2d2d2d` | `bg-nb-accent` | Hover / highlight surface |
@@ -182,10 +182,10 @@ Nebula UI color pairs are designed to meet **WCAG 2.1 AA** contrast requirements
   <div className="flex w-full flex-col gap-3">
     {[
       ['Foreground on Background', '#171717', '#fafafa', '17.18'],
-      ['Primary foreground on Primary', '#10100e', '#f85804', '5.80'],
+      ['Primary foreground on Primary', '#ffffff', '#093c5d', '11.56'],
       ['Muted foreground on Background', '#6f6f6f', '#fafafa', '4.81'],
       ['Muted foreground on Card', '#6f6f6f', '#ffffff', '5.02'],
-      ['Secondary foreground on Secondary', '#1a2f38', '#9ec3d2', '7.42'],
+      ['Secondary foreground on Secondary', '#171717', '#e8e8e8', '14.63'],
       ['Success foreground on Success', '#ffffff', '#15803d', '5.02'],
       ['Warning foreground on Warning', '#ffffff', '#b45309', '5.02'],
       ['Info foreground on Info', '#ffffff', '#1d4ed8', '6.70'],
