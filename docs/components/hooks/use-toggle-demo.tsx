@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Text, useToggle } from '@nebula/ui';
+import { Button, Text, useToggle } from '@mobentum/nebula-ui';
 
 export function UseToggleDemo() {
   const [on, toggle] = useToggle(false);

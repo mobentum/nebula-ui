@@ -1,6 +1,6 @@
 'use client';
 
-import { AreaChart } from '@nebula/charts';
+import { AreaChart } from '@mobentum/nebula-charts';
 
 const data = [
   { month: 'Jan', revenue: 4200 },

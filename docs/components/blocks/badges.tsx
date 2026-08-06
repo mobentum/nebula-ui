@@ -1,6 +1,6 @@
 'use client';
 
-import { Badge, CardRoot } from '@nebula/ui';
+import { Badge, CardRoot } from '@mobentum/nebula-ui';
 import { ArrowRight, Check, X } from '@phosphor-icons/react';
 
 const colors = ['primary', 'success', 'warning', 'danger', 'info'] as const;

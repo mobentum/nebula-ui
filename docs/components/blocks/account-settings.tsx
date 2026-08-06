@@ -16,7 +16,7 @@ import {
   TabsPanel,
   TabsRoot,
   TabsTab,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 
 export function AccountSettingsTabs() {
   return (

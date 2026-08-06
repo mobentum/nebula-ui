@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Input, DividerRoot, DividerLine, DividerLabel } from '@nebula/ui';
+import { Button, Input, DividerRoot, DividerLine, DividerLabel } from '@mobentum/nebula-ui';
 
 function GoogleIcon(props: React.ComponentProps<'svg'>) {
   return (

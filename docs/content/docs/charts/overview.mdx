@@ -3,12 +3,12 @@ title: Overview
 description: Chart components for data visualization, built on Recharts and themed with Nebula UI tokens.
 ---
 
-import { LineChart, AreaChart, BarChart, ComboChart, DonutChart, BarList, SparkChart, CategoryBar, Tracker, chartColors } from '@nebula/charts';
+import { LineChart, AreaChart, BarChart, ComboChart, DonutChart, BarList, SparkChart, CategoryBar, Tracker, chartColors } from '@mobentum/nebula-charts';
 
-`@nebula/charts` provides chart components built on [Recharts](https://recharts.org) and styled with Nebula UI's `nb-*` theme tokens. Install it alongside `@nebula/ui`:
+`@mobentum/nebula-charts` provides chart components built on [Recharts](https://recharts.org) and styled with Nebula UI's `nb-*` theme tokens. Install it alongside `@mobentum/nebula-ui`:
 
 ```bash
-pnpm add @nebula/charts
+pnpm add @mobentum/nebula-charts
 ```
 
 All charts accept the same core props: `data`, `index` (the x-axis key), and `categories` (the series keys).
@@ -16,7 +16,7 @@ All charts accept the same core props: `data`, `index` (the x-axis key), and `ca
 ## LineChart
 
 ```tsx
-import { LineChart } from '@nebula/charts';
+import { LineChart } from '@mobentum/nebula-charts';
 
 const data = [
   { month: 'Jan', revenue: 4200 },
@@ -40,7 +40,7 @@ const data = [
 Area charts add a gradient fill beneath each series.
 
 ```tsx
-import { AreaChart } from '@nebula/charts';
+import { AreaChart } from '@mobentum/nebula-charts';
 
 <AreaChart data={data} index="month" categories={['revenue']} />;
 ```
@@ -52,7 +52,7 @@ import { AreaChart } from '@nebula/charts';
 ## BarChart
 
 ```tsx
-import { BarChart } from '@nebula/charts';
+import { BarChart } from '@mobentum/nebula-charts';
 
 <BarChart data={data} index="month" categories={['revenue', 'expenses']} />;
 ```
@@ -72,7 +72,7 @@ Stacked bars use the `stacked` prop:
 ComboChart mixes bars and lines on the same chart — `barSeries` and `lineSeries` set which categories render as bars versus lines.
 
 ```tsx
-import { ComboChart } from '@nebula/charts';
+import { ComboChart } from '@mobentum/nebula-charts';
 
 <ComboChart
   data={data}
@@ -91,7 +91,7 @@ import { ComboChart } from '@nebula/charts';
 Part-to-whole chart. Takes `index` (the segment name key) and `category` (the value key).
 
 ```tsx
-import { DonutChart } from '@nebula/charts';
+import { DonutChart } from '@mobentum/nebula-charts';
 
 const plans = [
   { plan: 'Free', revenue: 4200 },
@@ -112,7 +112,7 @@ Use `variant="pie"` for a full pie instead of a donut.
 A ranked list of horizontal bars — no axes, great for "top N" breakdowns. Not Recharts-based.
 
 ```tsx
-import { BarList } from '@nebula/charts';
+import { BarList } from '@mobentum/nebula-charts';
 
 const topServices = [
   { name: 'api-gateway', value: 320 },
@@ -131,7 +131,7 @@ const topServices = [
 A compact inline sparkline — no axes or grid, ideal for cards and KPIs.
 
 ```tsx
-import { SparkChart } from '@nebula/charts';
+import { SparkChart } from '@mobentum/nebula-charts';
 
 <SparkChart data={data} index="day" categories={['requests']} />;
 ```
@@ -147,7 +147,7 @@ Use `showGradient={false}` for a plain line instead of a filled area.
 A single value bar split into colored segments with an optional marker — good for showing a value against a scale.
 
 ```tsx
-import { CategoryBar } from '@nebula/charts';
+import { CategoryBar } from '@mobentum/nebula-charts';
 
 <CategoryBar values={[30, 40, 30]} markerValue={55} showLabels />;
 ```
@@ -161,7 +161,7 @@ import { CategoryBar } from '@nebula/charts';
 A grid of status cells for uptime/activity history. Each cell accepts a `color` and optional `tooltip`.
 
 ```tsx
-import { Tracker } from '@nebula/charts';
+import { Tracker } from '@mobentum/nebula-charts';
 
 const uptime = [
   { color: 'var(--color-nb-success)' },

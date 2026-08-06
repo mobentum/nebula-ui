@@ -1,6 +1,6 @@
 'use client';
 
-import { DonutChart } from '@nebula/charts';
+import { DonutChart } from '@mobentum/nebula-charts';
 
 const data = [
   { plan: 'Free', revenue: 4200 },

@@ -1,6 +1,6 @@
 'use client';
 
-import { Badge, CardRoot } from '@nebula/ui';
+import { Badge, CardRoot } from '@mobentum/nebula-ui';
 import { projects } from '../data';
 
 export function ProjectsView() {

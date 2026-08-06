@@ -1,6 +1,6 @@
 'use client';
 
-import { BarChart } from '@nebula/charts';
+import { BarChart } from '@mobentum/nebula-charts';
 
 const data = [
   { month: 'Jan', revenue: 4200, expenses: 2600 },

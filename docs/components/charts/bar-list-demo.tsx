@@ -1,6 +1,6 @@
 'use client';
 
-import { BarList } from '@nebula/charts';
+import { BarList } from '@mobentum/nebula-charts';
 
 const data = [
   { name: 'api-gateway', value: 320 },

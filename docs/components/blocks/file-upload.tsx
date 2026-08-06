@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, CardRoot } from '@nebula/ui';
+import { Button, CardRoot } from '@mobentum/nebula-ui';
 import { CloudArrowUp, FileArrowUp, FileText, X } from '@phosphor-icons/react';
 
 const files = [

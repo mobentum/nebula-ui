@@ -1,6 +1,6 @@
 'use client';
 
-import { Avatar, Badge, Button, CardRoot } from '@nebula/ui';
+import { Avatar, Badge, Button, CardRoot } from '@mobentum/nebula-ui';
 import { CheckCircle, Rocket, Sparkle } from '@phosphor-icons/react';
 
 const steps = [

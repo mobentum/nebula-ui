@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Badge } from '@nebula/ui';
+import { Badge } from '@mobentum/nebula-ui';
 
 export const metadata: Metadata = {
   title: 'Nebula UI — Accessible React Components Built on Base UI & Tailwind CSS',

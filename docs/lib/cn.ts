@@ -1,1 +1,1 @@
-export { cn } from '@nebula/ui';
+export { cn } from '@mobentum/nebula-ui';

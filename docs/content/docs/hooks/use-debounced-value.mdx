@@ -8,7 +8,7 @@ import { UseDebouncedValueDemo } from '@/components/hooks/use-debounced-value-de
 `useDebouncedValue` delays updates to a value until `delay` milliseconds have passed without it changing. Useful for search inputs, autosaves, or anything that should not fire on every keystroke.
 
 ```tsx
-import { useDebouncedValue } from '@nebula/ui';
+import { useDebouncedValue } from '@mobentum/nebula-ui';
 
 const [value, setValue] = useState('');
 const debounced = useDebouncedValue(value, 300);

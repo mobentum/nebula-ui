@@ -1,9 +1,9 @@
 ---
 title: Nodes
-description: The themed node types shipped with @nebula/flow.
+description: The themed node types shipped with @mobentum/nebula-flow.
 ---
 
-`@nebula/flow` ships a generic node plus four domain nodes, all styled with Nebula UI tokens. The bundled `nodeTypes` map registers them so `<Flow>` picks them up automatically — you can also pass extra `nodeTypes` to override or extend.
+`@mobentum/nebula-flow` ships a generic node plus four domain nodes, all styled with Nebula UI tokens. The bundled `nodeTypes` map registers them so `<Flow>` picks them up automatically — you can also pass extra `nodeTypes` to override or extend.
 
 ## nodeTypes
 
@@ -67,7 +67,7 @@ The data model is intentionally generic — map it to your domain (agents, chann
 ## Example
 
 ```tsx
-import { Flow } from '@nebula/flow';
+import { Flow } from '@mobentum/nebula-flow';
 
 const nodes = [
   {
@@ -94,7 +94,7 @@ Each node renders a themed card with a type badge, title, optional subtitle/stat
 Every node component is typed as an xyflow node — `NodeProps<Node<T>>`. To add your own, define a node type and pass it via `nodeTypes`:
 
 ```tsx
-import { type Node, type NodeProps } from '@nebula/flow';
+import { type Node, type NodeProps } from '@mobentum/nebula-flow';
 
 type MyData = { title: string };
 export type MyNode = Node<MyData>;

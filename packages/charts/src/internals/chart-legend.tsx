@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@nebula/ui';
+import { cn } from '@mobentum/nebula-ui';
 
 interface ChartLegendEntry {
   value?: string | number;

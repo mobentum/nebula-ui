@@ -1,4 +1,4 @@
-import * as Nebula from '@nebula/ui';
+import * as Nebula from '@mobentum/nebula-ui';
 import type { MDXComponents } from 'mdx/types';
 import {
   AccountSettingsTabs,

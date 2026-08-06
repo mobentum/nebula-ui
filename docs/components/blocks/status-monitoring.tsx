@@ -1,6 +1,6 @@
 'use client';
 
-import { Tracker } from '@nebula/charts';
+import { Tracker } from '@mobentum/nebula-charts';
 import {
   Badge,
   Button,
@@ -13,7 +13,7 @@ import {
   SelectRoot,
   SelectTrigger,
   SelectValue,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 
 const uptime = Array.from({ length: 90 }, (_, i) => ({
   color:

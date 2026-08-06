@@ -16,7 +16,7 @@ A complete workflow builder: drag nodes from the palette onto the canvas, connec
 `NodePalette` renders a list of draggable items. Each item sets `application/reactflow` with its node `type` on drag start:
 
 ```tsx
-import { NodePalette, useNodeDrop } from '@nebula/flow';
+import { NodePalette, useNodeDrop } from '@mobentum/nebula-flow';
 
 const items = [
   { type: 'trigger', label: 'Trigger', description: 'Inbound event' },
@@ -50,7 +50,7 @@ function Canvas() {
 Pass `rules` to `Flow` to restrict which nodes can connect. A rule matches a source → target node-type pair; `'*'` matches anything. `preventCycles` is on by default.
 
 ```tsx
-import { Flow, createFlowRules } from '@nebula/flow';
+import { Flow, createFlowRules } from '@mobentum/nebula-flow';
 
 const rules = [
   { source: 'trigger', target: 'agent' },
@@ -77,7 +77,7 @@ const graph = useFlowGraph({ initialNodes, initialEdges, history: true });
 `layoutFlow` arranges a DAG into clean layers (dependency-free):
 
 ```tsx
-import { layoutFlow } from '@nebula/flow';
+import { layoutFlow } from '@mobentum/nebula-flow';
 
 const arranged = layoutFlow(nodes, edges, { direction: 'LR' });
 setGraph(arranged, edges);

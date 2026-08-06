@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@nebula/ui';
+import { cn } from '@mobentum/nebula-ui';
 
 export interface TrackerData {
   color?: string;

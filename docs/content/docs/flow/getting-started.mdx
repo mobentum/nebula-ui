@@ -1,23 +1,23 @@
 ---
 title: Getting started
-description: Install @nebula/flow and render a themed workflow canvas.
+description: Install @mobentum/nebula-flow and render a themed workflow canvas.
 ---
 
-`@nebula/flow` is a node-based workflow/graph editor built on [React Flow](https://reactflow.dev) (`@xyflow/react`) and styled with Nebula UI tokens. It gives you a themed canvas, domain nodes, drag-and-drop, connection validation, undo/redo, and auto-layout — while keeping the full xyflow API available.
+`@mobentum/nebula-flow` is a node-based workflow/graph editor built on [React Flow](https://reactflow.dev) (`@xyflow/react`) and styled with Nebula UI tokens. It gives you a themed canvas, domain nodes, drag-and-drop, connection validation, undo/redo, and auto-layout — while keeping the full xyflow API available.
 
 ```bash
-pnpm add @nebula/flow
+pnpm add @mobentum/nebula-flow
 ```
 
 ## CSS
 
-Import the stylesheet once in your global CSS (after Tailwind and `@nebula/ui`):
+Import the stylesheet once in your global CSS (after Tailwind and `@mobentum/nebula-ui`):
 
 ```css
 @import "tailwindcss";
-@import "@nebula/ui/css/tailwind.css";
-@import "@nebula/ui/css/default-theme.css";
-@import "@nebula/flow/css/flow.css";
+@import "@mobentum/nebula-ui/css/tailwind.css";
+@import "@mobentum/nebula-ui/css/default-theme.css";
+@import "@mobentum/nebula-flow/css/flow.css";
 ```
 
 ## Minimal canvas
@@ -28,7 +28,7 @@ import {
   FlowBackground,
   FlowControls,
   FlowProvider,
-} from '@nebula/flow';
+} from '@mobentum/nebula-flow';
 
 const nodes = [
   { id: 'a', type: 'agent', position: { x: 0, y: 0 }, data: { title: 'Support Bot' } },
@@ -58,7 +58,7 @@ Give the canvas an explicit size on its **parent** — React Flow fills its cont
 For controlled state, undo/redo, and serialization, use `useFlowGraph`:
 
 ```tsx
-import { Flow, useFlowGraph } from '@nebula/flow';
+import { Flow, useFlowGraph } from '@mobentum/nebula-flow';
 
 function Canvas() {
   const { nodes, edges, onNodesChange, onEdgesChange, onConnect } =
@@ -79,4 +79,4 @@ function Canvas() {
 
 ## Peers
 
-`@nebula/flow` expects `react`, `react-dom`, `@nebula/ui`, and `@xyflow/react@^12` as peers. It re-exports the xyflow hooks and types you need (`useReactFlow`, `Node`, `Edge`, `NodeProps`, …), so you never have to import `@xyflow/react` directly unless you want to.
+`@mobentum/nebula-flow` expects `react`, `react-dom`, `@mobentum/nebula-ui`, and `@xyflow/react@^12` as peers. It re-exports the xyflow hooks and types you need (`useReactFlow`, `Node`, `Edge`, `NodeProps`, …), so you never have to import `@xyflow/react` directly unless you want to.

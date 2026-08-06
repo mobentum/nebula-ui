@@ -1,6 +1,6 @@
 'use client';
 
-import { Avatar, Badge, Button, Input, Kbd } from '@nebula/ui';
+import { Avatar, Badge, Button, Input, Kbd } from '@mobentum/nebula-ui';
 import {
   Bell,
   CaretRight,

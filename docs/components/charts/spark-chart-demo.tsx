@@ -1,6 +1,6 @@
 'use client';
 
-import { SparkChart } from '@nebula/charts';
+import { SparkChart } from '@mobentum/nebula-charts';
 
 const data = [
   { day: 'Mon', requests: 1200 },

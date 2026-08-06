@@ -1,6 +1,6 @@
 'use client';
 
-import { ComboChart } from '@nebula/charts';
+import { ComboChart } from '@mobentum/nebula-charts';
 
 const data = [
   { month: 'Jan', revenue: 4200, target: 3800 },

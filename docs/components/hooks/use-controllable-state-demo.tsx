@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Text, useControllableState } from '@nebula/ui';
+import { Button, Text, useControllableState } from '@mobentum/nebula-ui';
 
 export function UseControllableStateDemo() {
   const [value, setValue] = useControllableState({ defaultValue: 'A' });

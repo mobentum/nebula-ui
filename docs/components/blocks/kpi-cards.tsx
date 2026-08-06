@@ -1,7 +1,7 @@
 'use client';
 
-import { ComboChart, SparkChart } from '@nebula/charts';
-import { CardRoot, ProgressIndicator, ProgressRoot, ProgressTrack } from '@nebula/ui';
+import { ComboChart, SparkChart } from '@mobentum/nebula-charts';
+import { CardRoot, ProgressIndicator, ProgressRoot, ProgressTrack } from '@mobentum/nebula-ui';
 
 const kpis = [
   {

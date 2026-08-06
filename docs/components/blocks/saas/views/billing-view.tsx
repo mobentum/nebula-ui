@@ -20,7 +20,7 @@ import {
   TableHeader,
   TableRoot,
   TableRow,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 import { invoices } from '../data';
 
 export function BillingView() {

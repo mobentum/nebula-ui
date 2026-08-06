@@ -29,7 +29,7 @@ import {
   SwitchRoot,
   SwitchThumb,
   Textarea,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 
 export function NewResourceDrawer() {
   return (

@@ -1,6 +1,6 @@
 'use client';
 
-import { ComboChart, DonutChart } from '@nebula/charts';
+import { ComboChart, DonutChart } from '@mobentum/nebula-charts';
 import {
   Badge,
   CardRoot,
@@ -9,7 +9,7 @@ import {
   ProgressRoot,
   ProgressTrack,
   ProgressValueLabel,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 import { activity, kpis, planMix, revenueData } from '../data';
 
 export function DashboardView() {

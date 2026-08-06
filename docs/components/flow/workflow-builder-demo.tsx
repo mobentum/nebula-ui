@@ -12,8 +12,8 @@ import {
   layoutFlow,
   useFlowGraph,
   useNodeDrop,
-} from '@nebula/flow';
-import { Button } from '@nebula/ui';
+} from '@mobentum/nebula-flow';
+import { Button } from '@mobentum/nebula-ui';
 
 const paletteItems: PaletteItem[] = [
   { type: 'trigger', label: 'Trigger', description: 'Inbound event', icon: '⚡' },

@@ -11,7 +11,7 @@ import {
   TableHeader,
   TableRoot,
   TableRow,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 import { team } from '../data';
 import { InviteMemberDialog } from '../invite-member-dialog';
 

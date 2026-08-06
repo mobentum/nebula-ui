@@ -4,7 +4,7 @@
  *
  * Usage in your app's global CSS:
  *
- *   @import "@nebula/flow/css/flow.css";
+ *   @import "@mobentum/nebula-flow/css/flow.css";
  *
  * Themed with Nebula UI nb-* tokens so the canvas
  * follows your light/dark theme automatically.

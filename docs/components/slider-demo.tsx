@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Slider, SliderRoot, SliderControl, SliderTrack, SliderRange, SliderThumb } from '@nebula/ui';
+import { Slider, SliderRoot, SliderControl, SliderTrack, SliderRange, SliderThumb } from '@mobentum/nebula-ui';
 
 export function SliderBasic() {
   const [value, setValue] = useState(50);

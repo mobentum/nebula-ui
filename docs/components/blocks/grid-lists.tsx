@@ -1,6 +1,6 @@
 'use client';
 
-import { Avatar, Badge } from '@nebula/ui';
+import { Avatar, Badge } from '@mobentum/nebula-ui';
 
 const items = [
   {

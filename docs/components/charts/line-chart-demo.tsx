@@ -1,6 +1,6 @@
 'use client';
 
-import { LineChart } from '@nebula/charts';
+import { LineChart } from '@mobentum/nebula-charts';
 
 const data = [
   { month: 'Jan', revenue: 4200, expenses: 2600 },

@@ -1,6 +1,6 @@
 'use client';
 
-import { CategoryBar } from '@nebula/charts';
+import { CategoryBar } from '@mobentum/nebula-charts';
 
 export function CategoryBarDemo() {
   return (

@@ -1,6 +1,6 @@
 'use client';
 
-import { Input, Text, useDebouncedValue } from '@nebula/ui';
+import { Input, Text, useDebouncedValue } from '@mobentum/nebula-ui';
 import { useState } from 'react';
 
 export function UseDebouncedValueDemo() {

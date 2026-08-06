@@ -11,7 +11,7 @@ import {
   TableHeader,
   TableRoot,
   TableRow,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 import { DotsThree } from '@phosphor-icons/react';
 
 const rows = [

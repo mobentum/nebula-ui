@@ -1,6 +1,6 @@
 'use client';
 
-import { Badge, Button, Text, useOnClickOutside } from '@nebula/ui';
+import { Badge, Button, Text, useOnClickOutside } from '@mobentum/nebula-ui';
 import { useRef, useState } from 'react';
 
 export function UseOnClickOutsideDemo() {

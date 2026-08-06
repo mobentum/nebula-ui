@@ -6,7 +6,7 @@ description: useLayoutEffect in the browser, falling back to useEffect during se
 `useIsomorphicLayoutEffect` is a drop-in replacement for `useLayoutEffect` that is safe in SSR and React Server Components. It resolves to `useLayoutEffect` when `window` is defined and `useEffect` otherwise, preventing the "useLayoutEffect does nothing on the server" warning.
 
 ```tsx
-import { useIsomorphicLayoutEffect } from '@nebula/ui';
+import { useIsomorphicLayoutEffect } from '@mobentum/nebula-ui';
 
 useIsomorphicLayoutEffect(() => {
   // Runs synchronously in the browser, skipped on the server

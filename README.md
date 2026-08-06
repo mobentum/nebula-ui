@@ -25,7 +25,7 @@ pnpm run build
 nebula-ui/
 ├── docs/                    # Next.js kitchensink / documentation
 ├── packages/
-│   ├── ui/                  # @nebula/ui — component library
+│   ├── ui/                  # @mobentum/nebula-ui — component library
 │   │   ├── src/
 │   │   │   ├── components/  # One folder per component
 │   │   │   │   ├── layout/  # Separator only
@@ -35,7 +35,7 @@ nebula-ui/
 │   │   │   └── __tests__/   # Co-located tests
 │   │   ├── dist/            # Build output
 │   │   ├── index.ts         # Barrel export
-│   │   └── package.json     # @nebula/ui
+│   │   └── package.json     # @mobentum/nebula-ui
 │   ├── tsconfig/            # Shared TS configs
 │   └── eslint-config/       # Shared ESLint config
 ├── .changeset/              # Changesets config
@@ -87,7 +87,7 @@ pnpm run build
 3. Create `index.ts` to re-export
 4. Import and re-export from `packages/ui/index.ts`
 5. Add tests in `packages/ui/src/__tests__/<name>.test.tsx`
-6. Run `pnpm run test —filter @nebula/ui` to verify
+6. Run `pnpm run test —filter @mobentum/nebula-ui` to verify
 
 ### Component conventions
 
@@ -179,7 +179,7 @@ document.documentElement.setAttribute('data-theme', 'forest');
 
 ### Provided CSS files
 
-The UI package ships two optional CSS files under `@nebula/ui/styles/`:
+The UI package ships two optional CSS files under `@mobentum/nebula-ui/styles/`:
 
 | File | Purpose |
 |---|---|
@@ -190,9 +190,9 @@ Import them in your app's global CSS:
 
 ```css
 @import "tailwindcss";
-@import "@nebula/ui/styles/tailwind.css";   /* optional: semantic tokens */
-@import "@nebula/ui/styles/theme.css";       /* optional: default values */
-@source "../node_modules/@nebula/ui/dist";
+@import "@mobentum/nebula-ui/styles/tailwind.css";   /* optional: semantic tokens */
+@import "@mobentum/nebula-ui/styles/theme.css";       /* optional: default values */
+@source "../node_modules/@mobentum/nebula-ui/dist";
 ```
 
 ### Semantic token reference
@@ -214,7 +214,7 @@ Import them in your app's global CSS:
 ### FAQ
 
 **Q: I use Tailwind v4 with `@source` — will Chimes UI classes work?**  
-Yes. Add `@source "../node_modules/@nebula/ui/dist"` to your CSS so Tailwind scans the library output for class names like `gap-8`, `bg-background`, etc.
+Yes. Add `@source "../node_modules/@mobentum/nebula-ui/dist"` to your CSS so Tailwind scans the library output for class names like `gap-8`, `bg-background`, etc.
 
 **Q: Can I use Nebula UI without CSS variables?**  
 You can override any component with `className` to hardcode colors, but the default theme system relies on CSS variables.

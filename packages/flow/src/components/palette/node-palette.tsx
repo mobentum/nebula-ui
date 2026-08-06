@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { cn } from '@nebula/ui';
+import { cn } from '@mobentum/nebula-ui';
 
 export interface PaletteItem {
   type: string;

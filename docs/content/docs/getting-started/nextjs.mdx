@@ -18,7 +18,7 @@ npx create-next-app@latest my-app --ts --tailwind --app --src-dir
 ## 2. Install Nebula UI
 
 ```bash
-npm install @nebula/ui
+npm install @mobentum/nebula-ui
 ```
 
 ## 3. Configure global CSS
@@ -27,17 +27,17 @@ Replace the contents of `src/app/globals.css`:
 
 ```css
 @import "tailwindcss";
-@import "@nebula/ui/css/tailwind.css";
-@import "@nebula/ui/css/default-theme.css";
+@import "@mobentum/nebula-ui/css/tailwind.css";
+@import "@mobentum/nebula-ui/css/default-theme.css";
 
-@source "../../node_modules/@nebula/ui/dist";
+@source "../../node_modules/@mobentum/nebula-ui/dist";
 ```
 
 - `tailwind.css` maps the theme tokens to `nb-*` utilities.
 - `default-theme.css` provides the default light/dark color variables.
 - The `@source` directive tells Tailwind to scan the installed package for component class names.
 
-> **Important:** `@source` paths are **relative to the CSS file**, not the project root. `src/app/globals.css` needs `../../node_modules/...`. Without the `src/` directory (`app/globals.css`), use `../node_modules/@nebula/ui/dist`. If you skip `@source`, Nebula components render unstyled.
+> **Important:** `@source` paths are **relative to the CSS file**, not the project root. `src/app/globals.css` needs `../../node_modules/...`. Without the `src/` directory (`app/globals.css`), use `../node_modules/@mobentum/nebula-ui/dist`. If you skip `@source`, Nebula components render unstyled.
 
 ## 4. Use components
 
@@ -45,7 +45,7 @@ Client components can be imported directly into server components:
 
 ```tsx
 // src/app/page.tsx
-import { Button } from '@nebula/ui';
+import { Button } from '@mobentum/nebula-ui';
 
 export default function Page() {
   return <Button>Hello</Button>;
@@ -76,7 +76,7 @@ import {
   SelectPositioner,
   SelectPopup,
   SelectItem,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 
 export function Demo() {
   return (
@@ -125,7 +125,7 @@ export default function Page() {
 
 ## 5. Icons
 
-Nebula UI uses [Phosphor Icons](https://phosphoricons.com) internally for chevrons, close buttons, and other glyphs. `@phosphor-icons/react` is a **regular dependency** of `@nebula/ui`, so it installs automatically — no separate setup needed for components to render correctly.
+Nebula UI uses [Phosphor Icons](https://phosphoricons.com) internally for chevrons, close buttons, and other glyphs. `@phosphor-icons/react` is a **regular dependency** of `@mobentum/nebula-ui`, so it installs automatically — no separate setup needed for components to render correctly.
 
 To use Phosphor icons in your own code (e.g. a `Button` with a leading icon), install the package explicitly:
 
@@ -135,7 +135,7 @@ npm install @phosphor-icons/react
 
 ```tsx
 import { Plus } from '@phosphor-icons/react';
-import { Button } from '@nebula/ui';
+import { Button } from '@mobentum/nebula-ui';
 
 export function AddButton() {
   return (
@@ -173,7 +173,7 @@ Use a toggle to flip state:
 ```tsx
 'use client';
 
-import { Button } from '@nebula/ui';
+import { Button } from '@mobentum/nebula-ui';
 
 export function ThemeToggle() {
   const [dark, setDark] = useState(false);

@@ -21,7 +21,7 @@ import {
   SelectRoot,
   SelectTrigger,
   SelectValue,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 import { FolderPlus, Trash, UserPlus } from '@phosphor-icons/react';
 
 export function ConfirmDialog() {

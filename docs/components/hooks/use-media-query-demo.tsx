@@ -1,6 +1,6 @@
 'use client';
 
-import { Text, useMediaQuery } from '@nebula/ui';
+import { Text, useMediaQuery } from '@mobentum/nebula-ui';
 
 export function UseMediaQueryDemo() {
   const isDesktop = useMediaQuery('(min-width: 768px)');

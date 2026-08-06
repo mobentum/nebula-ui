@@ -19,7 +19,7 @@ import {
   SelectRoot,
   SelectTrigger,
   SelectValue,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 import { useState } from 'react';
 
 export function FormSingleColumn() {

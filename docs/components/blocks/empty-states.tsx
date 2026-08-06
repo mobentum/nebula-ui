@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@nebula/ui';
+import { Button } from '@mobentum/nebula-ui';
 
 export function EmptyStateCentered() {
   return (

@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd .. && bun run --filter @nebula/ui build && bun run --filter @nebula/charts build && bun run --filter @nebula/flow build && cd docs && bun run build",
+  "buildCommand": "cd .. && bun run --filter @mobentum/nebula-ui build && bun run --filter @mobentum/nebula-charts build && bun run --filter @mobentum/nebula-flow build && cd docs && bun run build",
   "outputDirectory": ".next",
   "installCommand": "bun install",
   "framework": "nextjs"

@@ -5,13 +5,13 @@
  * Usage in your app's global CSS:
  *
  *   @import "tailwindcss";
- *   @import "@nebula/ui/css/tailwind.css";
- *   @source "../node_modules/@nebula/ui/dist";
+ *   @import "@mobentum/nebula-ui/css/tailwind.css";
+ *   @source "../node_modules/@mobentum/nebula-ui/dist";
  *
  * Then define --background, --foreground, etc.
  * in :root and .dark yourself, OR import the defaults:
  *
- *   @import "@nebula/ui/css/default-theme.css";
+ *   @import "@mobentum/nebula-ui/css/default-theme.css";
  *
  * To customise, override any --variable in :root / .dark
  * before the @theme inline block is processed.

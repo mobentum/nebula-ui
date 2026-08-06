@@ -1,5 +1,5 @@
 {
-  "extends": "@nebula/tsconfig/ui.json",
+  "extends": "@mobentum/nebula-tsconfig/ui.json",
   "include": ["src/**/*", "index.ts"],
   "exclude": ["dist", "build", "node_modules", "src/__tests__"]
 }

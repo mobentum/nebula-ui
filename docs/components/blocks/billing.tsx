@@ -16,7 +16,7 @@ import {
   SelectRoot,
   SelectTrigger,
   SelectValue,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 import { Check } from '@phosphor-icons/react';
 import { useState } from 'react';
 

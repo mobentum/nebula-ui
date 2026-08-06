@@ -6,7 +6,7 @@ description: Returns a stable callback that always invokes the latest function p
 `useEventCallback` returns a memoized callback that stays referentially stable across renders while always calling the latest closure. Useful for event handlers passed to memoized children, or for `useEffect` dependencies that should not re-run.
 
 ```tsx
-import { useEventCallback } from '@nebula/ui';
+import { useEventCallback } from '@mobentum/nebula-ui';
 
 const handleSubmit = useEventCallback((values: FormValues) => {
   // Always sees the latest props/state

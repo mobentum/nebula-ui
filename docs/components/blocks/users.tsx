@@ -1,6 +1,6 @@
 'use client';
 
-import { Avatar, Badge, Button, CardRoot, Input } from '@nebula/ui';
+import { Avatar, Badge, Button, CardRoot, Input } from '@mobentum/nebula-ui';
 import { MagnifyingGlass } from '@phosphor-icons/react';
 
 const members = [

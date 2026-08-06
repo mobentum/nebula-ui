@@ -1,6 +1,6 @@
 'use client';
 
-import { Badge, Button } from '@nebula/ui';
+import { Badge, Button } from '@mobentum/nebula-ui';
 
 const plans = [
   {

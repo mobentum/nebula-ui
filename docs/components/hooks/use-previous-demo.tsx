@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Text, usePrevious } from '@nebula/ui';
+import { Button, Text, usePrevious } from '@mobentum/nebula-ui';
 import { useState } from 'react';
 
 export function UsePreviousDemo() {

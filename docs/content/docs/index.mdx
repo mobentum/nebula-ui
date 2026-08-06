@@ -10,15 +10,15 @@ Nebula UI is a component library built on [Base UI](https://base-ui.com) and Tai
 ### Installation
 
 ```bash
-npm install @nebula/ui
+npm install @mobentum/nebula-ui
 ```
 
 With other package managers:
 
 ```bash
-pnpm add @nebula/ui
-yarn add @nebula/ui
-bun add @nebula/ui
+pnpm add @mobentum/nebula-ui
+yarn add @mobentum/nebula-ui
+bun add @mobentum/nebula-ui
 ```
 
 ### Tailwind CSS setup
@@ -27,11 +27,11 @@ Add the Nebula UI styles to your global CSS. Requires Tailwind CSS v4.
 
 ```css
 @import "tailwindcss";
-@import "@nebula/ui/css/tailwind.css";
-@import "@nebula/ui/css/default-theme.css";
+@import "@mobentum/nebula-ui/css/tailwind.css";
+@import "@mobentum/nebula-ui/css/default-theme.css";
 
 /* Include Nebula UI components for utility generation */
-@source "../node_modules/@nebula/ui/dist";
+@source "../node_modules/@mobentum/nebula-ui/dist";
 ```
 
 `tailwind.css` maps the theme tokens to `nb-*` utilities, and `default-theme.css` provides the default light/dark color variables. See [Theme](/theme/tokens) to customize.
@@ -39,7 +39,7 @@ Add the Nebula UI styles to your global CSS. Requires Tailwind CSS v4.
 ### Usage
 
 ```tsx
-import { Button, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogRoot, DialogTitle, DialogTrigger } from '@nebula/ui';
+import { Button, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogRoot, DialogTitle, DialogTrigger } from '@mobentum/nebula-ui';
 
 function App() {
   return (

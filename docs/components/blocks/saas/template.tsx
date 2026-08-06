@@ -1,6 +1,6 @@
 'use client';
 
-import { Avatar, Input } from '@nebula/ui';
+import { Avatar, Input } from '@mobentum/nebula-ui';
 import { useState } from 'react';
 import { navItems } from './data';
 import { NavIcon } from './nav-icon';

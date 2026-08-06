@@ -14,7 +14,7 @@ import {
   SelectRoot,
   SelectTrigger,
   SelectValue,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 
 export function SettingsView() {
   return (

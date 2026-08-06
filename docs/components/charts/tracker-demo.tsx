@@ -1,6 +1,6 @@
 'use client';
 
-import { Tracker } from '@nebula/charts';
+import { Tracker } from '@mobentum/nebula-charts';
 
 const uptime = Array.from({ length: 90 }, (_, i) => ({
   color: i % 23 === 0 ? 'var(--color-nb-destructive)' : 'var(--color-nb-success)',

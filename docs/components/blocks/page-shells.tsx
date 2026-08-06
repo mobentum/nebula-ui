@@ -17,7 +17,7 @@ import {
   SelectRoot,
   SelectTrigger,
   SelectValue,
-} from '@nebula/ui';
+} from '@mobentum/nebula-ui';
 import { useState } from 'react';
 
 function ContentPlaceholder({ className }: { className?: string }) {

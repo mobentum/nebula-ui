@@ -1,7 +1,7 @@
 'use client';
 
 import { Handle, Position } from '@xyflow/react';
-import { cn } from '@nebula/ui';
+import { cn } from '@mobentum/nebula-ui';
 
 export type NodeStatus = 'idle' | 'running' | 'success' | 'error' | 'pending';
 

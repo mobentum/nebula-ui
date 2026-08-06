@@ -1,6 +1,6 @@
 'use client';
 
-import { ComboboxRoot, ComboboxInput, ComboboxPopup, ComboboxList, ComboboxItem, ComboboxEmpty, ComboboxIcon, ComboboxTrigger, ComboboxPositioner, ComboboxPortal } from '@nebula/ui';
+import { ComboboxRoot, ComboboxInput, ComboboxPopup, ComboboxList, ComboboxItem, ComboboxEmpty, ComboboxIcon, ComboboxTrigger, ComboboxPositioner, ComboboxPortal } from '@mobentum/nebula-ui';
 
 const fruits = ['Apple', 'Banana', 'Orange', 'Pineapple', 'Grape', 'Mango'];
 

@@ -1,7 +1,7 @@
 @import "tailwindcss";
-@import "@nebula/ui/css/tailwind.css";
-@import "@nebula/ui/css/default-theme.css";
-@import "@nebula/flow/css/flow.css";
+@import "@mobentum/nebula-ui/css/tailwind.css";
+@import "@mobentum/nebula-ui/css/default-theme.css";
+@import "@mobentum/nebula-flow/css/flow.css";
 
 @source "../../packages/ui/src/components/**/*.{ts,tsx}";
 

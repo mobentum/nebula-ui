@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts';
-import { cn } from '@nebula/ui';
+import { cn } from '@mobentum/nebula-ui';
 import { ChartTooltip } from '../internals/chart-tooltip';
 import { defaultValueFormatter, pickColor } from '../internals/chart-colors';
 import { wrapperStyle } from '../internals/chart-props';

@@ -8,15 +8,15 @@ Nebula UI is a component library built on [Base UI](https://base-ui.com) and Tai
 ## Install the package
 
 ```bash
-npm install @nebula/ui
+npm install @mobentum/nebula-ui
 ```
 
 With other package managers:
 
 ```bash
-pnpm add @nebula/ui
-yarn add @nebula/ui
-bun add @nebula/ui
+pnpm add @mobentum/nebula-ui
+yarn add @mobentum/nebula-ui
+bun add @mobentum/nebula-ui
 ```
 
 ## Tailwind CSS setup
@@ -25,16 +25,16 @@ Add the Nebula UI styles to your global CSS. Requires Tailwind CSS v4.
 
 ```css
 @import "tailwindcss";
-@import "@nebula/ui/css/tailwind.css";
-@import "@nebula/ui/css/default-theme.css";
+@import "@mobentum/nebula-ui/css/tailwind.css";
+@import "@mobentum/nebula-ui/css/default-theme.css";
 
 /* Include Nebula UI components for utility generation */
-@source "../../node_modules/@nebula/ui/dist";
+@source "../../node_modules/@mobentum/nebula-ui/dist";
 ```
 
 `tailwind.css` maps the theme tokens to `nb-*` utilities, and `default-theme.css` provides the default light/dark color variables. See [Theme](/theme/tokens) to customize.
 
-> **Important:** `@source` paths are resolved **relative to the CSS file**, not the project root. The example above assumes `src/app/globals.css`. Adjust the `../` count to match your CSS file's depth — e.g. `app/globals.css` (no `src/`) needs `../node_modules/@nebula/ui/dist`. See [Next.js integration](/docs/getting-started/nextjs) for a full walkthrough.
+> **Important:** `@source` paths are resolved **relative to the CSS file**, not the project root. The example above assumes `src/app/globals.css`. Adjust the `../` count to match your CSS file's depth — e.g. `app/globals.css` (no `src/`) needs `../node_modules/@mobentum/nebula-ui/dist`. See [Next.js integration](/docs/getting-started/nextjs) for a full walkthrough.
 
 ## Optional packages
 
@@ -42,27 +42,27 @@ Nebula UI ships charts and a workflow editor as separate packages, plus icon sup
 
 ```bash
 # Recharts-based charts (requires recharts)
-npm install @nebula/charts recharts
+npm install @mobentum/nebula-charts recharts
 
 # React Flow workflow editor (requires @xyflow/react)
-npm install @nebula/flow @xyflow/react
+npm install @mobentum/nebula-flow @xyflow/react
 
-# Phosphor icons — used by @nebula/ui itself and the template blocks.
-# Already installed as a dependency of @nebula/ui; declare it explicitly
+# Phosphor icons — used by @mobentum/nebula-ui itself and the template blocks.
+# Already installed as a dependency of @mobentum/nebula-ui; declare it explicitly
 # only when you copy a block that imports icons directly.
 npm install @phosphor-icons/react
 ```
 
-For `@nebula/flow`, also import its stylesheet in your global CSS:
+For `@mobentum/nebula-flow`, also import its stylesheet in your global CSS:
 
 ```css
-@import "@nebula/flow/css/flow.css";
+@import "@mobentum/nebula-flow/css/flow.css";
 ```
 
 ## Usage
 
 ```tsx
-import { Button, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogRoot, DialogTitle, DialogTrigger } from '@nebula/ui';
+import { Button, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogRoot, DialogTitle, DialogTrigger } from '@mobentum/nebula-ui';
 
 function App() {
   return (
