@@ -27,7 +27,7 @@
   --input: #d4d4d4;
   --ring: #171717;
 
-  /* Nebula color scales — from the Figma design system */
+  /* Nebula Orange family — from the Figma design system */
   --primary-50: #fef4ff;
   --primary-100: #fedac8;
   --primary-200: #fca578;
@@ -39,6 +39,7 @@
   --primary-800: #ba4203;
   --primary-900: #a63b03;
 
+  /* Nebula Blue family — from the Figma design system */
   --secondary-50: #e3eef2;
   --secondary-100: #d5e6ec;
   --secondary-200: #c7dde5;
