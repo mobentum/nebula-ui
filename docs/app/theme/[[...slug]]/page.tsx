@@ -19,6 +19,7 @@ export default async function Page({ params }: { params: Promise<{ slug?: string
     components: useMDXComponents(),
     options: {
       parseFrontmatter: false,
+      blockJS: false,
       mdxOptions: { remarkPlugins: [remarkGfm] },
     },
   });
