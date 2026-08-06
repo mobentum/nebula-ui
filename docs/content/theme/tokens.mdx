@@ -34,6 +34,33 @@ The primary color is the base for most interactive elements. Nebula UI uses it a
   </div>
 </Preview>
 
+### Primary & Secondary scales
+
+Full 50–900 color scales from the Nebula design system. Use them as `bg-nb-primary-500`, `text-nb-secondary-700`, `ring-nb-primary-300`, and so on — each step maps to `--primary-*` / `--secondary-*` variables.
+
+<Preview>
+  <div className="grid w-full grid-cols-2 gap-6">
+    {[
+      ['bg-nb-primary-50', 'bg-nb-primary-100', 'bg-nb-primary-200', 'bg-nb-primary-300', 'bg-nb-primary-400', 'bg-nb-primary-500', 'bg-nb-primary-600', 'bg-nb-primary-700', 'bg-nb-primary-800', 'bg-nb-primary-900', 'Primary'],
+      ['bg-nb-secondary-50', 'bg-nb-secondary-100', 'bg-nb-secondary-200', 'bg-nb-secondary-300', 'bg-nb-secondary-400', 'bg-nb-secondary-500', 'bg-nb-secondary-600', 'bg-nb-secondary-700', 'bg-nb-secondary-800', 'bg-nb-secondary-900', 'Secondary'],
+    ].map(([c50, c100, c200, c300, c400, c500, c600, c700, c800, c900, name]) => (
+      <div key={name} className="flex flex-col gap-1.5">
+        {[
+          ['50', c50], ['100', c100], ['200', c200], ['300', c300], ['400', c400],
+          ['500', c500], ['600', c600], ['700', c700], ['800', c800], ['900', c900],
+        ].map(([step, cls]) => (
+          <div key={step} className="flex items-center gap-3">
+            <div className={`h-8 w-full flex-1 rounded-md border border-nb-border/40 ${cls}`} />
+            <p className="w-16 shrink-0 text-right text-xs text-nb-muted-fg">
+              {name} {step}
+            </p>
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+</Preview>
+
 ### Surface palette
 
 Surfaces distinguish layers of content — page background, cards, and overlays — with neutral tones.
