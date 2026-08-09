@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {
   AlertDialog,
@@ -74,7 +74,7 @@ describe('a11y: overlays', () => {
     );
     await user.click(screen.getByText('Open'));
     await user.keyboard('{Escape}');
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
   });
 
   it('open AlertDialog has no violations', async () => {
@@ -152,8 +152,10 @@ describe('a11y: overlays', () => {
       </Menu.Root>,
     );
     await user.click(screen.getByText('Open'));
+    const item = await screen.findByRole('menuitem', { name: 'New' });
+    item.focus();
     await user.keyboard('{Escape}');
-    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+    await waitFor(() => expect(screen.queryByRole('menu')).not.toBeInTheDocument());
   });
 
   it('open Combobox has no violations', async () => {
