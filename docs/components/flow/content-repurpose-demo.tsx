@@ -1,19 +1,7 @@
 'use client';
 
-import {
-  Flow,
-  FlowBackground,
-  FlowControls,
-  FlowMiniMap,
-  FlowPanel,
-  FlowProvider,
-  NodePalette,
-  type PaletteItem,
-  layoutFlow,
-  useFlowGraph,
-  useNodeDrop,
-} from '@mobentum/nebula-flow';
-import { Button } from '@mobentum/nebula-ui';
+import { FlowProvider, type PaletteItem } from '@mobentum/nebula-flow';
+import { FlowBuilderLayout } from './flow-builder-layout';
 
 const paletteItems: PaletteItem[] = [
   { type: 'trigger', label: 'Trigger', description: 'Inbound event', icon: '⚡' },
@@ -72,65 +60,15 @@ const initialEdges = [
   { id: 'e4', source: 'a1', target: 'k3' },
 ];
 
-function BuilderCanvas() {
-  const {
-    nodes,
-    edges,
-    onNodesChange,
-    onEdgesChange,
-    onConnect,
-    addNode,
-    setGraph,
-    undo,
-    redo,
-    canUndo,
-    canRedo,
-  } = useFlowGraph({ initialNodes, initialEdges, history: true });
-  const { onDrop, onDragOver } = useNodeDrop({ onAddNode: addNode });
-
-  return (
-    <div className="h-[520px] w-full rounded-lg border border-nb-border">
-      <Flow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        onDrop={onDrop}
-        onDragOver={onDragOver}
-        rules={rules}
-        className="h-full w-full"
-      >
-        <FlowBackground />
-        <FlowControls />
-        <FlowMiniMap />
-        <FlowPanel position="top-right" className="flex gap-2">
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => setGraph(layoutFlow(nodes, edges), edges)}
-          >
-            Layout
-          </Button>
-          <Button size="sm" variant="outline" disabled={!canUndo} onClick={undo}>
-            Undo
-          </Button>
-          <Button size="sm" variant="outline" disabled={!canRedo} onClick={redo}>
-            Redo
-          </Button>
-        </FlowPanel>
-      </Flow>
-    </div>
-  );
-}
-
 export function ContentRepurposeDemo() {
   return (
     <FlowProvider>
-      <div className="grid gap-4 lg:grid-cols-[240px_1fr]">
-        <NodePalette items={paletteItems} className="lg:sticky lg:top-0" />
-        <BuilderCanvas />
-      </div>
+      <FlowBuilderLayout
+        nodes={initialNodes}
+        edges={initialEdges}
+        rules={rules}
+        paletteItems={paletteItems}
+      />
     </FlowProvider>
   );
 }
