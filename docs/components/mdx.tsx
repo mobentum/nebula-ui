@@ -57,6 +57,9 @@ import { LineChartDemo } from './charts/line-chart-demo';
 import { SparkChartDemo } from './charts/spark-chart-demo';
 import { TrackerDemo } from './charts/tracker-demo';
 import { ComboboxDemo } from './combobox-demo';
+import { AiBlogWorkflowDemo } from './flow/ai-blog-workflow-demo';
+import { ContentRepurposeDemo } from './flow/content-repurpose-demo';
+import { SupportTriageDemo } from './flow/support-triage-demo';
 import { WorkflowBuilderDemo } from './flow/workflow-builder-demo';
 import { UseControllableStateDemo } from './hooks/use-controllable-state-demo';
 import { UseDebouncedValueDemo } from './hooks/use-debounced-value-demo';
@@ -163,6 +166,9 @@ export function useMDXComponents(): MDXComponents {
     CategoryBarDemo,
     TrackerDemo,
     WorkflowBuilderDemo,
+    AiBlogWorkflowDemo,
+    SupportTriageDemo,
+    ContentRepurposeDemo,
     ...Nebula,
     ...({
       h1: ({ children, ...props }: any) => (

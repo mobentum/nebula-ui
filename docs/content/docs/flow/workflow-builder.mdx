@@ -11,6 +11,51 @@ A complete workflow builder: drag nodes from the palette onto the canvas, connec
   <WorkflowBuilderDemo />
 </Preview>
 
+## Workflow examples
+
+Three end-to-end agent workflows built on the same builder — each reuses the same palette, connection rules, undo/redo, and auto-layout.
+
+### AI blog pipeline
+
+A Google Sheets row triggers research on the blog topic, which is then routed through an approval gate before drafting on Medium.
+
+<Preview resettable>
+  <AiBlogWorkflowDemo />
+</Preview>
+
+### Support triage
+
+Incoming tickets are classified by a support agent and routed by a condition — billing issues go straight to the refund flow, while technical ones are escalated to a specialist agent.
+
+<Preview resettable>
+  <SupportTriageDemo />
+</Preview>
+
+### Content repurposing
+
+A published video fans out into a single transcription agent with three parallel tasks — blog post, clips, and a social post.
+
+<Preview resettable>
+  <ContentRepurposeDemo />
+</Preview>
+
+Each example is just `nodes` and `edges` data — connect them like any React Flow graph:
+
+```tsx
+const nodes = [
+  { id: 't1', type: 'trigger', position: { x: 0, y: 80 }, data: { title: 'Video published' } },
+  { id: 'a1', type: 'agent', position: { x: 280, y: 80 }, data: { title: 'Transcriber' } },
+  { id: 'k1', type: 'task', position: { x: 560, y: 0 }, data: { title: 'Write blog post' } },
+  { id: 'k2', type: 'task', position: { x: 560, y: 80 }, data: { title: 'Generate clips' } },
+];
+
+const edges = [
+  { id: 'e1', source: 't1', target: 'a1' },
+  { id: 'e2', source: 'a1', target: 'k1' },
+  { id: 'e3', source: 'a1', target: 'k2' },
+];
+```
+
 ## Node palette
 
 `NodePalette` renders a list of draggable items. Each item sets `application/reactflow` with its node `type` on drag start:

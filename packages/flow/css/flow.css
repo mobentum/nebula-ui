@@ -6,24 +6,24 @@
  *
  *   @import "@mobentum/nebula-flow/css/flow.css";
  *
- * Themed with Nebula UI nb-* tokens so the canvas
- * follows your light/dark theme automatically.
+ * Themed with Nebula UI --color-nb-* tokens so the
+ * canvas follows your light/dark theme automatically.
  */
 
 @import "@xyflow/react/dist/style.css";
 
 .react-flow {
-  --xy-background-color: var(--nb-bg);
-  --xy-edge-stroke-default: var(--nb-border);
-  --xy-edge-stroke-selected: var(--nb-primary);
-  --xy-handle-background-color: var(--nb-primary);
-  --xy-handle-border-color: var(--nb-bg);
-  --xy-selection-background-color: color-mix(in srgb, var(--nb-primary) 10%, transparent);
-  --xy-selection-border-color: var(--nb-primary);
-  --xy-controls-button-background-color: var(--nb-card);
-  --xy-controls-button-background-color-hover: var(--nb-accent);
-  --xy-controls-button-color: var(--nb-fg);
-  --xy-controls-button-border-color: var(--nb-border);
-  --xy-minimap-background-color: var(--nb-muted);
-  --xy-node-color-default: var(--nb-fg);
+  --xy-background-color: var(--color-nb-bg);
+  --xy-edge-stroke-default: var(--color-nb-border);
+  --xy-edge-stroke-selected: var(--color-nb-primary);
+  --xy-handle-background-color: var(--color-nb-primary);
+  --xy-handle-border-color: var(--color-nb-bg);
+  --xy-selection-background-color: color-mix(in srgb, var(--color-nb-primary) 10%, transparent);
+  --xy-selection-border-color: var(--color-nb-primary);
+  --xy-controls-button-background-color: var(--color-nb-card);
+  --xy-controls-button-background-color-hover: var(--color-nb-accent);
+  --xy-controls-button-color: var(--color-nb-fg);
+  --xy-controls-button-border-color: var(--color-nb-border);
+  --xy-minimap-background-color: var(--color-nb-muted);
+  --xy-node-color-default: var(--color-nb-fg);
 }
