@@ -138,3 +138,107 @@ Persist a flow with `toJSON` / `fromJSON` from `useFlowGraph` (or `serializeFlow
 const json = graph.toJSON();          // { version: 1, nodes, edges }
 graph.fromJSON(json);
 ```
+
+### Saving to a backend
+
+`toJSON()` gives you a plain JSON object you can PUT to any API, and `fromJSON()` restores it. Wire them to Save / Load buttons:
+
+```tsx
+'use client';
+
+import { useCallback, useState } from 'react';
+import {
+  Flow,
+  FlowBackground,
+  FlowControls,
+  FlowProvider,
+  useFlowGraph,
+  type FlowJSON,
+} from '@mobentum/nebula-flow';
+import { Button } from '@mobentum/nebula-ui';
+
+const WORKFLOW_ID = 'blog-pipeline';
+
+function WorkflowCanvas() {
+  const { nodes, edges, onNodesChange, onEdgesChange, onConnect, toJSON, fromJSON } =
+    useFlowGraph({ history: true });
+  const [state, setState] = useState<'idle' | 'saving' | 'saved'>('idle');
+
+  const save = useCallback(async () => {
+    setState('saving');
+    await fetch(`/api/workflows/${WORKFLOW_ID}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(toJSON()),
+    });
+    setState('saved');
+  }, [toJSON]);
+
+  const load = useCallback(async () => {
+    const res = await fetch(`/api/workflows/${WORKFLOW_ID}`);
+    const payload = (await res.json()) as FlowJSON;
+    fromJSON(payload);
+  }, [fromJSON]);
+
+  return (
+    <div className="relative h-[520px] w-full rounded-lg border border-nb-border">
+      <Flow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        className="h-full w-full"
+      >
+        <FlowBackground />
+        <FlowControls />
+      </Flow>
+      <div className="absolute right-3 top-3 flex gap-2">
+        <Button size="sm" variant="outline" onClick={load}>
+          Load
+        </Button>
+        <Button size="sm" onClick={save} disabled={state === 'saving'}>
+          {state === 'saving' ? 'Saving…' : 'Save'}
+        </Button>
+      </div>
+      {state === 'saved' && (
+        <p className="absolute bottom-3 right-3 text-xs text-nb-muted-fg">Saved ✓</p>
+      )}
+    </div>
+  );
+}
+
+export function PersistedWorkflow() {
+  return (
+    <FlowProvider>
+      <WorkflowCanvas />
+    </FlowProvider>
+  );
+}
+```
+
+And the Next.js API route to persist it (swap `db` for your database or filesystem):
+
+```ts
+// app/api/workflows/[id]/route.ts
+import { NextResponse } from 'next/server';
+import type { FlowJSON } from '@mobentum/nebula-flow';
+
+export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const json = await db.workflow.get(id); // { version: 1, nodes: [], edges: [] }
+  return NextResponse.json(json);
+}
+
+export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const json = (await req.json()) as FlowJSON;
+  await db.workflow.put(id, json);
+  return NextResponse.json({ ok: true });
+}
+```
+
+Notes:
+- The payload is plain JSON (`{ version, nodes, edges }`) — store it in a single DB column, an object store, or a file.
+- `version` lets you run migrations later if the schema changes.
+- For realtime collaboration, broadcast `toJSON()` over WebSockets instead of polling.
