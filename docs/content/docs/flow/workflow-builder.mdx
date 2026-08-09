@@ -238,6 +238,87 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
 }
 ```
 
+### Go backend (kern + xdb)
+
+Using your Go stack — [`kern`](https://github.com/mobentum/kern) for HTTP and [`xdb`](https://github.com/mobentum/xdb) for SQL — the same client works unchanged: it `PUT`s the raw `toJSON()` payload and `GET`s it back.
+
+```sql
+-- PostgreSQL schema — store the flow JSON in a single JSONB column
+CREATE TABLE workflows (
+  id      TEXT PRIMARY KEY,
+  payload JSONB NOT NULL
+);
+```
+
+```go
+package main
+
+import (
+	"database/sql"
+	"encoding/json"
+	"errors"
+	"log"
+	"net/http"
+
+	"github.com/mobentum/kern"
+	"github.com/mobentum/xdb"
+)
+
+func main() {
+	db, err := xdb.New(xdb.DBConfig{
+		DSN: "postgres://user:pass@localhost:5432/app?sslmode=disable",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
+	app := kern.Default()
+	app.Use(kern.CORS("http://localhost:3000"))
+
+	// GET /api/workflows/{id} — return the stored { version, nodes, edges } JSON
+	app.GET("/api/workflows/:id", func(c *kern.Context) {
+		var payload []byte
+		err := db.Select("payload").
+			From("workflows").
+			Where(xdb.Cond.Eq("id", c.Param("id"))).
+			One(c.Context(), &payload)
+		if errors.Is(err, sql.ErrNoRows) {
+			c.Error(http.StatusNotFound, "workflow not found")
+			return
+		}
+		if err != nil {
+			c.Error(http.StatusInternalServerError, "failed to load workflow")
+			return
+		}
+		c.Data(http.StatusOK, "application/json", payload)
+	})
+
+	// PUT /api/workflows/{id} — save the raw flow JSON from toJSON()
+	app.PUT("/api/workflows/:id", func(c *kern.Context) {
+		body, err := c.Body()
+		if err != nil || !json.Valid(body) {
+			c.Error(http.StatusBadRequest, "invalid JSON body")
+			return
+		}
+		_, err = db.Insert("workflows").
+			Columns("id", "payload").
+			Values(c.Param("id"), string(body)).
+			OnConflict("(id) DO UPDATE SET payload = EXCLUDED.payload").
+			Exec(c.Context())
+		if err != nil {
+			c.Error(http.StatusInternalServerError, "failed to save workflow")
+			return
+		}
+		c.OK(map[string]string{"id": c.Param("id")})
+	})
+
+	_ = app.Run(":8080")
+}
+```
+
+`c.Data(200, "application/json", payload)` returns the raw stored JSON so the client's `fromJSON(await res.json())` restores the graph. `OnConflict(... DO UPDATE ...)` makes `PUT` an idempotent upsert; swap `JSONB` for `TEXT`/`JSON` on SQLite or MySQL.
+
 Notes:
 - The payload is plain JSON (`{ version, nodes, edges }`) — store it in a single DB column, an object store, or a file.
 - `version` lets you run migrations later if the schema changes.
