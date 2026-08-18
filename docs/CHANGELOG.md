@@ -1,5 +1,12 @@
 # @mobentum/nebula-docs
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [29481b9]
+  - @mobentum/nebula-ui@1.1.0
+
 ## 0.0.3
 
 ### Patch Changes
