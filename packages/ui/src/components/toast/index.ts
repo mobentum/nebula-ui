@@ -11,3 +11,6 @@ export type {
   ToastPortalProps,
   ToastPositionerProps,
 } from './toast';
+
+export { toast, useToast, Toaster } from './use-toast';
+export type { ToastOptions, ToastReturn, ToastVariant } from './use-toast';

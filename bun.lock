@@ -12,7 +12,7 @@
     },
     "docs": {
       "name": "@mobentum/nebula-docs",
-      "version": "0.0.1",
+      "version": "0.0.3",
       "dependencies": {
         "@base-ui/react": "^1.5.0",
         "@mobentum/nebula-charts": "workspace:*",
@@ -42,7 +42,7 @@
     },
     "packages/charts": {
       "name": "@mobentum/nebula-charts",
-      "version": "0.0.1",
+      "version": "1.0.0",
       "devDependencies": {
         "@mobentum/nebula-eslint-config": "workspace:*",
         "@mobentum/nebula-tsconfig": "workspace:*",
@@ -91,7 +91,7 @@
     },
     "packages/flow": {
       "name": "@mobentum/nebula-flow",
-      "version": "0.0.1",
+      "version": "1.0.1",
       "devDependencies": {
         "@mobentum/nebula-eslint-config": "workspace:*",
         "@mobentum/nebula-tsconfig": "workspace:*",
@@ -126,7 +126,7 @@
     },
     "packages/ui": {
       "name": "@mobentum/nebula-ui",
-      "version": "0.0.1",
+      "version": "1.0.0",
       "dependencies": {
         "@base-ui/react": "^1.5.0",
         "@phosphor-icons/react": "^2.1.10",

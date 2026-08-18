@@ -23,9 +23,9 @@
 /* Radius scale derived from a single `--radius` base token.
    Uses @theme (not inline) so the --radius-* variables are emitted on :root. */
 @theme {
-  --radius-sm: calc(var(--radius) * 0.4);
-  --radius-md: calc(var(--radius) * 0.6);
-  --radius-lg: calc(var(--radius) * 0.8);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: calc(var(--radius) * 1);
   --radius-xl: var(--radius);
 }
 

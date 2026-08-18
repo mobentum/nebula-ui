@@ -67,6 +67,7 @@ const Indicator = forwardRef<HTMLDivElement, TabsPrimitive.Indicator.Props>(
 Indicator.displayName = 'Tabs.Indicator';
 
 export { Root as TabsRoot, List as TabsList, Tab as TabsTab, Panel as TabsPanel, Indicator as TabsIndicator };
+export { Tab as TabsTrigger, Panel as TabsContent };
 export const Tabs = { Root, List, Tab, Panel, Indicator };
 
 export type TabsRootProps = TabsPrimitive.Root.Props;

@@ -1,4 +1,4 @@
-export { Tabs, TabsRoot, TabsList, TabsTab, TabsPanel, TabsIndicator } from './tabs';
+export { Tabs, TabsRoot, TabsList, TabsTab, TabsPanel, TabsIndicator, TabsTrigger, TabsContent } from './tabs';
 export type {
   TabsRootProps,
   TabsListProps,

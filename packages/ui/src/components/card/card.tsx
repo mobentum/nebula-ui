@@ -74,12 +74,69 @@ const Footer = forwardRef<HTMLDivElement, CardFooterProps>(
 );
 Footer.displayName = 'Card.Footer';
 
+/* ───────── Card.Title ───────── */
+
+export interface CardTitleProps extends HTMLAttributes<HTMLDivElement> {}
+
+const Title = forwardRef<HTMLDivElement, CardTitleProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn('font-semibold leading-none tracking-tight', className)}
+        {...props}
+      />
+    );
+
+  },
+);
+Title.displayName = 'Card.Title';
+
+/* ───────── Card.Description ───────── */
+
+export interface CardDescriptionProps extends HTMLAttributes<HTMLDivElement> {}
+
+const Description = forwardRef<HTMLDivElement, CardDescriptionProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn('text-sm text-nb-muted-fg', className)}
+        {...props}
+      />
+    );
+
+  },
+);
+Description.displayName = 'Card.Description';
+
+/* ───────── Card.Content ───────── */
+
+export interface CardContentProps extends HTMLAttributes<HTMLDivElement> {}
+
+const Content = forwardRef<HTMLDivElement, CardContentProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn('p-6 pt-0', className)}
+        {...props}
+      />
+    );
+
+  },
+);
+Content.displayName = 'Card.Content';
+
 /* ───────── Compound export ───────── */
 
-export { Root as CardRoot, Header as CardHeader, Body as CardBody, Footer as CardFooter };
+export { Root as CardRoot, Header as CardHeader, Body as CardBody, Footer as CardFooter, Title as CardTitle, Description as CardDescription, Content as CardContent };
 export const Card = {
   Root,
   Header,
   Body,
   Footer,
+  Title,
+  Description,
+  Content,
 };

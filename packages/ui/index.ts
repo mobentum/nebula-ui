@@ -34,7 +34,7 @@ export type {
 } from './src/components/accordion';
 
 // Tabs
-export { Tabs, TabsRoot, TabsList, TabsTab, TabsPanel, TabsIndicator } from './src/components/tabs';
+export { Tabs, TabsRoot, TabsList, TabsTab, TabsPanel, TabsIndicator, TabsTrigger, TabsContent } from './src/components/tabs';
 export type {
   TabsRootProps,
   TabsListProps,
@@ -127,7 +127,7 @@ export type {
 } from './src/components/drawer';
 
 // Toast
-export { Toast, ToastRoot, ToastTitle, ToastDescription, ToastClose, ToastViewport, ToastAction, ToastArrow, ToastContent, ToastPortal, ToastPositioner } from './src/components/toast';
+export { Toast, ToastRoot, ToastTitle, ToastDescription, ToastClose, ToastViewport, ToastAction, ToastArrow, ToastContent, ToastPortal, ToastPositioner, toast, useToast, Toaster } from './src/components/toast';
 export type {
   ToastRootProps,
   ToastTitleProps,
@@ -139,6 +139,9 @@ export type {
   ToastContentProps,
   ToastPortalProps,
   ToastPositionerProps,
+  ToastOptions,
+  ToastReturn,
+  ToastVariant,
 } from './src/components/toast';
 
 // Collapsible
@@ -168,13 +171,20 @@ export { Badge } from './src/components/badge';
 export type { BadgeProps } from './src/components/badge';
 
 // Card
-export { Card, CardRoot, CardHeader, CardBody, CardFooter } from './src/components/card';
+export { Card, CardRoot, CardHeader, CardBody, CardFooter, CardTitle, CardDescription, CardContent } from './src/components/card';
 export type {
   CardRootProps,
   CardHeaderProps,
   CardBodyProps,
   CardFooterProps,
+  CardTitleProps,
+  CardDescriptionProps,
+  CardContentProps,
 } from './src/components/card';
+
+// Label
+export { Label } from './src/components/label';
+export type { LabelProps } from './src/components/label';
 
 // Skeleton
 export { Skeleton } from './src/components/skeleton';
@@ -297,7 +307,7 @@ export { Alert, AlertRoot, AlertTitle, AlertDescription } from './src/components
 export type { AlertRootProps, AlertTitleProps, AlertDescriptionProps } from './src/components/alert';
 
 // AlertDialog
-export { AlertDialog, AlertDialogRoot, AlertDialogTrigger, AlertDialogPortal, AlertDialogBackdrop, AlertDialogPopup, AlertDialogTitle, AlertDialogDescription, AlertDialogClose, AlertDialogCancel } from './src/components/alert-dialog';
+export { AlertDialog, AlertDialogRoot, AlertDialogTrigger, AlertDialogPortal, AlertDialogBackdrop, AlertDialogPopup, AlertDialogTitle, AlertDialogDescription, AlertDialogClose, AlertDialogCancel, AlertDialogAction } from './src/components/alert-dialog';
 export type {
   AlertDialogRootProps,
   AlertDialogTriggerProps,

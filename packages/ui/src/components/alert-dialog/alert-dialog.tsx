@@ -98,8 +98,23 @@ const Cancel = forwardRef<HTMLButtonElement, AlertDialogPrimitive.Close.Props>(
 
 Cancel.displayName = 'AlertDialog.Cancel';
 
-export { Root as AlertDialogRoot, Trigger as AlertDialogTrigger, Portal as AlertDialogPortal, Backdrop as AlertDialogBackdrop, Popup as AlertDialogPopup, Title as AlertDialogTitle, Description as AlertDialogDescription, Close as AlertDialogClose, Cancel as AlertDialogCancel };
-export const AlertDialog = { Root, Trigger, Portal, Backdrop, Popup, Title, Description, Close, Cancel };
+const Action = forwardRef<HTMLButtonElement, AlertDialogPrimitive.Close.Props>(
+  ({ className, ...props }, ref) => (
+    <AlertDialogPrimitive.Close
+      ref={ref}
+      className={cn(
+        'inline-flex items-center justify-center rounded-md bg-nb-primary px-4 py-2 text-sm font-medium text-nb-primary-fg shadow-sm transition-colors hover:bg-nb-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nb-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+        className,
+      )}
+      {...props}
+    />
+  ),
+);
+
+Action.displayName = 'AlertDialog.Action';
+
+export { Root as AlertDialogRoot, Trigger as AlertDialogTrigger, Portal as AlertDialogPortal, Backdrop as AlertDialogBackdrop, Popup as AlertDialogPopup, Title as AlertDialogTitle, Description as AlertDialogDescription, Close as AlertDialogClose, Cancel as AlertDialogCancel, Action as AlertDialogAction };
+export const AlertDialog = { Root, Trigger, Portal, Backdrop, Popup, Title, Description, Close, Cancel, Action };
 export type AlertDialogRootProps = AlertDialogPrimitive.Root.Props;
 export type AlertDialogTriggerProps = AlertDialogPrimitive.Trigger.Props;
 export type AlertDialogPortalProps = AlertDialogPrimitive.Portal.Props;
