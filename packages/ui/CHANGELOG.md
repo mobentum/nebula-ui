@@ -1,5 +1,20 @@
 # @mobentum/nebula-ui
 
+## 1.1.1
+
+### Patch Changes
+
+- 9060e08: fix(card): align header/footer spacing to shadcn conventions
+
+  CardHeader now uses `p-6` and CardFooter `flex items-center p-6 pt-0`
+  (no border dividers), so card bodies are no longer pressed against the
+  header.
+
+- 7d43fb6: fix(select): only render SelectItemIndicator for the selected item
+
+  Remove `keepMounted` from the item indicator so the check icon no longer
+  shows next to every option in the list.
+
 ## 1.1.0
 
 ### Minor Changes
