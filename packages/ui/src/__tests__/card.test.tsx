@@ -33,7 +33,7 @@ describe('Card', () => {
   it('renders Card.Header', () => {
     render(<Card.Header data-testid="h">Header</Card.Header>);
     expect(screen.getByTestId('h')).toHaveTextContent('Header');
-    expect(screen.getByTestId('h')).toHaveClass('border-b', 'px-6', 'py-4');
+    expect(screen.getByTestId('h')).toHaveClass('p-6');
   });
 
   it('Card.Header forwards ref', () => {
@@ -65,7 +65,7 @@ describe('Card', () => {
   it('renders Card.Footer', () => {
     render(<Card.Footer data-testid="f">Footer</Card.Footer>);
     expect(screen.getByTestId('f')).toHaveTextContent('Footer');
-    expect(screen.getByTestId('f')).toHaveClass('border-t', 'px-6', 'py-4');
+    expect(screen.getByTestId('f')).toHaveClass('flex', 'items-center', 'p-6', 'pt-0');
   });
 
   it('Card.Footer forwards ref', () => {

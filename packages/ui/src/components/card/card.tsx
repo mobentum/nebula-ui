@@ -33,7 +33,7 @@ const Header = forwardRef<HTMLDivElement, CardHeaderProps>(
     return (
       <div
         ref={ref}
-        className={cn('border-b border-nb-border px-6 py-4', className)}
+        className={cn('p-6', className)}
         {...props}
       />
     );
@@ -65,7 +65,7 @@ const Footer = forwardRef<HTMLDivElement, CardFooterProps>(
     return (
       <div
         ref={ref}
-        className={cn('border-t border-nb-border px-6 py-4', className)}
+        className={cn('flex items-center p-6 pt-0', className)}
         {...props}
       />
     );
