@@ -113,7 +113,6 @@ const ItemIndicator = forwardRef<HTMLSpanElement, SelectPrimitive.ItemIndicator.
   ({ className, children, ...props }, ref) => (
     <SelectPrimitive.ItemIndicator
       ref={ref}
-      keepMounted
       className={cn('ml-auto', className)}
       {...props}
     >
